@@ -23,3 +23,30 @@ Private Keys
 (7) 0xa3a5249ccd410cd9d035e4dec0ec41cf4d2a1881afd41c5c72c4333e11b92ed1
 (8) 0xb5b8206dbbb61639f6d8fe3d352e1dacfd64f867a011e403488a94bdbe2a4b3a
 (9) 0x686c3041d963f71937ac4d7985d71f33f764133f0c4837c194603e4bb8f54504
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'FundingFactory'
+   --------------------------
+   > transaction hash:    0x1320b4fe1b7c5cd21d815dcf6bda02d7a4e3cbba5ba5260f1bc27f7d5fefa268
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xB8dB943D8c55640ec26548e0DffF4191366EDAa0
+   > account:             0x293eCABE0ebfc6dD48bc29821db435B532C061FA
+   > balance:             999.94852578
+   > gas used:            2246769
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.04493538 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.04493538 ETH
+
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.04493538 ETH
