@@ -1,4 +1,4 @@
-pragma solidity ^0.4.25;
+pragma solidity >=0.4.25;
 
 contract PlayerToFundings{
     // 参与者=> 合约地址数组 
@@ -8,7 +8,7 @@ contract PlayerToFundings{
         playerToFundings[player].push(fundingAddress);
     }
     
-    function getPlayerFundings(address player) public view returns(address[]){
+    function getPlayerFundings(address player) public view returns(address[] memory){
         return playerToFundings[player];
     }
     
@@ -24,30 +24,30 @@ contract FundingFactory {
     
     PlayerToFundings p2f;
     constructor() public{
-        address p2fAddress = new PlayerToFundings();
+        PlayerToFundings p2fAddress = new PlayerToFundings();
         p2f = PlayerToFundings(p2fAddress);
     }
     
-    function createFunding(string _projectName, uint _supportMoney, uint _goalMoney) public {
-        address funding = new Funding(_projectName, _supportMoney, _goalMoney, msg.sender, p2f);
-        fundings.push(funding);
+    function createFunding(string memory _projectName, uint _supportMoney, uint _goalMoney) public {
+        Funding funding = new Funding(_projectName, _supportMoney, _goalMoney, msg.sender, p2f);
+        fundings.push(address(funding));
         
         // 把创建者创建的合约地址保存到其数组中
-        creatorToFundings[msg.sender].push(funding);
+        creatorToFundings[msg.sender].push(address(funding));
     }
     
     // 路人 查看所有众筹项目列表
-    function getFundings() public view returns(address[]){
+    function getFundings() public view returns(address[] memory){
         return fundings;
     }
     
     // 创建者 查看调用者创建的所有众筹项目地址
-    function getCreatorFundings() public view returns(address[]){
+    function getCreatorFundings() public view returns(address[] memory){
         return creatorToFundings[msg.sender];
     }
     
     // 参与者 
-    function getPlayerFundings() public view returns(address[]){
+    function getPlayerFundings() public view returns(address[] memory){
         return p2f.getPlayerFundings(msg.sender);
     }
 }
@@ -81,7 +81,7 @@ contract Funding {
         // 花多少钱, 钱要少于balance
         uint money;
         // 钱汇给谁. 真正的收钱方
-        address shopAddress;
+        address payable shopAddress;
         // 代表当前付款请求已经处理完毕
         bool complete;
         // 已投票的用户地址
@@ -90,7 +90,7 @@ contract Funding {
     } 
     
     //构造函数
-    constructor(string _projectName, uint _supportMoney, uint _goalMoney, address sender, PlayerToFundings _p2f) public{
+    constructor(string memory _projectName, uint _supportMoney, uint _goalMoney, address sender, PlayerToFundings _p2f) public{
         manager = sender;
         projectName =_projectName;
         supportMoney = _supportMoney;
@@ -109,7 +109,7 @@ contract Funding {
     }
     
     // 付款申请函数,由众筹发起人调用
-    function createRequest(string _description, uint _money, address _shopAddress) public onlyManagerCanCall{
+    function createRequest(string memory _description, uint _money, address payable _shopAddress) public onlyManagerCanCall{
         // 余额大于等于付款请求 
         require(address(this).balance >= _money);
         
@@ -153,7 +153,7 @@ contract Funding {
     
     
     // 所有参与者
-    function getPlayers() public view returns(address[]){
+    function getPlayers() public view returns(address[] memory){
         return players;
     }
     // 所有参与者个数
