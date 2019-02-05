@@ -28,12 +28,13 @@ contract FundingFactory {
         p2f = PlayerToFundings(p2fAddress);
     }
     
-    function createFunding(string memory _projectName, uint _supportMoney, uint _goalMoney) public {
-        Funding funding = new Funding(_projectName, _supportMoney, _goalMoney, msg.sender, p2f);
+    function createFunding(string memory _projectName, uint _goalMoney) public view returns(address memory){
+        Funding funding = new Funding(_projectName, _goalMoney, msg.sender, p2f);
         fundings.push(address(funding));
         
         // 把创建者创建的合约地址保存到其数组中
         creatorToFundings[msg.sender].push(address(funding));
+        return address(funding);
     }
     
     // 路人 查看所有众筹项目列表
@@ -79,10 +80,9 @@ contract Funding {
     uint votedCount = 0;
     
     //构造函数
-    constructor(string memory _projectName, uint _supportMoney, uint _goalMoney, address sender, PlayerToFundings _p2f) public{
+    constructor(string memory _projectName, uint _goalMoney, address sender, PlayerToFundings _p2f) public{
         manager = sender;
         projectName =_projectName;
-        supportMoney = _supportMoney;
         goalMoney = _goalMoney;
         endTime = now + 4 weeks;
         p2f = _p2f;
