@@ -28,7 +28,7 @@ contract FundingFactory {
         p2f = PlayerToFundings(p2fAddress);
     }
     
-    function createFunding(string memory _projectName, uint _goalMoney) public view returns(address memory){
+    function createFunding(string memory _projectName, uint _goalMoney) public returns(address){
         Funding funding = new Funding(_projectName, _goalMoney, msg.sender, p2f);
         fundings.push(address(funding));
         
