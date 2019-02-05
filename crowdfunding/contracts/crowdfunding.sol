@@ -69,6 +69,8 @@ contract Funding {
     // 众筹参与人的数组
     address[] public players;
     mapping(address=>bool) playersMap;
+    //众筹参与人amount记录
+    mapping(address=>uint) playersRecord;
     
     PlayerToFundings p2f;
     
@@ -101,10 +103,11 @@ contract Funding {
 
     // 我要支持(需要付钱)
     function support() public payable{
-        require(msg.value == supportMoney);
+        //require(msg.value == supportMoney);
         // 放进集合中
         players.push(msg.sender);
         playersMap[msg.sender] = true;
+        playersRecord[msg.sender] = msg.value;
         p2f.join(msg.sender, address(this));
     }
     
