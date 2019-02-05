@@ -28,13 +28,13 @@ contract FundingFactory {
         p2f = PlayerToFundings(p2fAddress);
     }
     
-    function createFunding(string memory _projectName, uint _goalMoney) public returns(Funding FundingAddress){
+    function createFunding(string memory _projectName, uint _goalMoney) public returns(address[] memory){
         Funding funding = new Funding(_projectName, _goalMoney, msg.sender, p2f);
         fundings.push(address(funding));
         
         // 把创建者创建的合约地址保存到其数组中
         creatorToFundings[msg.sender].push(address(funding));
-        return funding;
+        return fundings;
     }
     
     // 路人 查看所有众筹项目列表
