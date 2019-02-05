@@ -1,52 +1,40 @@
 Available Accounts
 ==================
-(0) 0x293ecabe0ebfc6dd48bc29821db435b532c061fa (~1000 ETH)
-(1) 0xab614c16a7b9f938e8d94864d60034a1caf00715 (~1000 ETH)
-(2) 0x7df0e3d2ed8c21133b09d12624a5d1f7b8d4e385 (~1000 ETH)
-(3) 0xfdc53a2d0c18b21b5f2baad0ccde31638ca78c85 (~1000 ETH)
-(4) 0x3ef20a34b54e1b956c42373741e9e0b0836a24dc (~1000 ETH)
-(5) 0x5829553b4eaff7eb9d68c18a0ab2c431d57a8352 (~1000 ETH)
-(6) 0xcd446cd84f8cd3fb3dabf1f306cd7ffcb8894bec (~1000 ETH)
-(7) 0x43eda141d90b3512a2ec7fa62a23360faeb68813 (~1000 ETH)
-(8) 0xeb80af50855730ef18340d5a2f35c2ba34db48c0 (~1000 ETH)
-(9) 0x53eac0d7a1300c3e6ebc139c890852d2d405cef1 (~1000 ETH)
+(0) 0x2eebe6d602bad2140f3b87f58fff3ee1c1d2d155 (~1000 ETH)
+(1) 0x0908585f7e53306bbafe96410b21beed8d2889d0 (~1000 ETH)
+(2) 0xab05264a8cd3cec0fb8771b25f199b5ea6697879 (~1000 ETH)
+(3) 0x6e32770aef8cf74c5e654a1eb04573fb19ee2840 (~1000 ETH)
+(4) 0xc50267215ea4ce8d6b0b747dc3a492d5c16a7fd2 (~1000 ETH)
+(5) 0x3f68769692c38adee09792c96650d5118464429d (~1000 ETH)
+(6) 0xd96f1baa6e895bd97c70ea6a03ce05d01136fb80 (~1000 ETH)
+(7) 0x845aed3ae13536999dd5e930bbcd59378a5dd111 (~1000 ETH)
+(8) 0xe0860c28ab47c9a794b2c847799d7c1fdca2546c (~1000 ETH)
+(9) 0x3e3497b1248c9fde2229aa9b36e6140feee8afde (~1000 ETH)
 
 Private Keys
 ==================
-(0) 0xe85e8c7684da99aba4cbd32ca89d1e2f43147d1058df9e3ffa01bf00455d83e8
-(1) 0xfcf7353219728b82b06603e6dcfe63320e6267fb2f112a3a37c1452962c72937
-(2) 0x0ce6bf5416f1a42ab651d721d1a8e9d7c1d08db9b01c3303ed9f4d97ac6eada6
-(3) 0x160119ab3ac28e941f0b0a87175d48abb6407abc3625b0b57c3fc25bf0bac19b
-(4) 0xf9e9b2160a454db07111ccaaef3fe6bab33b1b3e6dbbc7867c648f81794c19e2
-(5) 0x500de9c066e13077e4f9047e9637ad0183626a01d30e64b7c37cc29269ebb139
-(6) 0x730c0edfb4efbe8d6065cdd0aa074414d3b3888edf383db472b320decd84be1b
-(7) 0xa3a5249ccd410cd9d035e4dec0ec41cf4d2a1881afd41c5c72c4333e11b92ed1
-(8) 0xb5b8206dbbb61639f6d8fe3d352e1dacfd64f867a011e403488a94bdbe2a4b3a
-(9) 0x686c3041d963f71937ac4d7985d71f33f764133f0c4837c194603e4bb8f54504
+(0) 0x08a68dd44c561d194ff5b3a6b9afdf09b76d62e24719bb0df79f2a0bd51b2c8a
+(1) 0xea3d66ab0cad552af838158aefbbc50f1bd817cc472c8a9912706c65e54caf9c
+(2) 0xdecbdb50c265cd31d58bc41d98e6cde62f50956ae49a0b6590460e55bf506c52
+(3) 0x0537c0712158a33163d0737b8bef1c21c0f5c1475eba904811796125d7b5ebc1
+(4) 0x0f0eefc365fb5f10805f36cb9fe8dce8540266215aa373e8a744d4eddc800214
+(5) 0xcc9bac93ee20318daa6d66874485bb8fe0c846047bcec3ee4a1efe127b011132
+(6) 0x8765a9cbd2fcac0b9e8a36f6c0cfb2e2989f437155af7a2c8ece44125d3f79e2
+(7) 0xf0d7606e57eec186a3fda6130d5046e2720b203d14b8ecebcee6b16506e63dde
+(8) 0x2deac6542de86751f7de5fae6505c4753f64e16c523a363489921fa2d3ebffcb
+(9) 0x81e96dabaca4c95cac1872f1f1a0a3f0b8bf393eb35d48103f742b13f9c1477f
 
-2_deploy_contracts.js
-=====================
+HD Wallet
+==================
+Mnemonic:      soft oblige patient install tag recycle siege promote close fragile punch advice
+Base HD Path:  m/44'/60'/0'/0/{account_index}
 
-   Deploying 'FundingFactory'
-   --------------------------
-   > transaction hash:    0x1320b4fe1b7c5cd21d815dcf6bda02d7a4e3cbba5ba5260f1bc27f7d5fefa268
-   > Blocks: 0            Seconds: 0
-   > contract address:    0xB8dB943D8c55640ec26548e0DffF4191366EDAa0
-   > account:             0x293eCABE0ebfc6dD48bc29821db435B532C061FA
-   > balance:             999.94852578
-   > gas used:            2246769
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.04493538 ETH
+Gas Price
+==================
+20000000000
 
+Gas Limit
+==================
+6721975
 
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:          0.04493538 ETH
-
-
-Summary
-=======
-> Total deployments:   1
-> Final cost:          0.04493538 ETH
+ 0xffB8D362FC338fF607adf5e263D32735fbF64e3E
