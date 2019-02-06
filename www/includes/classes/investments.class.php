@@ -1,21 +1,15 @@
 <?php
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) exit('No direct access allowed.');
 
-/*
- * Copyright (c) 2012-2013 CODEC2I.NET
- * 对非商用为目的的用户采用GPL2开源协议。您可以将其在自己的服务器部署使用，但不可以修改后发布为闭源或者商业软件。以商用为目的的用户需要购买CODEC2I的商业授权，详情请邮件sv@codec2inet。使用CODEC2I众筹系统的网站需要在页面显著位置标明基于CODEC2I构建。
- * E-mail:sv@codec2i.net
- * 官方网址:http://www.codec2i.net
- */
-
 class Investments {
 	
 	protected static $table_name="investments";
-	protected static $db_fields = array('id','creator_id','created','name','description','investment_wanted','amount_invested','invested','expires','main_picture','status','investment_id','question','answer','datetime','user_id','date_pledged','message','sent','type','amount','number_left','thumbnail','main_description','category_id','investment_message','investor_count','featured','project_closed_message','investment_id','question','answer','datetime','user_id','amount','date_invested','message','sent','type','title','theme','top_theme','custom_theme','ctheme','video');
+	protected static $db_fields = array('id','creator_id','created','name','description','investment_wanted','amount_invested', 'contract_address','invested','expires','main_picture','status','investment_id','question','answer','datetime','user_id','date_pledged','message','sent','type','amount','number_left','thumbnail','main_description','category_id','investment_message','investor_count','featured','project_closed_message','investment_id','question','answer','datetime','user_id','amount','date_invested','message','sent','type','title','theme','top_theme','custom_theme','ctheme','video');
 	
 	// Table: investments
 	
 	public $id;
+	public $contract_address;
 	public $creator_id;
 	public $created;
 	public $name;
@@ -103,7 +97,7 @@ class Investments {
 		// 		}
 		
 		$default_theme = DEFAULT_THEME;
-		$database->query("INSERT INTO investments VALUES ('','{$user_id}','{$datetime}','{$title}','{$description}','{$goal}','0','0','{$expires_datetime}','','0','','{$main_description}','{$category}','{$investment_message}','0','0','{$complete_message}','0','{$default_theme}','0','','') ");
+		$database->query("INSERT INTO investments VALUES (NULL,'{$user_id}','{$datetime}','{$title}','{$description}','{$goal}','0','0x000000000000000000000','0','{$expires_datetime}','','0','','{$main_description}','{$category}','{$investment_message}','0','0','{$complete_message}','0','{$default_theme}','0','','') ");
 		
 		$data = self::find_by_sql("SELECT id FROM investments WHERE created = '{$datetime}' AND expires = '{$expires_datetime}' AND creator_id = '{$user_id}' LIMIT 1 ");
 		@mkdir("./assets/project/".$data[0]->id);
@@ -285,7 +279,7 @@ class Investments {
 		}		
 	}
 	
-	public static function publish_listing($id,$title,$goal,$investment_message,$project_closed_message,$description,$main_description){
+	public static function publish_listing($id,$title,$goal,$contract_address,$investment_message,$project_closed_message,$description,$main_description){
 		global $database;
 		$session = new Session();
 		$project_data = self::find_by_sql("SELECT id,creator_id FROM investments WHERE id = '{$id}' LIMIT 1 ");
@@ -297,7 +291,7 @@ class Investments {
 			} else {
 				$project_status = '0';
 			}
-			$database->query("UPDATE investments SET name = '{$title}', investment_wanted = '{$goal}', investment_message = '{$investment_message}', project_closed_message = '{$project_closed_message}', description = '{$description}', main_description = '{$main_description}', status = '{$project_status}' WHERE id = '{$id}' ");
+			$database->query("UPDATE investments SET name = '{$title}', investment_wanted = '{$goal}', contract_address= '{$contract_address}', investment_message = '{$investment_message}', project_closed_message = '{$project_closed_message}', description = '{$description}', main_description = '{$main_description}', status = '{$project_status}' WHERE id = '{$id}' ");
 			if(NEW_PROJECT_VERIFY == "NO"){
 				$session->message("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>×</button>您的项目已经创建并且公开。</div>");
 				$subject = "您的项目已经成功创建";
@@ -531,7 +525,7 @@ class Investments {
 			$user = User::find_by_id($user_id);
 		}		
 		
-		if($through == "paypal"){
+		if($through == "ethpay"){
 			$confirmed = true;
 		}
 		elseif($through == "alipay"){
@@ -547,21 +541,22 @@ class Investments {
 		}
 		
 		if($confirmed == true){
+
 			$new_invested_amount = $investment[0]->amount_invested + $amount;
 			$datetime = strftime("%Y-%m-%d %H:%M:%S", time());
 			
 			$database->query("UPDATE investments SET amount_invested = '{$new_invested_amount}' WHERE id = '{$id}' ");
 			$database->query("INSERT INTO investments_made (user_id,investment_id,amount,status,date_invested) VALUES ('{$user->user_id}','{$id}','{$amount}','{$type}','{$datetime}') ");
 			
-			if($through == "paypal" || $through == "alipay"){
+			if($through == "ethpay" || $through == "alipay"){
 				$description = "Credit added for investment: ".$investment[0]->name;
 				$database->query("INSERT INTO credit_history (user_id,credits,description,datetime,status) VALUES ('{$user->user_id}','{$amount}','{$description}','{$datetime}','c') ");
-				$new_user_amount + $amount;
+				//$new_user_amount + $amount;
 			}
 			
 			$description = "Investment made to: ".$investment[0]->name;
 			$database->query("INSERT INTO credit_history (user_id,credits,description,datetime,status) VALUES ('{$user->user_id}','{$amount}','{$description}','{$datetime}','d') ");
-			$new_user_amount = $user->credit - $amount;
+			$new_user_amount = $user->credit + $amount;
 			$new_investments_made = $user->investments_made + 1;
 			$new_amount_invested = $user->amount_invested + $amount;
 			
@@ -570,13 +565,13 @@ class Investments {
 			$session = new Session();
 			$session->message("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>×</button>Thank you, <strong>".$amount."</strong> credits have been invested into this project.</div>");
 			
-			$email_class = new Email();
+			/*$email_class = new Email();
 			$from = SITE_EMAIL;
 			$subject = "Thank you for your Investment";
 			$message = "Thank you for your investment in ".$investment[0]->name." for ".CURRENCYSYMBOL.$amount.".";
 			$message = $email_class->email_template('custom_email', "", "", "", "", $message);
 			$email_class->send_email($user->email, $from, $subject, $message);
-			
+			*/
 			return "success";
 		}
 	}

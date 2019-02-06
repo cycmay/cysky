@@ -8,7 +8,7 @@ class Alipay {
 	var $mysign;          //签名
 
 	//构造支付宝外部服务接口控制
-	function Alipay($params = array()) {
+	public function __construct($params = array()) {
 		$parameter = $params['parameter'];
 		$security_code = $params['key'];
 		$sign_type = isset($params['sign_type']) ? $params['sign_type'] : "MD5";
@@ -27,9 +27,13 @@ class Alipay {
 		$sort_array = array();
 		$arg = "";
 		$sort_array = $this->arg_sort($this->parameter);
-		while (list ($key, $val) = each ($sort_array)) {
-			$arg.=$key."=".$val."&";
-		}
+		//while (list ($key, $val) = each ($sort_array)) {
+		//	$arg.=$key."=".$val."&";
+		//}
+    // for PHP7.2
+    foreach ($this->$sort_array as $key => $val) {
+      $arg.=$key."=".$val."&";
+    }
 		$prestr = substr($arg,0,count($arg)-2);  //去掉最后一个问号
 		$this->mysign = $this->sign($prestr.$this->security_code);
 	}
@@ -40,9 +44,12 @@ class Alipay {
 		$sort_array = array();
 		$arg        = "";
 		$sort_array = $this->arg_sort($this->parameter);
-		while (list ($key, $val) = each ($sort_array)) {
-			$arg.=$key."=".urlencode($this->charset_encode($val,$this->parameter['_input_charset']))."&";
-		}
+		//while (list ($key, $val) = each($sort_array)) {
+		//	$arg.=$key."=".urlencode($this->charset_encode($val,$this->parameter['_input_charset']))."&";
+		//}
+    foreach ($sort_array as $key => $value) {
+      $arg.=$key."=".urlencode($this->charset_encode($val,$this->parameter['_input_charset']))."&";
+    }
 		$url.= $arg."sign=" .$this->mysign ."&sign_type=".$this->sign_type;
 		return $url;
 
@@ -69,10 +76,14 @@ class Alipay {
   
 	function para_filter($parameter) { //除去数组中的空值和签名模式
 		$para = array();
-		while (list ($key, $val) = each ($parameter)) {
-			if($key == "sign" || $key == "sign_type" || $val == "")continue;
-			else	$para[$key] = $parameter[$key];
-		}
+		//while (list ($key, $val) = each($parameter)) {
+		//	if($key == "sign" || $key == "sign_type" || $val == "")continue;
+		//	else	$para[$key] = $parameter[$key];
+		//}
+    foreach ($parameter as $key => $val) {
+      if($key == "sign" || $key == "sign_type" || $val == "")continue;
+      else  $para[$key] = $parameter[$key];
+    }
 		return $para;
 	}
   
@@ -108,7 +119,7 @@ class alipay_notify {
   var $mysign;            //签名     
   var $_input_charset;    //字符编码格式
   var $transport;         //访问模式
-  function alipay_notify($partner,$security_code,$sign_type = "MD5",$_input_charset = "UTF-8",$transport= "https") {
+  public function __construct($partner,$security_code,$sign_type = "MD5",$_input_charset = "UTF-8",$transport= "https") {
     $this->partner        = $partner;
     $this->security_code  = $security_code;
     $this->sign_type      = $sign_type;

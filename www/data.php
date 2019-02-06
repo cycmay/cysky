@@ -155,7 +155,7 @@ if(isset($_POST['page'])){
 			$amount = clean_value($_POST['amount']);
 			$payment = clean_value($_POST['payment']);
 			$type = clean_value($_POST['investment_type']);
-			echo Investments::confirm_investment("site", $amount, $id, $type);
+			echo Investments::confirm_investment("ethpay", $amount, $id, $type);
 		} else if(isset($_POST['check_project_images'])){
 			$id = $_SESSION['new_project_id'];
 			// echo Investments::check_images_folder($id);
@@ -173,12 +173,13 @@ if(isset($_POST['page'])){
 			$id = $_SESSION['new_project_id'];
 			$title = clean_value($_POST['title']);
 			$goal = clean_value($_POST['goal']);
+			$contract_address = clean_value($_POST['contract_address']);
 			$investment_message = clean_value($_POST['investment_message']);
 			$project_closed_message = clean_value($_POST['project_closed_message']);
 			$description = clean_value($_POST['description']);
 			$main_description = clean_value($_POST['main_description']);
 			
-			echo Investments::publish_listing($id,$title,$goal,$investment_message,$project_closed_message,$description,$main_description);
+			echo Investments::publish_listing($id,$title,$goal,$contract_address,$investment_message,$project_closed_message,$description,$main_description);
 		} else if(isset($_POST['send_email'])){
 			$id = clean_value($_POST['send_email']);
 			$name = clean_value($_POST['name']);

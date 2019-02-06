@@ -1,17 +1,12 @@
-<?php require_once("includes/inc_files.php"); 
-
-/*
- * Copyright (c) 2012-2013 CODEC2I.NET
- * 对非商用为目的的用户采用GPL2开源协议。您可以将其在自己的服务器部署使用，但不可以修改后发布为闭源或者商业软件。以商用为目的的用户需要购买CODEC2I的商业授权，详情请邮件sv@codec2inet。使用CODEC2I众筹系统的网站需要在页面显著位置标明基于CODEC2I构建。
- * E-mail:sv@codec2i.net
- * 官方网址:http://www.codec2i.net
- */
-
+<?php 
+require_once("includes/inc_files.php"); 
+require_once("gateway/ethpay.php"); 
 $current_page = "project";
 
 if($session->is_logged_in()) {
 	$user = User::find_by_id($_SESSION['user_id']);
 } else {
+	$user = new User;
 	$user->user_id = "";
 }
 
@@ -63,9 +58,8 @@ background: #DDD url('assets/project/<?php echo $project_data->id; ?>/themes/<?p
 }
 <?php } ?>
 </style>
-<script>
 
-// messages
+<script>
 
 $(document).ready(function(){
 	$("#submit_project_comment").click(function(){
@@ -198,31 +192,43 @@ function make_investment(){
 				//   }
 				// }, 1000);
 				document.write(data);
+				console.log("hello");
 			},
 			beforeSend: function(){
 				$("#confirm_investment #confirm").html("提交中...");
 			}
 		});
+		console.log("false");
 	}
-	else if(payment == "alipay") {
-		$.ajax({
-			type: "POST",
-			url: "gateway/alipay.php",
-			dataType: 'json',
-			data: "invest=true&id=<?php echo $project_data->id; ?>&amount="+amount+"&investment_type="+investment_type,
-			success: function(url) {
-				document.location.href = url;
-			},
-			beforeSend: function() {
-				$("#confirm_investment #confirm").html("提交中...");
-			}
-		});
+	else if(payment == "ethpay") {
+		App.init();
+		var contract_address = "<?php echo $project_data->contract_address ?>";
+
+		var my_post = {
+            type: "POST",
+            url: "data.php",
+            data: "page=project&make_payment=<?php echo $project_data->id; ?>&amount="+amount+"&payment="+payment+"&investment_type="+investment_type,
+            success: function(data){
+              if(data == "success"){
+                location.reload();
+              } else{
+                $("#confirm_investment #message").html(data);
+                $("#confirm_investment #confirm").html("确定");
+              }     
+            },
+            beforeSend: function(){
+              $("#confirm_investment #confirm").html("提交中...");
+            }
+          };
+
+		App.thransferEasy(amount, contract_address, my_post);
+		
 	} 
 	else {
 		$.ajax({
 			type: "POST",
 			url: "data.php",
-			data: "page=project&make_payment=<?php echo $project_data->id; ?>&amount="+amount+"&payment="+payment+"&investment_type="+investment_type,
+			data: "page=project&make_payment_a=<?php echo $project_data->id; ?>&amount="+amount+"&payment="+payment+"&investment_type="+investment_type,
 			success: function(data){
 				if(data == "success"){
 					location.reload();
@@ -1035,7 +1041,7 @@ function update_project(){
 			<?php if($user->credit > 0){ ?>
 			<option value="credit">账户积分</option>
 			<?php } ?>
-			<option value="alipay">支付宝</option>
+			<option value="ethpay">ETH以太坊</option>
 			<option value="paypal">贝宝</option>
 		</select>
 		

@@ -27,7 +27,7 @@ if($session->is_logged_in()) {
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-	 <link href="assets/css/chosen.css" rel="stylesheet">
+	<link href="assets/css/chosen.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

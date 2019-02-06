@@ -13,7 +13,7 @@ $new_site_credit = SITE_CREDIT + "150";
 $database->query("UPDATE core_settings SET data = '{$new_site_credit}' WHERE name = 'SITE_CREDIT' ");
 
 ?>
-<?php $page_title = "BICYCLE国内首家开源众筹系统!"; require_once("includes/themes/".THEME_NAME."/header.php"); ?>
+<?php $page_title = "CYSKY股权众筹系统!"; require_once("includes/themes/".THEME_NAME."/header.php"); ?>
 
 <?php echo output_message($message); ?>
 
@@ -21,15 +21,10 @@ $database->query("UPDATE core_settings SET data = '{$new_site_credit}' WHERE nam
 	<h1><?php echo $page_title; ?></h1>
 </div>
 		<div style="max-width: 400px; margin: 0 auto 10px;">
-	              <a href="# class="btn btn-large btn-block btn-primary">chishiba</a>
+	              <a href="# class="btn btn-large btn-block btn-primary"></a>
 	            </div>
 
 	<hr />
-
-				<div class="row-fluid center">
-				  <div class="span2"><h3>管理权限</h3><code style="padding-bottom: 4px;">Username: admin</code><br /><code>Password: admin</code></div>
-				</div>
-				<br />
 
 	<?php if(!empty($top_projects)){ ?>
 	<hr />

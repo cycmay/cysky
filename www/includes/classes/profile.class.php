@@ -81,7 +81,7 @@ class Profile {
 		if(isset($_POST['user_id'])){
 			$user = User::find_by_id($_SESSION['user_id']);
 		} else {
-			$user = "";
+			$user = new User;
 			$user->user_id = "";
 		}
 		

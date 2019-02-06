@@ -1,11 +1,5 @@
 <?php require_once("includes/inc_files.php"); 
-
-/*
- * Copyright (c) 2012-2013 CODEC2I.NET
- * 对非商用为目的的用户采用GPL2开源协议。您可以将其在自己的服务器部署使用，但不可以修改后发布为闭源或者商业软件。以商用为目的的用户需要购买CODEC2I的商业授权，详情请邮件sv@codec2inet。使用CODEC2I众筹系统的网站需要在页面显著位置标明基于CODEC2I构建。
- * E-mail:sv@codec2i.net
- * 官方网址:http://www.codec2i.net
- */
+require_once("gateway/ethpay.php");  
 
 if($session->is_logged_in()) {
 	$user = User::find_by_id($_SESSION['user_id']);
@@ -238,6 +232,8 @@ if(isset($_SESSION['current_step'])){
 		$project_data = Investments::get_project_listing($project_id);
 		?>
 		<script>
+
+
 		function set_thumbnail(id,name){
 			$.ajax({
 				type: "POST",
@@ -271,19 +267,21 @@ if(isset($_SESSION['current_step'])){
 			var complete_message = $("#complete_message").val();
 			var description = $("#description").val();
 			var main_description = $("#main_description").val();
+
 			if(title != "" && category != "" && goal != "" && investment_message != "" && complete_message != "" && description != "" && main_description != "" ){
-				$.ajax({
+
+				var my_post = {
 					type: "POST",
 					url: "data.php",
 					data: "page=project&publish_listing=true&title="+title+"&category="+category+"&goal="+goal+"&investment_message="+investment_message+"&project_closed_message="+complete_message+"&description="+description+"&main_description="+main_description,
-					success: function(url){
-						window.location.replace($.trim(url));
 					}
-				});
+
+				App.init();
+				App.creatFunding(title, goal, my_post);	
+				
 			} else {
 				
-			}
-			
+			}		
 		}
 		</script>
 		

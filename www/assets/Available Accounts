@@ -1,0 +1,46 @@
+Available Accounts
+==================
+(0) 0xd68afacc45240b65f7be531c4fce602f3f3be4c2 (~1000 ETH)
+(1) 0x5fc7d5798efe2f7edf53e5d32b79294affa7005d (~1000 ETH)
+(2) 0xbdf00840a6c948900cb1f837f7b840271dae92d8 (~1000 ETH)
+(3) 0x3f0159b3207907b7383bed78e8b99c6b9e71227c (~1000 ETH)
+(4) 0xbb6e0b08e2fb0e8243ac340513d2be5efe5e5cde (~1000 ETH)
+(5) 0xe4742c9e73e84ee7418ea2483633d17938473298 (~1000 ETH)
+(6) 0xd9bc62d82674439560caf6e43a11e631558385d8 (~1000 ETH)
+(7) 0xfde692d025c644fed0f1a578ff9af10d0624b6d7 (~1000 ETH)
+(8) 0x38edace7e7c8b4c0f99ffce9c191b6eb86c18cdd (~1000 ETH)
+(9) 0xf3aff93a3c03404cc1a150ae25864eccc86066cd (~1000 ETH)
+
+Private Keys
+==================
+(0) 0x4d3ea5796b400780261766d2c0b5188afebf4d07d8c7f7902a75f8aeb899f418
+(1) 0xbd5b276f85499bbde403ba4b3b468ae16126e7ef6846f603c7a6debfb211bcb6
+(2) 0x6cbe797c132e57903ea6f7ba9f79823285eb44829b4b5716ba1985deaedf5494
+(3) 0x2331de5459b6f9926f7874f67b455488b012c48aee28938df30a717874b66946
+(4) 0x74055674d483b82b3a1f21f3f93289141f6993139710d004b84d3b06d04a7689
+(5) 0xbadb42c0f82583d93ef6a4e92922d4a024ce1fced91a51956f0f1e7f56765fee
+(6) 0x645dcd17e3f8668c4421c310dcfa72773a13745d3cdf3c5ca67e25f66a122020
+(7) 0x2efaa3a72e795bdf3f81cd19779cb30f82175d147f04c789293586d415051094
+(8) 0xa617486c9a66e15080c849bb5d0b96d8283eb42784c6d6d50689e6e5c679f0f5
+(9) 0xec67ad50206db4424fdd3cc9c25f029096adcca932e85156b1c741368d5f0cbc
+2_deploy_contracts.js
+2_deploy_contracts.js
+=====================
+
+   Deploying 'FundingFactory'
+   --------------------------
+   > transaction hash:    0x0fc2dac1ee6ce03eb6ec3c48fd0b300ed78909006219f3be4aa45481c95d0468
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xd8f47dd8385b70461F31e49fd7F249Cf990eCCC3
+   > account:             0xD68AFACc45240b65f7be531C4fcE602f3f3be4c2
+   > balance:             999.957539053
+   > gas used:            1756056
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03512112 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.03512112 ETH
