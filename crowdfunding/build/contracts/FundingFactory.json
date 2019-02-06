@@ -8850,10 +8850,16 @@
       "links": {},
       "address": "0x0aD600296AF30249c9848d54D3E39CbA1f5C8a38",
       "transactionHash": "0x74c82e7865655722e1833ddf14f28e34e6bdd57d09f7b2fd6124a8d474f606c5"
+    },
+    "1549425396622": {
+      "events": {},
+      "links": {},
+      "address": "0xd8f47dd8385b70461F31e49fd7F249Cf990eCCC3",
+      "transactionHash": "0x0fc2dac1ee6ce03eb6ec3c48fd0b300ed78909006219f3be4aa45481c95d0468"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-02-05T14:26:17.251Z",
+  "updatedAt": "2019-02-06T04:06:15.518Z",
   "devdoc": {
     "methods": {}
   },
