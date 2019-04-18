@@ -387,6 +387,53 @@ CREATE TABLE IF NOT EXISTS `user_notifications` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- 转存表中的数据 `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `status`) VALUES
+(1, '互联网项目', '1')；
+
+--
+-- 转存表中的数据 `core_settings`
+--
+
+INSERT INTO `core_settings` (`name`, `data`) VALUES
+('WWW', ''),
+('SITE_NAME', 'Bicycle众筹'),
+('SITE_DESC', '站点描述一般不超过200个字符'),
+('SITE_KEYW', '站点关键词一般不超过100个字符'),
+('ADMINDIR', 'admin/'),
+('SITE_EMAIL', 'sv@codec2i.net'),
+('VERIFY_EMAIL', '是'),
+('MAINTENANCE_MODE', '是'),
+('DEMO_MODE', 'OFF'),
+('DATABASE_SALT', 'ShEyeki2UhRWDJBUKjf0KvvTY'),
+('CURRENCY_CODE', 'RMB'),
+('CURRENCYSYMBOL', '&#65509;'),
+('PAYPAL_SANDBOX', 'YES'),
+('PAYPAL_EMAIL', 'paypal@example.com'),
+('CREDIT_PRICE', '1'),
+('NEW_PROJECT_VERIFY', '是'),
+('DEFAULT_THEME', 'main.jpg'),
+('PAGINATION_PER_PAGE', '20'),
+('TIMEZONE', 'Asia/Hong_Kong'),
+('OAUTH', 'OFF'),
+('CUT_PERCENTAGE', '5'),
+('TAKE_CUT', 'YES'),
+('SITE_CREDIT', '24600'),
+('REQUIRE_GOAL', 'YES'),
+('THEME_NAME', 'mds_light');
+
+
+--
+-- 转存表中的数据 `users`
+--
+
+INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `gender`, `username`, `password`, `email`, `activated`, `suspended`, `date_created`, `last_login`, `signup_ip`, `last_ip`, `country`, `staff`, `whitelist`, `ip_whitelist`, `credit`, `banked_credit`, `investments_made`, `amount_invested`, `oauth_provider`, `oauth_uid`) VALUES
+(1, 688969, 'Admin', 'Account', 'Male', 'admin', 'Sh1mgk0Gf2szw', 'admin@example.com', '1', '0', '2018-12-27 18:34:07', '2019-01-15 15:05:10', 'SERVER', '127.0.0.1', 'United Kingdom', '1', '0', '', 0, 0, 0, 0, '0', ''),
+(2, 924233, '', 'caoyucong', 'Male', 'caoyucong', 'Shd0gG4G1Ks2U', '1769614410@qq.com', '', '0', '2018-12-27 18:34:07', '0000-00-00 00:00:00', '::1', '::1', '', '0', '0', '', 0, 0, 0, 0, '0', '');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
