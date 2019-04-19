@@ -131,8 +131,8 @@ CREATE TABLE IF NOT EXISTS `investments` (
   `name` varchar(150) NOT NULL,
   `description` varchar(250) NOT NULL,
   `investment_wanted` bigint(20) unsigned NOT NULL,
-  `contract_address` varchar(256) CHARACTER SET utf32 NOT NULL,
   `amount_invested` bigint(20) unsigned NOT NULL,
+  `contract_address` varchar(256) CHARACTER SET utf32 NOT NULL,
   `invested` enum('0','1') NOT NULL DEFAULT '0',
   `expires` datetime NOT NULL,
   `main_picture` varchar(255) NOT NULL,
@@ -392,7 +392,7 @@ CREATE TABLE IF NOT EXISTS `user_notifications` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `status`) VALUES
-(1, '互联网项目', '1')；
+(1, '互联网项目', '1');
 
 --
 -- 转存表中的数据 `core_settings`

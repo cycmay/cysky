@@ -19,7 +19,7 @@ App = {
       web3 = new Web3(web3.currentProvider);
     } else {
       // set the provider you want from Web3.providers
-      App.web3Provider = new Web3.providers.HttpProvider('http://192.168.31.35:8545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://192.168.88.128:8545');
       web3 = new Web3(App.web3Provider);
     }
     console.log("initWeb3 completed!");
