@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>登录 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+</head>
+<body>
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <li><a href="/login.htm">登录</a> / <a href="/register.htm">注册</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+	<div class="login-wrap" style="background-image: url("images/z-ban1.jpg");">
+		<div class="login-cell">
+			<div class="box-logreg">
+				<dl class="m1-z">
+					<dt>
+						<h3>蚂蚁天使</h3>
+						<p>专注于种子轮的创投平台</p>
+					</dt>
+					<dd>
+						<div class="txt-z1">登录蚂蚁天使</div>
+						<form action="/login.htm" method="post">
+							<input type="text" name="phone" class="txt1" placeholder="手机号" value=""/>
+							<input type="password" name="password" id="" class="txt1 r"
+								placeholder="密码" />
+							<div class="c"></div>
+							<div class="z-mk">
+								<label for="lv"> <input type="checkbox" name="remember"
+									id="lv" class="checkbox" /><span>下次自动登录</span>
+								</label> <a href="/passwordFind.htm" class="color-blue r">忘记密码 ?</a><br/>
+								<font color="red"></font>
+								<div class="a-txt a-txt2"></div>
+								
+							</div>
+
+							<div class="btn-pl">
+								<button type="submit" class="btn-z">登 录</button>
+								<a href="/register.htm" class="btn-z btn-z1 r">注 册</a>
+							</div>
+						</form>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span></html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>众筹融资中 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	 	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+</head>
+
+<body>
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li class="checkedLi">全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+    <!-- 中间内容 -->
+	<form action="/project/project.htm" method="get" id="projectForm">
+     <input type="hidden"  id="investDirection" name="investDirection" value=""/>
+     <input type="hidden"  id="sign" name="sign" value="众筹融资项目">
+    <div class="wp">
+<ul class="ul-step mb30 fix">
+            <li  class="li-bg">
+                <a href="javascript:getTab('众筹融资项目')">众筹融资项目</a>
+            </li>
+            <li >
+                <a href="javascript:getTab('待领投项目')">待领投项目</a>
+            </li>
+            <li >
+                <a href="javascript:getTab('已完成项目')">已完成项目</a>
+            </li>
+        </ul>
+
+        <div class="tit-main fix mb70">
+            <ul class="l fix">
+            	<li class="on"><a href="javascript:getProjects('')">全部</a></li>
+            	<li ><a href="javascript:getProjects('人工智能')">人工智能</a></li>
+            	<li ><a href="javascript:getProjects('硬件')">硬件</a></li>
+            	<li ><a href="javascript:getProjects('软件工具')">软件工具</a></li>
+            	<li ><a href="javascript:getProjects('社交网络')">社交网络</a></li>
+            	<li ><a href="javascript:getProjects('企业服务')">企业服务</a></li>
+            	<li ><a href="javascript:getProjects('新技术')">新技术</a></li>
+            	<li ><a href="javascript:getProjects('教育')">教育</a></li>
+            	<li ><a href="javascript:getProjects('医疗')">医疗</a></li>
+            	<li ><a href="javascript:getProjects('金融')">金融</a></li>
+            	<li ><a href="javascript:getProjects('房产家居')">房产家居</a></li>
+            	<li ><a href="javascript:getProjects('交通出行')">交通出行</a></li>
+            	<li ><a href="javascript:getProjects('物流')">物流</a></li>
+            	<li ><a href="javascript:getProjects('电子商务')">电子商务</a></li>
+            	<li ><a href="javascript:getProjects('共享经济')">共享经济</a></li>
+            	<li ><a href="javascript:getProjects('消费生活')">消费生活</a></li>
+            	<li ><a href="javascript:getProjects('体育')">体育</a></li>
+            	<li ><a href="javascript:getProjects('文化娱乐')">文化娱乐</a></li>
+            	<li ><a href="javascript:getProjects('媒体广告')">媒体广告</a></li>
+            	<li ><a href="javascript:getProjects('旅游')">旅游</a></li>
+            	<li ><a href="javascript:getProjects('游戏动漫')">游戏动漫</a></li>
+            	<li ><a href="javascript:getProjects('农业')">农业</a></li>
+            	<li ><a href="javascript:getProjects('能源环保')">能源环保</a></li>
+            	<li ><a href="javascript:getProjects('其他')">其他</a></li>
+            </ul>
+            <!--
+            <div class="r choose">
+                <span class="l">排序方式： </span>
+                <ul class="l">
+                <li class="on"><a href="">按时间</a></li>
+                   <li class="on"><a >按时间</a></li>
+                </ul>
+            </div>-->
+        </div>
+<script type="text/javascript"> 
+function getProjects(investDirection){
+         if(investDirection!=""){
+           $("#investDirection").val(investDirection);
+         }else{
+           $("#investDirection").val("");
+         }
+		 $("#projectForm").submit();
+		}
+
+function getTab(sign){
+$("#investDirection").val("")
+		if(sign!=""){
+           $("#sign").val(sign);
+         }else{
+           $("#sign").val("");
+         }
+		 $("#projectForm").submit();
+}
+</script>        <ul class="ul-line1">
+            <li>
+            	<a href="/project/projectinfo/2851.htm">
+                <div class="pic">
+                    <img src="https://file.mayiangel.com/20180601/2d0d2be3-1d6b-4b21-a230-67972448e604.jpg" height="275" width="670" alt="">
+                </div>
+                </a>
+                <div class="txt">
+                    <div class="tit">
+                        <span class="btn-m1 r">众筹融资中</span>
+                        <h2><a href="/project/projectinfo/2851.htm">星期五智能运动健身器材</a></h2>
+                        <p>基于智能运动健身器材的健身内容提供商</p>
+                    </div> 
+                    <div class="cen">
+                        <p class="p1">融资金额：100万<span class="r">2万起投</span></p>
+                       <div class="load-a1">
+                            <span style="width:10%;"></span><em><b>10</b>%</em>
+                        </div>
+                        <p class="link-user pt5"> 领投人：<a href="/memberInfo/29486.htm">火与冰</a></p>
+                       	<span class="s1">已有1人认购投资</span>
+                        <p class="p2 mb10">
+                          	<em>标签： </em>
+             			<span class="r">珠海市</span>
+                        </p>
+                       <a href="/project/projectinfo/2851.htm" class="btn-b1">查看详情</a>
+                    </div>
+                </div>
+                <div class="box-user">
+                    <a class="pic1" href="/memberInfo/29486.htm"><img src="images/user_100.png" height="94" width="94" alt=""></a>
+                    <h3><a href="/memberInfo/29486.htm">火与冰</a></h3>
+                    <p>上海通江投资控股有限公司 投资经理</p>
+					<span>
+							合格投资人
+					</span>
+                    <a href="/memberInfo/29486.htm" class="btn-b2 btn-n1">查看详情</a>
+                </div>
+            </li>
+
+
+        </ul>
+        <div class="box-load mb50">
+            <p><button class="btn-n1" id="load-more" href="">加载更多</button></p>
+        </div>
+    </div>
+</form>
+<!-- 底部 -->
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span>     <script>
+         var last = false;
+     </script>
+     <script type="text/html" id="item_tmpl">
+        <% if( data.length < 20) { 
+            last = true;
+        } %> 
+        <% for ( var i = 0 ; i < data.length; i++ ) { %>
+
+            <% if( data[i] ) {%>
+                <li>
+                	<a href="/project/projectinfo/<%= data[i].id %>.htm">
+                    <div class="pic">
+                        <a href=""><img src="https://file.mayiangel.com/<%= data[i].bigLogo %>" height="275" width="670" alt=""></a>
+                    </div>
+                    </a>
+                    <div class="txt">
+                        <div class="tit">
+                            <span class="btn-m1 r">众筹融资中</span>
+                            <h2><a href="/project/projectinfo/<%= data[i].id %>.htm"><%= data[i].name %></a></h2>
+                            <p><%= data[i].shortSentence %></p>
+                        </div>
+                        <div class="cen">
+                            <p class="p1">融资金额：<%= data[i].targetInvestment/10000 %>万<span class="r"><%= data[i].leastInvestment/10000 %>万起投</span></p>
+                            <div class="load-a1">
+                                <span style="width: <%= data[i].money/data[i].targetInvestment > 1 ? '100%' : data[i].money/data[i].targetInvestment*100+'%' %>"></span><em><b><%= Math.floor(data[i].money/data[i].targetInvestment*100) %></b>%</em>
+                            </div>
+                            <p class="link-user pt5">领投人：<a href="/memberInfo/<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['id'] %> <% } %>.htm"><% if( data[i].memberExtDO ) {%><%if (data[i].memberExtDO['nickName']){%><%=data[i].memberExtDO['nickName'] %><%}else{%><%=data[i].memberExtDO['realName'] %><%} } %></a></p>
+                            <span class="s1">已有<%= data[i].investor %>人认购投资</span>
+                            <p class="p2 mb10">
+                                <em>标签：<%= data[i].investDirection %></em>
+                                <span class="r"><%= data[i].city %></span>
+                            </p>
+                            <a href="/project/projectinfo/<%= data[i].id %>.htm" class="btn-b1">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="box-user">
+                        <a href="/memberInfo/<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['id'] %> <% } %>.htm" class="pic1"><img src="https://file.mayiangel.com/<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['headImage'] %> <% } %>" height="94" width="94" alt=""></a>
+                        <h3><a href="/memberInfo/<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['id'] %> <% } %>.htm"><% if( data[i].memberExtDO ) {%><%if (data[i].memberExtDO['nickName']){%><%=data[i].memberExtDO['nickName'] %><%}else{%><%=data[i].memberExtDO['realName'] %><%} } %></a></h3>
+                        <p><% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['company'] %> <% } %> <% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['position'] %> <% } %></p>
+                        <span>
+						<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['classType']==4?'领投人':'' %> <% } %>
+						<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['classType']==5?'资深领投人':'' %> <% } %>
+						<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['enterpriserType']==3?'/创业者':'' %> <% } %>
+						</span>
+                        <a href="/memberInfo/<% if( data[i].memberExtDO ) {%><%=data[i].memberExtDO['id'] %> <% } %>.htm" class="btn-b2 btn-n1">查看详情</a>
+                    </div>
+                </li>
+            <% } %>
+        <% } %>
+    </script>
+
+    <script type="text/javascript">
+
+
+
+ (function(){
+       var cache = {};
+       this.tmpl = function tmpl(str, data){
+         var fn = !/\W/.test(str) ?
+           cache[str] = cache[str] ||
+             tmpl(document.getElementById(str).innerHTML) :
+          
+           new Function("obj",
+             "var p=[],print=function(){p.push.apply(p,arguments);};" +
+            
+             "with(obj){p.push('" +
+             str
+               .replace(/[\r\t\n]/g, " ")
+               .split("<%").join("\t")
+               .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+               .replace(/\t=(.*?)%>/g, "',$1,'")
+               .split("\t").join("');")
+               .split("%>").join("p.push('")
+               .split("\r").join("\\'")
+           + "');}return p.join('');");
+         return data ? fn( data ) : fn;
+       };
+     })();
+
+
+    (function(){
+        // 加载
+        var pageNum = 2;
+        var btn = $('#load-more');
+            btn.click(function(e){
+                e.preventDefault();
+                btn.text('加载中');
+                btn.attr("disabled",true);
+                getData().done(function(data){
+                    $('.ul-line1').append( tmpl("item_tmpl", {data: data}) );
+                    setColor();
+                    btn.text('加载更多');
+                    if( last ){
+                        btn.hide();
+                    }
+                }).done(function(){
+                    btn.attr("disabled",false);
+                    pageNum++;
+                }).fail(function(){
+                    btn.text('加载失败');
+                })
+            })
+
+        function getData(){
+            return $.ajax({
+                method: "GET",
+                dataType:"jsonp",
+                data: {investDirection:$("#investDirection").val(),pageNum: pageNum,status:3},
+                url:"https://www.mayiangel.com/project/zhongchou.json"
+            });
+        }
+        function setColor(){
+            $('.ul-line1 li').each(function(){
+                var span = $(this).find('.load-a1 span');
+                var num = $(this).find('b').text()*1;
+                if(num <= 50){
+                    $(this).find('.load-a1 em').addClass('em-fcf');
+                }
+            });
+        }
+
+    })();
+
+
+    (function(){
+        // 领投人弹出
+        $('body').on('mouseenter','.ul-line1 li .link-user a',function(){
+            var timeout = $(this).data("timeout");
+            if(timeout) clearTimeout(timeout);
+            $(this).parents('.ul-line1 li').find('.box-user').addClass('show-box');   
+        }).on('mouseleave','.ul-line1 li .link-user a',function(){
+            $(this).data("timeout", setTimeout($.proxy(function() {
+                $(this).parents('.ul-line1 li').find('.box-user').removeClass('show-box');
+            }, this), 300));
+        });
+
+        $('body').on('mouseenter','.ul-line1 li .box-user',function(){
+            var timer = $(this).parents('li').find('.link-user a').data('timeout');
+            if(timer) clearTimeout(timer);
+        }).on('mouseleave','.ul-line1 li .box-user',function(){
+            $(this).removeClass('show-box');
+        })
+    })();
+    
+			if(1>=20){
+                $('#load-more').show();
+            }else{
+                $('#load-more').hide();
+            }
+   
+	
+    </script>
+</body>
+</html>

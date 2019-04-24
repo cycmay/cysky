@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>全部领投人</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+</head>
+<body>
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li class="checkedLi">投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+<div class="ban3"
+     style="background: url(images/ban3.jpg) no-repeat 50% 0;"></div>
+<div class="wp">
+    <ul class="newTzrUl">
+        <li>
+            <a href="/memberInfo/814.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20151222/57e2da37f93445a39c9f3010b1b229d7.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>张菡</h2>
+
+                        <h3>上海寸诚国际贸易有限公司 董事长</h3>
+                        <h4>国际贸易和电子商务领域十年经验，连续创业者，先后在德国和中国创办了3家公司，代理了多个德国品牌。
+12年开始接触个人投资，先后投资了1家教育公司，2家电商公司，其中教育公司（上海柒维信息技术有限公司）经过三年发展已经成为特殊教育领域标杆公司，在行业内获得了广泛认可。
+</h4>
+
+                    <a>资深领投人</a>
+                                <a>人工智能</a>
+                                <a>硬件</a>
+                                <a>企业服务</a>
+                                <a>新技术</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>17 </span></h3>
+                        
+                        <a href="/project/projectinfo/49.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/3b64619420c44794a7f18cd7a0e47e6c.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/130.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/1a514a1f80b94225b344d52f4634637d.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/668.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160724/8bc52e53c51340558eabf2f38f7a4fdf.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/743.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160724/df272e23ff4d464c963b2ceae03fcbaa.png" alt=""></a>
+                           
+                    <a href="/memberInfo/814.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/1153.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20150703/17947fa194844f12a9d98742c6328ce5.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>洪弈</h2>
+
+                        <h3>新进创投 合伙人</h3>
+                        <h4>新进创投是一家早期创业投资机构，主要投资新创业的拥有先进技术和先进思想的潜力公司。我们专注于移动互联网和生命科学两大行业的早期项目，投资理念是投资不愿做企业家的企业家。
+
+新进创投是一家辐射中国以及美国的新兴风投公司, 团队由众多经验丰富和具有国际视野的企业家组成。新进创投致力于帮助具有全球化视野的创业者们实现创业梦想。
+</h4>
+
+                    <a>资深领投人</a>
+                                <a>消费生活</a>
+                                <a>金融</a>
+                                <a>硬件</a>
+                                <a>电子商务</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>1 </span></h3>
+                        
+                        <a href="/project/projectinfo/130.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/1a514a1f80b94225b344d52f4634637d.png" alt=""></a>
+
+                    <a href="/memberInfo/1153.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/137.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com//Uploads/Uploads/2014-12-31/54a3c7a770fce.jpg1.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>刘叔</h2>
+
+                        <h3>鼎创汇 创始人</h3>
+                        <h4>TMT连续创业15年的老兵
+新华鼎创创业孵化基地 CEO
+2012年获得长宁第二届创业之星
+2013年上海市就业创业优秀个人
+2013年长宁共青团优秀青年
+2013年长宁区第八轮专业技术拔尖人才称号
+2014年长宁青年创业导师先锋团成员之一</h4>
+
+                    <a>资深领投人</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>10 </span></h3>
+                        
+                        <a href="/project/projectinfo/19.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/39b29bbdedf5418b9a5cbad9f5541315.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/21.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/a70d78e5a5a14e04988cfd88d68dc0c6.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/49.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/3b64619420c44794a7f18cd7a0e47e6c.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/83.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160713/d6503783b6ad4ab1b77cfcc836fbd119.png" alt=""></a>
+                           
+                    <a href="/memberInfo/137.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/121.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com//Uploads/Uploads/2014-12-23/549986bf447ba.jpeg1.jpeg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>罗钥</h2>
+
+                        <h3>苏河汇 董事长</h3>
+                        <h4>2003年毕业于电子科技大学，计算机专业；
+
+2005年创立上海汉迭偌，国内最早从事手游、短代、MTK游戏开发团队之一，于2009年被A股上市公司亿阳信通以7400万收购；
+
+后续创立上海杰勋、上海激峰等高科技企业，在SP、手机设计、医疗、教育、移动互联网等领域连续创业多年，最终以失败告终；
+
+2012年在苏州河畔白手起家创立苏河汇，找到人生乐趣，是第三次也是最后一次创业。</h4>
+
+                    <a>资深领投人</a>
+                                <a>消费生活</a>
+                                <a>金融</a>
+                                <a>硬件</a>
+                                <a>电子商务</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>1 </span></h3>
+                        
+                        <a href="/project/projectinfo/534.htm">
+                        <img src="https://file.mayiangel.com/filePath/20151113/c5f1765159d04ad18870d8fa394674a7.png" alt=""></a>
+
+                    <a href="/memberInfo/121.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/107.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com//Uploads/jq/1418608263jq.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>李悠扬</h2>
+
+                        <h3>纽信创投  创始合伙人</h3>
+                        <h4>李悠扬 毕业于上海交通大学和加拿大麦吉尔大学(McGill University)，曾创办互联网软件公司，被一家上市公司并购。2011年创立纽信创投，专注天使阶段的投资。
+
+纽信创投的特色是: 所有投资人都具有激情创业、带领企业发展、取得特定领域或行业市场领先地位、成功取得资本和事业回报的全过程实战经验。这也是纽信创投与其它偏重财务指标的基金不同之处。
+除资金外，对被投资企业积极提供各种经营管理支持和企业发展所需的其它资源协助 其他服务
+近年主要投资项目：
+坚果云（云存储）、青客（白领公寓连锁）、钛马（车联网）、莱可秀（大屏幕互动）、果盒游戏（手机游戏）和英莫（大数据分析，微博精准营销）等
+</h4>
+
+                    <a>资深领投人</a>
+                                <a>消费生活</a>
+                                <a>金融</a>
+                                <a>电子商务</a>
+                                <a>教育</a>
+                    </div>
+                </div>
+            </a>
+
+        </li>           <li>
+            <a href="/memberInfo/14228.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160820/69a351b7aa0c4b40a0a295279afbc074.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>Tony Xiao</h2>
+
+                        <h3>YOUNG分期金融 ceo</h3>
+                        <h4>梳理模式，营销逻辑论证</h4>
+
+                    <a>领投人</a>
+                                <a>金融</a>
+                                <a>生活消费</a>
+                                <a>电子商务</a>
+                                <a>教育</a>
+                    </div>
+                </div>
+            </a>
+
+        </li>           <li>
+            <a href="/memberInfo/12520.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160813/22a4c2c1af1342938c2f9b428d371d76.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>张雷</h2>
+
+                        <h3>Corona CTO</h3>
+                        <h4>毕业于中国科学院，博士学位，多年产品经经理和技术管理经验，专注早期项目投资。</h4>
+
+                    <a>领投人</a>
+                                <a>旅游</a>
+                                <a>教育</a>
+                                <a>医疗</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>1 </span></h3>
+                        
+                        <a href="/project/projectinfo/1098.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160412/c60e26fc217f486abe16b71ec014169c.jpg" alt=""></a>
+
+                    <a href="/memberInfo/12520.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/15372.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160707/137b2b8ae48c48df9df2a73c88faf6bf.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>创新公园</h2>
+
+                        <h3>创新公园 投资分析师</h3>
+                        <h4>创新公园是一家专业的早期天使投资机构</h4>
+
+                    <a>领投人</a>
+                                <a>软件工具</a>
+                                <a>金融</a>
+                                <a>其他</a>
+                    </div>
+                </div>
+            </a>
+
+        </li>           <li>
+            <a href="/memberInfo/14656.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160610/c3971a1fd4634a789933de2539c6a7e9.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>一米阳光</h2>
+
+                        <h3>上海星杰装饰集团苏州分公司 总经理</h3>
+                        <h4>上海交通大学 EMBA
+东华理工大学 企业管理
+国家注册二级建造师
+上海星杰装饰集团苏州分公司总经理</h4>
+
+                    <a>领投人</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>1 </span></h3>
+                        
+                        <a href="/project/projectinfo/1233.htm">
+                        <img src="https://file.mayiangel.com/imageProjectPath/20160519/9ebe569523b24911a28959b5145940ce.jpg" alt=""></a>
+
+                    <a href="/memberInfo/14656.htm" class="ntuArr"></a>
+                </div>
+        </li>           <li>
+            <a href="/memberInfo/13828.htm" style="border: none;">
+                <div class="ntuL">
+                    <div class="ntuHead">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160520/4cfe2d0f160942749624e6f7545eef53.jpg" alt="">
+                    </div>
+                    <div class="ntuContent">
+                        <h2>王翌</h2>
+
+                        <h3>缘创派 CEO</h3>
+                        <h4>缘创派联合创始人/CEO
+互联网连续创业者/天使投资人
+前奇虎360投资总监，负责从零开始组建投资部，并主导投资了数十家创业项目
+深入互联网行业十余载，曾作为记者，深入观察早期互联网生态的建立过程
+也曾数次创业，还作为专家顾问扶持数家创业公司/团队的成长
+面基超过1000位创业者，超级创业发烧大叔</h4>
+
+                    <a>领投人</a>
+                                <a>软件工具</a>
+                                <a>电子商务</a>
+                                <a>消费生活</a>
+                                <a>社交</a>
+                    </div>
+                </div>
+            </a>
+                <div class="ntuR">
+                    <h3>平台投资项目 <span>3 </span></h3>
+                        
+                        <a href="/project/projectinfo/1230.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160724/d28d6d23bfe5441da6fcdeb60bdc8746.png" alt=""></a>
+                        
+                        <a href="/project/projectinfo/1360.htm">
+                        <img src="https://file.mayiangel.com/filePath/20160725/14987eb80e2742e29551b759a6af13bf.jpg" alt=""></a>
+                        
+                        <a href="/project/projectinfo/1485.htm">
+                        <img src="https://file.mayiangel.com/20160920/b25106ae-0ce2-4349-aacf-1492a4e723b6.jpg" alt=""></a>
+
+                    <a href="/memberInfo/13828.htm" class="ntuArr"></a>
+                </div>
+        </li>   
+    </ul>
+    <style>
+        .ntuFy {
+            float: right;
+            overflow: hidden;
+            font-size: 14px;
+            margin-top: 20px;
+            color: #676767;
+            margin-bottom: 20px;
+        }
+
+        .ntuFy li {
+            float: left;
+            border: 1px solid #ebebeb;
+            padding: 4px 11px;
+            margin: 0 2px;
+        }
+
+        .ntuFy li.thisPage {
+            border: 1px solid transparent;
+            color: #23adec;
+        }
+    </style>
+    <ul class="ntuFy">
+        <a href="javascript:submitForm(1)">
+            <li>首页</li>
+        </a>
+        <a href="javascript:submitForm(0)">
+            <li>&lt;上一页</li>
+        </a>
+
+
+            <a href="javascript:submitForm(1)">
+                <li class="thisPage" >1</li>
+            </a>
+            <a href="javascript:submitForm(2)">
+                <li  >2</li>
+            </a>
+            <a href="javascript:submitForm(3)">
+                <li  >3</li>
+            </a>
+            <a href="javascript:submitForm(4)">
+                <li  >4</li>
+            </a>
+            <a href="javascript:submitForm(5)">
+                <li  >5</li>
+            </a>
+            <a href="javascript:submitForm(6)">
+                <li  >6</li>
+            </a>
+            <a href="javascript:submitForm(7)">
+                <li  >7</li>
+            </a>
+            <a href="javascript:submitForm(8)">
+                <li  >8</li>
+            </a>
+            <a href="javascript:submitForm(9)">
+                <li  >9</li>
+            </a>
+            <a href="javascript:submitForm(10)">
+                <li  >10</li>
+            </a>
+
+
+
+
+        <a href="javascript:submitForm(2)">
+            <li>下一页&gt;</li>
+        </a>
+        <a href="javascript:submitForm(400)">
+            <li>尾页</li>
+        </a>
+    </ul>
+
+    <form id="form">
+        <input id="pageNum" type="hidden" name="pageNum">
+    </form>
+
+    <script>
+//        $("ul.ntuFy > a").on("click", function () {
+//            alert($(this).html());
+//        })
+
+        function submitForm(newPageNum) {
+            $("#pageNum").val(newPageNum);
+            $('#form').submit();
+        }
+
+    </script>
+
+</div>
+<div class="go-top">
+    <div class="wp"><a href=""></a></div>
+</div>
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span></body>
+</html>

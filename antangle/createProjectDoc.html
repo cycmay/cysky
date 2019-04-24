@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/vendor/jquery.ui.widget.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.iframe-transport.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.fileupload.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            min-height: 780px;
+        }
+
+        .uploadImg {
+            height: 160px;
+            width: 160px;
+            overflow: hidden;
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            z-index: 9;
+            line-height: 160px;
+            text-align: center;
+            display: none;
+            background: white;
+        }
+
+        .upload-avtDiv:hover p {
+            opacity: 1;
+        }
+
+        .uploadImg p {
+            position: absolute;
+            z-index: 10;
+            color: #FF9A00;
+            width: 100%;
+            font-size: 16px;
+            height: 100%;
+            opacity: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .uploadImg img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .upload-avtDiv {
+            border: 1px solid #e8e8e8;
+            height: 50px;
+            width: 252px;
+            background-size: 100% 100%;
+            line-height: 52px;
+            position: relative;
+            top: -6px;
+            text-align: center;
+            font-size: 14px;
+            color: #c3c3c3;
+            position: relative;
+            cursor: pointer;
+            float: left;
+            margin: 8px 0;
+            /*display: none;*/
+            /*border: 1px solid red;*/
+            clear: both;
+
+        }
+
+        .x-z1 {
+            clear: both;
+        }
+
+        .upload-avtDiv:hover {
+            color: #ffb323;
+        }
+
+        input.upload-avt {
+            border: 1px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            background: red;
+            opacity: 0;
+            z-index: 9999;
+            height: 50px;
+            width: 252px;
+            line-height: 160px;
+            text-align: center;
+        }
+
+        input.upload-img {
+            border: 1px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            background: red;
+            opacity: 0;
+            z-index: 9999;
+            height: 50px;
+            width: 252px;
+            line-height: 160px;
+            text-align: center;
+        }
+
+        input.upload-pro-img {
+            border: 1px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            background: red;
+            opacity: 0;
+            z-index: 9999;
+            height: 50px;
+            width: 252px;
+            line-height: 160px;
+            text-align: center;
+        }
+
+        .z1 {
+            width: 50px !important;
+            text-align: center;
+        }
+
+        .upload-avtDiv .z1 {
+            position: absolute;
+            left: 100%;
+            width: 50px;
+            top: -17px;
+        }
+
+        .dl-item-pic dd {
+            height: 68px;
+        }
+
+        .x-z1-removeDiv {
+            z-index: 999;
+        }
+
+        .scjd{
+            display: block;
+            float: left;
+            clear: both;
+            position: relative;
+            top: -7px;
+            background: #f3f3f3;
+            width: auto;
+            max-width: 400px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 20px;
+            text-align: center;
+            display: none;
+            z-index: 999;
+        }
+        .scjd span{
+            font-size: 14px;
+            width: auto;
+            max-width: 300px;
+            overflow: hidden;
+            display: inline-block;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        .scjd a{
+            margin: 0 4px;
+            color: #0072ff;
+        }
+        .scjd a:hover{
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+<div class="wp">
+    <div class="tit-a1">
+        <h3>创建项目</h3>
+    </div>
+    <div class="setup-step">
+        <ul>
+            <li class="s1"><p>项目基本信息</p></li>
+            <li class="s2">团队成员</li>
+            <li class="s3">填写项目概要</li>
+            <li class="s4 on">完善项目材料</li>
+        </ul>
+    </div>
+    <div class="tit-a5">
+        完善项目材料<font style="font-size: 13px">（*为必填项）</font>
+    </div>
+    <div class="box-table-za box-table-za3 box-table-za32 pt25">
+
+        <form action="/member/createProjectDoc.htm" method="post" id="form">
+            <table>
+                <tr>
+                    <td><strong>* 商业计划书：</strong></td>
+                    <td>
+                        <div class="upload-avtDiv">
+                            点击上传商业企划书
+                            <input class="upload-avt" type="file" name="Filedata" multiple>
+                        </div>
+                        <em>上传文件格式为DOC,DOCX,PDF或PPT,注：商业计划书默认为隐私状态,可于App内变更商业计划书的公开状态</em>
+                        <div   class="scjd">
+                            <span>商业计划书</span>
+                            <a target="_blank" href="">下载</a>
+                            <a href="" class="removeScjd">删除</a>
+                        </div>
+                    </td>
+                    <input id="plan" class="input" type="hidden" name="plan" value="">
+                </tr>
+
+
+                <tr>
+                    <td><strong>项目图片：</strong></td>
+                    <td>
+                        <dl class="dl-item-pic">
+
+                            <dd style="position: relative">
+                                <div class="upload-avtDiv">
+                                    点击上传项目图片
+                                    <input class="upload-pro-img" type="file" name="Filedata" data-form-data='{"type": "imageProject"}' multiple>
+                                </div>
+                                <a href="" class="z1 add-pic">添加+</a>
+                                <em>上传图片格式jpg或png</em>
+                                <div class="scjd">
+                                    <span>项目图片</span>
+                                    <a target="_blank" href="">下载</a>
+                                    <a href="" class="removeScjd">删除</a>
+                                </div>
+                                <input type="hidden" name="imagesList[0].imageUrl" value="">
+                            </dd>
+
+
+                        </dl>
+                    </td>
+                </tr>
+
+            </table>
+
+            <h4 class="yx-titV2 mt40" style="font-size: 18px">推广素材上传</h4>
+            <table>
+                <tr>
+                    <td><strong>* 产品LOGO：</strong></td>
+                    <td>
+                        <div class="upload-avtDiv">
+                            点击上传产品LOGO
+                            <input id="a1" class="upload-img" type="file" name="Filedata" data-form-data='{"type": "imageProject"}' multiple>
+                        </div>
+                        <em style="position: relative;top:-8px"><p
+                                class="titV2-P txsl">查看示例</p>上传图片格式为png，要求尺寸：180*180</em>
+                        <div class="scjd"   >
+                            <span>产品LOGO</span>
+                            <a target="_blank" href="https://file.mayiangel.com/">下载</a>
+                            <a href="" class="removeScjd">删除</a>
+                        </div>
+                    </td>
+
+                    <td class="txslTd">
+                        <div class="txslDiv" style="left: -304px;top:3px;padding: 0;width: auto">
+                            <img src="https://static.mayiangel.com/www/images/e-logo.jpg" alt="" style="max-width: none"/>
+                        </div>
+                    </td>
+
+                    <input id="smallLogo" type="hidden" name="smallLogo"
+                           value="">
+                </tr>
+
+                <tr>
+                    <td><strong>项目推广封面：</strong></td>
+                    <td>
+                        <div class="upload-avtDiv">
+                            点击上传项目推广封面
+                            <input class="upload-img" type="file" name="Filedata" data-form-data='{"type": "imageProject"}' multiple>
+                        </div>
+                        <em style="position: relative;top:-8px"><p
+                                class="titV2-P txsl2">查看示例</p>上传文件格式jpg或png，尺寸：690*360</em>
+                        <div class="scjd"   >
+                            <span>项目推广封面</span>
+                            <a target="_blank" href="https://file.mayiangel.com/">下载</a>
+                            <a href="" class="removeScjd">删除</a>
+                        </div>
+                    </td>
+
+                    <td class="txslTd">
+                        <div class="txslDiv2" style="left: -304px;top:3px;padding: 0;width: auto">
+                            <img src="https://static.mayiangel.com/www/images/e-big.jpg" alt="" style="max-width: none"/>
+                        </div>
+                    </td>
+
+                    <input id="bigLogo" type="hidden" name="bigLogo"
+                           value="">
+                </tr>
+
+            </table>
+
+            <div class="txt-z">
+                <label for="read"><input type="checkbox" name="check"
+                                         id="read"/><em class="fc3">我已详细阅读并同意<a href="">《创业项目众筹投资合作协议》</a>
+                </em></label>
+            </div>
+            <div class="error"></div>
+            <div class="btn-zz mb90">
+                <a href="/member/createProjectSummary.htm">上一步</a><a href="javascript:submit();"
+                                                                     class="a2">确认并提交申请</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span>
+<script type="text/javascript">
+    var urlImg = '/uploadImage.json';
+    var urlFile = '/uploadFile.json';
+
+    $(function () {
+        $('.upload-img').fileupload({
+            url: urlImg,
+            dataType: 'json',
+            fail: function (e, data) {
+
+                    $(this).closest("td").find(".scjd").find("span").html('上传失败');
+                    $(this).closest("td").find(".scjd").show();
+            },
+            done: function (e, data) {
+                // alert(this);
+
+                var url = (data.result.data);
+                var finalUrl = 'https://file.mayiangel.com/'+url;
+                 $(this).closest("tr").find("input[type='hidden']").attr("value", url);
+//                    $(this).closest("td").find(".scjd").find("span").html(url);
+                    $(this).closest("td").find(".scjd").find("a").attr("href",finalUrl);
+                    $(this).closest("td").find(".scjd").show();
+
+            }
+        }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+        $('.upload-avt').fileupload({
+            url: urlFile,
+            dataType: 'json',
+            fail: function (e, data) {
+                $(this).closest("td").find(".scjd").find("span").html('上传失败');
+                $(this).closest("td").find(".scjd").show();
+            },
+            done: function (e, data) {
+                // alert(this);
+
+                var url = (data.result.fileRelativePath);
+                // alert($(this).closest("tr").find("input[type='hidden']"));
+                $(this).closest("tr").find("input[type='hidden']").attr("value", url);
+                $(this).closest("td").find(".scjd").find("a").attr("href",'https://file.mayiangel.com/'+url);
+                $(this).closest("td").find(".scjd").show();
+
+            }
+        }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+
+    function uploadFileupload() {
+        $('.upload-pro-img').fileupload({
+            url: urlImg,
+            dataType: 'json',
+            fail: function (e, data) {
+                $(this).closest("dd").find(".scjd").find("span").html('上传失败');
+                $(this).closest("dd").find(".scjd").show();
+            },
+            done: function (e, data) {
+                var url = (data.result.data);
+                $(this).closest("dd").find("input[type='hidden']").attr("value", url);
+                $(this).closest("dd").find(".scjd").find("a").attr("href",'https://file.mayiangel.com/'+url);
+                $(this).closest("dd").find(".scjd").show();
+
+            }
+        }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+    }
+    uploadFileupload();
+
+    $("body").on("click",".removeScjd",function(){
+        if($(this).closest("dd").css("position")=="relative"){
+           // $(this).closest("dd").find(".scjd").find("span").html("")
+            $(this).closest("dd").find(".scjd").hide();
+            $(this).closest("dd").find("input[type=hidden]").removeAttr("value");
+        }else{
+            //$(this).closest("td").find(".scjd").find("span").html("")
+            $(this).closest("td").find(".scjd").hide();
+            $(this).closest("tr").find("input[type=hidden]").removeAttr("value");
+        }
+        return false;
+    })
+
+    $(".txsl").hover(function () {
+        $(".txslDiv").fadeIn(200)
+        return false;
+    }, function () {
+        $(".txslDiv").stop();
+        $(".txslDiv").fadeOut(200)
+    })
+
+    $(".txsl2").hover(function () {
+        $(".txslDiv2").fadeIn(200)
+        return false;
+    }, function () {
+        $(".txslDiv2").stop();
+        $(".txslDiv2").fadeOut(200)
+    })
+
+    $(".txsl3").hover(function () {
+        $(".txslDiv3").fadeIn(200)
+        return false;
+    }, function () {
+        $(".txslDiv3").stop();
+        $(".txslDiv3").fadeOut(200)
+    })
+
+    $(".txsl4").hover(function () {
+        $(".txslDiv4").fadeIn(200)
+        return false;
+    }, function () {
+        $(".txslDiv4").stop();
+        $(".txslDiv4").fadeOut(200)
+    })
+
+
+    $('body').on('click', '.x-z1', function () {
+        $(this).parents('dd').find(".x-z1-removeDiv").fadeIn(200);
+        return false;
+    })
+    $('body').on('click', '.x-z1-removeDivCAN', function () {
+        $(this).parents('.x-z1-removeDiv').fadeOut(200);
+        return false;
+    })
+    $('body').on('click', '.x-z1-removeDivOK', function () {
+        $(this).parents('dd').remove();
+        return false;
+    })
+
+    var imagesList=0;
+
+
+    $('body').on('click', '.add-pic', function () {
+        // var fn = $(".firstImgList").attr("name");
+        //imagesList = parseInt(fn.substring(11, 12));
+        imagesList++;
+        var element = '<dd style="position: relative"><div class="upload-avtDiv">点击上传项目图片<input class="upload-pro-img" type="file" name="Filedata" data-form-data=\'{\"type\":\"imageProject\"}\'  multiple>' +
+                '<div class="uploadImg"><p>点击重新上传</p></div>' +
+                '&nbsp;<a href="" class="z1 x-z1">删除</a>' +
+                '</div> ' +
+                ' <div class="scjd"><span>项目图片</span><a target="_blank" href="">下载</a><a href="" class="removeScjd">删除</a></div>'+
+                '<input type="hidden" name="imagesList[' + imagesList + '].imageUrl">' +
+                '<div class="x-z1-removeDiv" style="left: 52%"><h3>确定删除此项目图片？</h3>' +
+                '<button class="x-z1-removeDivOK">确定</button>' +
+                '<button class="x-z1-removeDivCAN">取消</button></div>'
+        '</dd>';
+        var dl = $('.dl-item-pic');
+        dl.append(element);
+        uploadFileupload();
+        return false;
+    });
+
+    //0:save 1:submit
+    function saveNow(a) {
+        $.post(
+                "/member/createProjectDoc.json",
+                $("#form").serialize(),
+                function (data) {
+                    if (data.succeed) {
+                        if (a == 0) {
+                            swal("保存成功", "", "success");
+                        }
+                        if (a == 1) {
+                            window.location.href = "/member/createdProjects.htm";
+                        }
+
+                    } else {
+                        swal("出错啦", data.msg, "error");
+                    }
+                }
+        );
+    }
+
+
+    function submit() {
+        if (($("#read").is(":checked"))) {
+            saveNow(1);
+        } else {
+            alert("请先阅读并同意协议。");
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

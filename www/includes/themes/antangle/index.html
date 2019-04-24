@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>蚂蚁天使 – 更专业的种子轮创投平台</title>
+    <link type="text/css" rel="stylesheet" href="css/flexslider.css"/>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <style>
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            border-radius: 100px;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -ms-transition: all .2s linear;
+            -o-transition: all .2s linear;
+            transition: all .2s linear;
+            background: #949494;
+            opacity: .6;
+        }
+
+        .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
+            margin: 0px 4px;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 24px;
+            background: #0b9eec;
+            opacity: 1;
+        }
+
+        .swiper-container-horizontal > .swiper-pagination {
+            text-align: center;
+            /*padding-right: 100px;*/
+        }
+
+        .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet:last-child {
+            /*margin-right: 100px;*/
+        }
+
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+            background-image: url("https://static.mayiangel.com/www/images/index-arrL.png");
+            width: 90px;
+            height: 90px;
+            background-size: 100%;
+            opacity: 0.7;
+            left: 40px;
+        }
+
+        .swiper-button-prev:hover, .swiper-container-rtl .swiper-button-next:hover {
+            opacity: 1;
+        }
+
+        .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+            background-image: url("https://static.mayiangel.com/www/images/index-arrR.png");
+            width: 90px;
+            height: 90px;
+            background-size: 100%;
+            opacity: 0.7;
+            right: 40px;
+        }
+
+        .swiper-button-next:hover, .swiper-container-rtl .swiper-button-prev:hover {
+            opacity: 1;
+        }
+    </style>
+
+
+    <style>
+        /*数字滚动插件的CSS可调整样式*/
+        .mt-number-animate {
+            font-family: '微软雅黑';
+            line-height: 40px;
+            height: 40px; /*设置数字显示高度*/;
+            font-size: 36px; /*设置数字大小*/
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+        }
+
+        .mt-number-animate .mt-number-animate-dot {
+            width: 14px; /*设置分割符宽度*/
+            line-height: 40px;
+            float: left;
+            text-align: center;
+        }
+
+        .mt-number-animate .mt-number-animate-dom {
+            width: 28px; /*设置单个数字宽度*/
+            text-align: center;
+            float: left;
+            position: relative;
+            top: 0;
+        }
+
+        .mt-number-animate .mt-number-animate-dom .mt-number-animate-span {
+            width: 100%;
+            float: left;
+        }
+
+        .fixFooter{
+            position: fixed;
+            bottom: 0px;
+            z-index: 9999999;
+            width: 100%;
+            opacity: 0.95;
+            background-color: black;
+        }
+        .cell{
+            margin:0 auto;
+            width: 1200px;
+        }
+        .close{
+            float: right;
+            margin-top: 1%
+        }
+
+    </style>
+
+</head>
+<body>
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li class="checkedLi"><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="https://www.huodongxing.com/event/1484818871600"> <img src="https://file.mayiangel.com/20190326/648e5985-e624-444b-95ed-fd96df71eeef.png" alt=""></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="https://www.mayiangel.com/mayicollege/news/179.htm"> <img src="https://file.mayiangel.com/20180531/6782ad84-765d-45c2-838c-518dcdabf959.png" alt=""></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="http://www.mayiangel.com/mayicollege/entrepreneur.htm"> <img src="https://file.mayiangel.com/20170828/b227da03-20f2-4a42-a453-8f5de67d0c14.jpg" alt=""></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="https://www.mayiangel.com/mayicollege/news/173.htm"> <img src="https://file.mayiangel.com/20170828/09858a40-c181-4918-a94b-77c4a6f417b2.jpg" alt=""></a>
+        </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="index-w2">
+    <div class="wp">
+        <ul class="w2-ul">
+            <li><i>认证投资人 <span><em class="numberRun4"></em></span></i></li>
+            <li><i>成功项目数 <span><em class="numberRun3"></em></span></i></li>
+            <li><i>融资金额 <span><em class="numberRun"></em></span></i></li>
+        </ul>
+    </div>
+</div>
+<!--有分隔符，有小数点：<div class="numberRun"></div> <br><br>-->
+<!--只有分隔符：<div class="numberRun2"></div> <br><br>-->
+<!--只有小数点：<div class=""></div> <br><br>-->
+<!--无分隔符，无小数点：<div class=""></div>-->
+
+
+<!-- banner下面 -->
+
+<div class="wp index-tBtn">
+    <a href="/member/createNewProject.htm">创建项目</a>
+    <a href="/member/normal/applyInvestor.htm">认证投资人</a>
+</div>
+<div class="wp" style="width: 1000px">
+    <a href="/project/projectinfo/2343.htm">
+        <div class="index-xm">
+            <span class="ywc" ></span>
+            <img src="https://file.mayiangel.com/20180516/fb4882f0-7169-4df1-badd-197432daa967.png" alt="">
+
+            <div class="xmR">
+                <h5>
+                    <i>电允超级快充</i><em>上海市</em></h5>
+                <h6>  让新零售配送人员用上充电快、价格便宜
+                    ...</h6>
+                <span>
+                我们公司是专注于为新零售行业配送人员提供电池租赁和快速充电服务的科技企业。长久以来，电瓶车电池充电慢、寿命短，浪费了大量的宝贵时间和金钱，这深深困扰着近千万名配送从业人员。他们亟需一款充电快、价格便宜
+                    ... 
+                </span>
+
+                <div class="progress">
+                    <span style="width:100%;"
+                          class="blue"><span>116.25%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>80万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>8%</span>出让股权
+                    <div class="fr"><span>11</span>人认购</div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="index-jxxm">
+    <div class="wp" style="width: 1104px">
+        <h3 class="newH3">精选项目<span>Selection project</span></h3>
+        <ul class="jx-ul">
+
+            <li class="fr" ><a href="/project/projectinfo/2905.htm">
+                <span
+                    class="yrz">
+
+                </span>
+                <h5>
+                    <i>坤晟互娱 </i>自制网感旅行纪录片 <em>上海市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180703/bdc02a92-5bf9-4331-9d8b-b2d34c27aecd.png" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  5%;"
+                          class="blue"><span>5%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>100万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>10%</span>出让股权
+                    <div class="fr"><span>1</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+
+            <li  ><a href="/project/projectinfo/2885.htm">
+                <span
+                    class="yrz">
+
+                </span>
+                <h5>
+                    <i>易电力 </i>基于数据分布式记账技术打造电力
+                    ... <em>厦门市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180627/0b5a459c-36f8-42bf-b9fe-f4b6d63da1b2.jpg" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  0%;"
+                          class="blue"><span>0%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>300万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>6%</span>出让股权
+                    <div class="fr"><span>0</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+
+            <li class="fr" ><a href="/project/projectinfo/2513.htm">
+                <span
+                    class="yrz">
+
+                </span>
+                <h5>
+                    <i>巧猪美业 </i>一个“小程序电商+营销拓客+店
+                    ... <em>上海市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180627/3e2608eb-76a5-4787-a695-cd50d2671327.jpg" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  0%;"
+                          class="blue"><span>0%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>200万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>10%</span>出让股权
+                    <div class="fr"><span>0</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+
+            <li  ><a href="/project/projectinfo/2598.htm">
+                <span
+                    class="yrz">
+
+                </span>
+                <h5>
+                    <i>森工生物 </i>做手术产品及手术机器人防护产品
+                    ... <em>南京市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180620/876e8c9f-a8c3-4961-bf2c-6e5c00aecb00.jpg" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  0%;"
+                          class="blue"><span>0%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>150万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>5%</span>出让股权
+                    <div class="fr"><span>0</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+
+            <li class="fr" ><a href="/project/projectinfo/2851.htm">
+                <span
+                     class="rcz"
+                    >
+
+                </span>
+                <h5>
+                    <i>星期五智能运动健  </i>基于智能运动健身器材的健身内容
+                    ... <em>珠海市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180604/556bfe9c-fd43-420c-bc56-3bbcea637897.jpg" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  10%;"
+                          class="blue"><span>10%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>100万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>10%</span>出让股权
+                    <div class="fr"><span>1</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+
+            <li  ><a href="/project/projectinfo/2778.htm">
+                <span
+                    class="yrz">
+
+                </span>
+                <h5>
+                    <i>鱿鱼租赁 </i>让有“信用”的人尽情乐享新潮时
+                    ... <em>上海市</em></h5>
+
+                <div class="jx-img-div">
+                    <img src="https://file.mayiangel.com/20180620/0a62301d-966c-4edc-9428-7becad49bf40.jpg" alt="">
+
+                </div>
+                <div class="progress">
+                    <span style="width:  0%;"
+                          class="blue"><span>0%</span></span>
+                </div>
+                <div class="progressFont">
+                    <span>500万</span>融资金额&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>12%</span>出让股权
+                    <div class="fr"><span>0</span>人认购</div>
+                </div>
+            </a>
+            </li>
+
+        </ul>
+        <button onclick="javascript:window.location.href='/project/project.htm'" class="index-more">MORE >></button>
+    </div>
+</div>
+<div class="tzr-title">
+    <div class="wp">
+        <h3 class="newH3">投资人<span>Investor</span></h3>
+
+        <a href="/allLeadingInventors.htm">
+            <div class="more-icon"></div>
+        </a>
+    </div>
+</div>
+<div class="index-tzr">
+    <div class="wp">
+        <ul>
+            <a href="/memberInfo/814.htm">
+                <li>
+                    <div class="tzr-header">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160630/b3371affa6e04429a833ac3fa479b990.jpg" alt="">
+                    </div>
+                    <p class="tzr-name">张菡</p>
+
+                    <p class="tzr-call">上海寸诚国际贸易有限公司董事长</p>
+
+                    <p class="tzr-mess">德归硕士
+机械工程师
+过去十年先后在德国和中国创办多家公司，涉足跨境
+                        ...</p>
+                </li>
+            </a>
+            <a href="/memberInfo/107.htm">
+                <li>
+                    <div class="tzr-header">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20150722/a574d55936dd4b13892dd43f44fe494e.jpg" alt="">
+                    </div>
+                    <p class="tzr-name">李悠扬</p>
+
+                    <p class="tzr-call">纽信创投 创始合伙人</p>
+
+                    <p class="tzr-mess">纽信创投创始合伙人，早年留学加拿大，并毕业于上海交通大学MBA，拥有多次
+                        ...</p>
+                </li>
+            </a>
+            <a href="/memberInfo/1153.htm">
+                <li>
+                    <div class="tzr-header">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20150719/5866f8fe3907450e963de6660720f3b1.jpg" alt="">
+                    </div>
+                    <p class="tzr-name">洪弈</p>
+
+                    <p class="tzr-call">新进创投合伙人</p>
+
+                    <p class="tzr-mess">新进创投是一家早期创业投资机构，主要投资新创业的拥有先进技术和先进思想的
+                        ...</p>
+                </li>
+            </a>
+            <a href="/memberInfo/121.htm">
+                <li>
+                    <div class="tzr-header">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20160630/a9c11de33b58484bb0eaa0df293dd138.jpg" alt="">
+                    </div>
+                    <p class="tzr-name">罗钥</p>
+
+                    <p class="tzr-call">苏河汇董事长</p>
+
+                    <p class="tzr-mess">2003年毕业于电子科技大学，计算机专业；
+2005年创立上海汉迭偌，
+                        ...</p>
+                </li>
+            </a>
+            <a href="/memberInfo/137.htm">
+                <li>
+                    <div class="tzr-header">
+                        <img src="https://file.mayiangel.com/imageUserHeadPath/20150719/7c98f8f0de734923b3222cd5caa34425.jpg" alt="">
+                    </div>
+                    <p class="tzr-name">刘叔</p>
+
+                    <p class="tzr-call">鼎创汇创始人</p>
+
+                    <p class="tzr-mess">青联委员
+上海市创业指导专家
+毕业于上海财经大学
+TMT连续创业1
+                        ...</p>
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+<div class="index-mydt">
+    <div class="wp" style="width: 1180px;padding-left: 80px;">
+        <h3 class="newH3">蚂蚁动态<span>Ant tendency</span></h3>
+        <ul>
+            <li>
+                <div class="mydt-time">
+                    <p class="day">19</p>
+                    <p class="week">
+APR                    </p>
+                </div>
+                <h3>  天使投资尽量当“猎手”，不要“广种薄...</h3>
+
+                <div class="mydt-content">
+                        
+                </div>
+
+                <a href="/mayicollege/news/189.htm">
+                    <div class="more-icon"></div>
+                </a>
+            </li>
+            <li>
+                <div class="mydt-time">
+                    <p class="day">19</p>
+                    <p class="week">
+APR                    </p>
+                </div>
+                <h3>  深度好文 | 如何帮助项目快速发展和...</h3>
+
+                <div class="mydt-content">
+                        
+                </div>
+
+                <a href="/mayicollege/news/188.htm">
+                    <div class="more-icon"></div>
+                </a>
+            </li>
+            <li>
+                <div class="mydt-time">
+                    <p class="day">19</p>
+                    <p class="week">
+APR                    </p>
+                </div>
+                <h3>  我们正在试图改变创业者自身的价值，「...</h3>
+
+                <div class="mydt-content">
+                        
+                </div>
+
+                <a href="/mayicollege/news/187.htm">
+                    <div class="more-icon"></div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<!--</div>-->
+<div class="bgf">
+    <div class="wp">
+        <div class="tit-a1 pt30">
+            <!--<h3>全方位助力</h3>-->
+        </div>
+
+        <dl class="ul-link-box">
+            <dt class="tit">知名创投机构：</dt>
+            <dd>
+                <ul class="ul-link">
+                    <li><a target="_blank" href="http://www.newgenvc.com/#!home/c13if">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/ccdc14e96b014d69946ab8cbfa94aae6.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www1.qingsongfund.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/004b02316d3049bf83fd3ce3a88d7b5c.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www.newsionvc.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/2c730fa0c77548bfb5552cb943df9e92.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www.ghvc.cn/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/245b24bac7c04a4f9c3e36ce406582c4.jpg" alt="">
+                        </div>
+                    </a></li> 
+                </ul>
+                <a href="/mayicollege/friendlyLink.htm" class="more">更多</a>
+            </dd>
+        </dl>
+        <dl class="ul-link-box">
+            <dt class="tit">优质孵化器：</dt>
+            <dd>
+                <ul class="ul-link">
+                    <li><a target="_blank" href="http://">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/e0b247c7d55445aaac1fbb7f77ab647a.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www.innospace.com.cn/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/093d37c89593453682258e121f2aabc2.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www.innoclub.cn/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/6e0bde80b97940c58e44b1b4ba524d76.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://chinaccelerator.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/48f05672a70b4a81ad7374936e7c8bac.jpg" alt="">
+                        </div>
+                    </a></li> 
+
+                </ul>
+                <a href="/mayicollege/friendlyLink.htm" class="more">更多</a>
+            </dd>
+        </dl>
+        <dl class="ul-link-box">
+            <dt class="tit">业内媒体：</dt>
+            <dd>
+                <ul class="ul-link">
+                    <li><a target="_blank" href="http://www.zczj.com">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20151113/9f7fd28750234e689b01f59fcd9f8584.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://itjuzi.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/0fd8eb26be384b128ec8e2aeaaf5d8da.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://cn.technode.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/b5b71385c92442239a7c515822e5cb60.jpg" alt="">
+                        </div>
+                    </a></li>                     <li><a target="_blank" href="http://www.tuoniao.fm/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20150719/b10988a20d7d4641b0cebb7cd616bb39.jpg" alt="">
+                        </div>
+                    </a></li> 
+                </ul>
+                <a href="/mayicollege/friendlyLink.htm" class="more">更多</a>
+            </dd>
+        </dl>
+        <dl class="ul-link-box">
+            <dt class="tit">专业法律支持：</dt>
+            <dd>
+                <ul class="ul-link">
+                    <li><a target="_blank" href="http://www.hiwayslaw.com/">
+                        <div class="pic">
+                            <img src="https://file.mayiangel.com/imageADPath/20151030/5961da9ac668406d82d2c0c908be7b04.jpg" alt="">
+                        </div>
+                    </a></li> 
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <div class="h30"></div>
+</div>
+<div class="go-top">
+    <div class="wp"><a href=""></a></div>
+</div>
+
+
+
+<!-- 底部 -->
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span><script type="text/javascript" src="js/flexslider.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<script type="text/javascript">
+
+    jQuery(".box-say").slide({mainCell: ".bd ul", autoPlay: true, interTime: 10000, effect: "left"});
+</script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        paginationClickable: true,
+        autoplay: 5000,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
+
+    })
+
+    function hbShow(){
+        $('.fixFooter').hide();
+    }
+</script>
+<script>
+    /**
+     *  by Mantou qq:676015863
+     *  数字滚动插件 v1.0
+     */
+    ;
+    (function ($) {
+        $.fn.numberAnimate = function (setting) {
+            var defaults = {
+                speed: 1000,//动画速度
+                num: "", //初始化值
+                iniAnimate: true, //是否要初始化动画效果
+                symbol: '',//默认的分割符号，千，万，千万
+                dot: 0 //保留几位小数点
+            }
+            //如果setting为空，就取default的值
+            var setting = $.extend(defaults, setting);
+
+            //如果对象有多个，提示出错
+            if ($(this).length > 1) {
+                alert("just only one obj!");
+                return;
+            }
+
+            //如果未设置初始化值。提示出错
+            if (setting.num == "") {
+                alert("must set a num!");
+                return;
+            }
+            var nHtml = '<div class="mt-number-animate-dom" data-num="{{num}}">\
+            <span class="mt-number-animate-span">0</span>\
+            <span class="mt-number-animate-span">1</span>\
+            <span class="mt-number-animate-span">2</span>\
+            <span class="mt-number-animate-span">3</span>\
+            <span class="mt-number-animate-span">4</span>\
+            <span class="mt-number-animate-span">5</span>\
+            <span class="mt-number-animate-span">6</span>\
+            <span class="mt-number-animate-span">7</span>\
+            <span class="mt-number-animate-span">8</span>\
+            <span class="mt-number-animate-span">9</span>\
+            <span class="mt-number-animate-span">.</span>\
+          </div>';
+
+            //数字处理
+            var numToArr = function (num) {
+                num = parseFloat(num).toFixed(setting.dot);
+                if (typeof(num) == 'number') {
+                    var arrStr = num.toString().split("");
+                } else {
+                    var arrStr = num.split("");
+                }
+                //console.log(arrStr);
+                return arrStr;
+            }
+
+            //设置DOM symbol:分割符号
+            var setNumDom = function (arrStr) {
+                var shtml = '<div class="mt-number-animate">';
+                for (var i = 0, len = arrStr.length; i < len; i++) {
+                    if (i != 0 && (len - i) % 3 == 0 && setting.symbol != "" && arrStr[i] != ".") {
+                        shtml += '<div class="mt-number-animate-dot">' + setting.symbol + '</div>' + nHtml.replace("{{num}}", arrStr[i]);
+                    } else {
+                        shtml += nHtml.replace("{{num}}", arrStr[i]);
+                    }
+                }
+                shtml += '</div>';
+                return shtml;
+            }
+
+            //执行动画
+            var runAnimate = function ($parent) {
+                $parent.find(".mt-number-animate-dom").each(function () {
+                    var num = $(this).attr("data-num");
+                    num = (num == "." ? 10 : num);
+                    var spanHei = $(this).height() / 11; //11为元素个数
+                    var thisTop = -num * spanHei + "px";
+                    if (thisTop != $(this).css("top")) {
+                        if (setting.iniAnimate) {
+                            //HTML5不支持
+                            if (!window.applicationCache) {
+                                $(this).animate({
+                                    top: thisTop
+                                }, setting.speed);
+                            } else {
+                                $(this).css({
+                                    'transform': 'translateY(' + thisTop + ')',
+                                    '-ms-transform': 'translateY(' + thisTop + ')', /* IE 9 */
+                                    '-moz-transform': 'translateY(' + thisTop + ')', /* Firefox */
+                                    '-webkit-transform': 'translateY(' + thisTop + ')', /* Safari 和 Chrome */
+                                    '-o-transform': 'translateY(' + thisTop + ')',
+                                    '-ms-transition': setting.speed / 1000 + 's',
+                                    '-moz-transition': setting.speed / 1000 + 's',
+                                    '-webkit-transition': setting.speed / 1000 + 's',
+                                    '-o-transition': setting.speed / 1000 + 's',
+                                    'transition': setting.speed / 1000 + 's'
+                                });
+                            }
+                        } else {
+                            setting.iniAnimate = true;
+                            $(this).css({
+                                top: thisTop
+                            });
+                        }
+                    }
+                });
+            }
+
+            //初始化
+            var init = function ($parent) {
+                //初始化
+                $parent.html(setNumDom(numToArr(setting.num)));
+                runAnimate($parent);
+            };
+
+            //重置参数
+            this.resetData = function (num) {
+                var newArr = numToArr(num);
+                var $dom = $(this).find(".mt-number-animate-dom");
+                if ($dom.length < newArr.length) {
+                    $(this).html(setNumDom(numToArr(num)));
+                } else {
+                    $dom.each(function (index, el) {
+                        $(this).attr("data-num", newArr[index]);
+                    });
+                }
+                runAnimate($(this));
+            }
+            //init
+            init($(this));
+            return this;
+        }
+    })(jQuery);
+
+    $(function () {
+
+        //初始化
+        var numRun = $(".numberRun").numberAnimate({num: '52248000', dot: 0, speed: 2000, symbol: ","});
+//        var nums = 2305;
+//        setInterval(function () {
+//            //nums += 3433.24;
+//            numRun.resetData(nums);
+//        }, 3000);
+
+        var numRun3 = $(".numberRun3").numberAnimate({num: '55', dot: 0, speed: 2000});
+//        var nums3 = 78.3;
+//            setInterval(function(){
+//                nums3+= 454.521;
+//                numRun3.resetData(nums3);
+//            },4000);
+
+        var numRun4 = $(".numberRun4").numberAnimate({num: '2306', speed: 2000});
+//        var nums4 = 1121;
+//            setInterval(function(){
+//                nums4+= 682;
+//                numRun4.resetData(nums4);
+//            },3500);
+
+    });
+
+
+</script>
+</body>
+</html>

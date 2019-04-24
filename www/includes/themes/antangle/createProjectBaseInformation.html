@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/jquery.form-validator.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            min-height: 780px;
+        }
+    </style>
+
+</head>
+<body>
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+<div class="wp topline">
+    <div class="tit-a1">
+        <h3>创业项目</h3>
+    </div>
+    <div class="setup-step">
+        <ul>
+            <li class="s1 on">项目基本信息</li>
+            <li class="s2">团队成员</li>
+            <li class="s3">填写项目概要</li>
+            <li class="s4">完善项目材料</li>
+        </ul>
+    </div>
+    <div class="tit-a5">
+        项目基本信息<font style="font-size: 13px;margin-left: 10px">（ * 为必填 ）</font>
+    </div>
+    <div class="box-table-za box-table-za2 pt25">
+        <form id="form" action="./createProjectBaseInformation.html"
+              method="post">
+
+
+            <ul class="zxXXX">
+                <li>蚂蚁天使专注于种子轮项目的投资，我们希望项目的特点是：</li>
+                <li><font>小：</font>估值2500万以下</li>
+                <li><font>新：</font>创新与高成长潜力</li>
+                <li><font>鲜：</font>成立时间不超过18个月</li>
+                <li>以下填写的文字非常重要，是投资人判断项目的重要依据，可以提高融资效率，每一项都请认真填写！
+                </li>
+            </ul>
+            <table>
+                <tr>
+                    <td><strong>* 项目名称：</strong></td>
+                    <td><input type="text" data-validation="nomessage" name="name" value="" id=""
+                               class="txt txt2" placeholder="项目名称，最多10字"/></td>
+                </tr>
+                <tr>
+                    <td><strong>* 一句话介绍：</strong></td>
+                    <td><input type="text" data-validation="nomessage" name="shortSentence" id=""
+                               value="" class="txt txt2" placeholder="一句话介绍你的项目，最多20字"/></td>
+                </tr>
+
+
+                <tr>
+
+                    <td><strong>* 所在地区：</strong></td>
+                    <td><select id="receipt_area_province"
+                                value="" name="cityFirstId"
+                                data-id="" onchange="loadCitySecond(this.value);">
+                    </select> <select id="receipt_area_city" name="citySecondId"
+                                      value="" data-id=""
+                                      onchange="loadCity();">
+                    </select> <input type="hidden" id="cityFirstName" name="cityFirstName"></input>
+                        <input type="hidden" id="citySecondName" name="citySecondName"></input></td>
+
+                </tr>
+                <tr>
+                    <td><strong>* 所属行业：</strong></td>
+                    <td><select name="projectindustry" value=""> <option value="0">无</option> 
+                        <option 
+                                value="1">人工智能</option>
+                    
+                        <option 
+                                value="2">硬件</option>
+                    
+                        <option 
+                                value="3">软件工具</option>
+                    
+                        <option 
+                                value="4">社交</option>
+                    
+                        <option 
+                                value="5">企业服务</option>
+                    
+                        <option 
+                                value="6">新技术</option>
+                    
+                        <option 
+                                value="7">教育</option>
+                    
+                        <option 
+                                value="8">医疗</option>
+                    
+                        <option 
+                                value="9">金融</option>
+                    
+                        <option 
+                                value="10">房产家居</option>
+                    
+                        <option 
+                                value="11">交通出行</option>
+                    
+                        <option 
+                                value="12">物流</option>
+                    
+                        <option 
+                                value="13">电子商务</option>
+                    
+                        <option 
+                                value="14">共享经济</option>
+                    
+                        <option 
+                                value="15">消费生活</option>
+                    
+                        <option 
+                                value="16">体育</option>
+                    
+                        <option 
+                                value="17">文化娱乐</option>
+                    
+                        <option 
+                                value="18">媒体广告</option>
+                    
+                        <option 
+                                value="19">游戏动漫</option>
+                    
+                        <option 
+                                value="20">旅游</option>
+                    
+                        <option 
+                                value="21">能源环保</option>
+                    
+                        <option 
+                                value="22">农业</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td><strong>* 教育背景：</strong></td>
+                    <td><select name="projecteducation">  <option value="0">其他</option>     
+                        <option 
+                                value="1">学霸创业</option>
+                    
+                        <option 
+                                value="2">普通大学</option>
+                    
+                        <option 
+                                value="3">海归</option>
+                    
+                        <option 
+                                value="4">985</option>
+                    
+                        <option 
+                                value="5">211</option>
+                    
+                        <option 
+                                value="6">双一流</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td><strong>* 工作背景：</strong></td>
+                    <td><select name="projectwork">   <option value="0">其他</option>    
+                        <option 
+                                value="1">高管创业</option>
+                    
+                        <option 
+                                value="2">业内资深</option>
+                    
+                        <option 
+                                value="3">技术大牛</option>
+                    
+                        <option 
+                                value="4">BATJ背景</option>
+                    
+                        <option 
+                                value="5">连续创业者</option>
+                    
+                        <option 
+                                value="6">成功创业者</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td><strong>* 项目进展：</strong></td>
+                    <td><select name="projectprocess">   <option value="0">无</option>    
+                        <option 
+                                value="1">想法创意</option>
+                    
+                        <option 
+                                value="2">研发中</option>
+                    
+                        <option 
+                                value="3">上线运营</option>
+                    
+                        <option 
+                                value="4">已有收入</option>
+                    
+                        <option 
+                                value="5">盈亏平均</option>
+                    
+                        <option 
+                                value="6">快速成长</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td><strong>* 年龄：</strong></td>
+                    <td><select name="projectage">  <option value="0">其他</option>    
+                        <option 
+                                value="1">70后</option>
+                    
+                        <option 
+                                value="2">80后</option>
+                    
+                        <option 
+                                value="3">85后</option>
+                    
+                        <option 
+                                value="4">90后</option>
+                    
+                        <option 
+                                value="5">95后</option>
+                    
+                        <option 
+                                value="6">00后</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td><strong>* 融资金额：</strong></td>
+                    <td><select name="projectmoney">  <option value="0">无</option>    
+                        <option 
+                                 value="1">1-50万</option>
+                    
+                        <option 
+                                 value="2">51-100万</option>
+                    
+                        <option 
+                                 value="3">101-200万</option>
+                    
+                        <option 
+                                 value="4">201-500万</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td valign='top'><strong class="pt15">* 融资信息：</strong></td>
+                    <td>
+                        <div class="link">
+                            <p class="l">融资 <input data-validation="nomessage" type="text" name="targetInvestment"
+                                                   value=" "
+                                                   id="in-a" class="rzInput txt txt3">万元 <span
+                                    style="font-size: 14px"></span></p>
+                            <p class="r">估值 <input data-validation="nomessage"
+                                                   type="text"
+                                                   name="" id="in-b" class="gzInput txt txt3">万元 <span
+                                    style="font-size: 14px"></span></p>
+                            <input id="stock" type="hidden" name="stock" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign='top'><strong class="">出让股份比例：</strong></td>
+                    <td style="padding-bottom: 40px">
+                        <span class="crgfbl"
+                              style="font-size: 18px;color: #00a0e9">
+                            0% </span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="error"></div>
+        </form>
+    </div>
+    <div class="btn-zz btn-zz1 mb90">
+        <a class="validation-submit" href="javascript:submit();">下一步：填写团队成员</a>
+    </div>
+</div>
+
+<div id="pop-ping" class="pop-ping pop-pay" style="width: 450px">
+    <div class="pad" style="padding: 43px 20px;">
+        <a class="pop-x x" href=""></a>
+        <h3 class="c-c7" style="color: red;font-size: 22px">你还有项目草稿，是否要继续编辑？</h3>
+        <div class="h60"></div>
+        <a href="javascript:void(0)" class="pop-btn-return x"
+           style="background: #ff9a01;color: #ffffff;width: 187px;border: 1px solid #ff9a01;">是，继续编辑</a>
+        <a href="javascript:delProjectCache()" class="pop-btn-return x"
+           style="width: 187px;border: 1px solid #00a0e9;color:#00a0e9 ">否，舍弃草稿重新创新</a>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+
+	<script type="text/javascript">
+
+
+    $.validate({
+        modules: 'toggleDisabled',
+        showErrorDialogs: true
+    });
+
+
+
+    $(".gzInput,.rzInput").keyup(function () {
+        var rz = parseInt($(".rzInput").val());
+        var gz = parseInt($(".gzInput").val());
+        var result = Math.round((rz / gz) * 100 * 100) / 100;
+        $(".crgfbl").html(result + "%");
+        $("#stock").val(result);
+        if ($(".crgfbl").html() == "NaN%" || $(".crgfbl").html() == "Infinity%") {
+            $(".crgfbl").html("0%")
+        }
+    })
+
+    var Pop = (function () {
+        var popVer = function (modal_id) {
+            var overlay = $("<div id='lean_overlay'></div>");
+            $("body").append(overlay);
+            $("#lean_overlay").fadeTo(200, .8);
+            var modal_height = $(modal_id).outerHeight();
+            var modal_width = $(modal_id).outerWidth();
+            $(modal_id).css({
+                "display": "block",
+                "position": "fixed",
+                "opacity": 0,
+                "z-index": 11000,
+                "left": 50 + "%",
+                "top": 50 + "%",
+                "margin-left": -(modal_width / 2) + "px",
+                "margin-top": -(modal_height / 2) + "px",
+            });
+            $(modal_id).fadeTo(200, 1);
+        }
+        var closePop = function (modal_id) {
+            $(modal_id).fadeOut();
+            $("#lean_overlay").fadeOut();
+        }
+        $('.x').click(function () {
+            closePop('.pop-pay');
+            //return false;
+        });
+        return {
+            popVer: popVer
+        };
+    })();
+
+
+    function delProjectCache() {
+        $.post(
+                "/member/delProjectCache.json",
+                function (data) {
+                    if (data.succeed) {
+                        window.location.href = window.location.href;
+                    } else {
+                        console.error(data.msg);
+                    }
+                }
+        );
+    }
+
+    function submit() {
+        $("#form").submit();
+    }
+
+    $(function () {
+        loadCityFirst();
+    });
+
+    function loadCity() {
+        $("#citySecondName").val(
+                $("#receipt_area_city option:selected").text());
+    }
+
+    function loadCityFirst() {
+        $
+                .ajax({
+                    url: "https://www.mayiangel.com/getCityFirst.json",
+                    dataType: "json",
+                    success: function (message) {
+                        var options;
+                        for (var i = 0; i < message.length; i++) {
+                            var value = message[i].id;
+                            var text = message[i].name;
+                            if (value == '') {
+                                options += "<option value=" + value
+                                        + " selected='selected'>"
+                                        + text + "</option>";
+                            } else {
+                                options += "<option value=" + value + ">"
+                                        + text + "</option>";
+                            }
+                        }
+
+                        $("#receipt_area_province").html(options);
+                        loadCitySecond("");
+                    }
+                });
+    }
+
+    function loadCitySecond(id) {
+        if (id == "") {
+            id = $("#receipt_area_province").val();
+        }
+        $
+                .ajax({
+                    url: "/getCitySecond.json?parentId=" + id,
+                    dataType: "json",
+                    success: function (message) {
+                        var options;
+                        for (var i = 0; i < message.length; i++) {
+                            var value = message[i].id;
+                            var text = message[i].name;
+                            if (value == '') {
+                                options += "<option value=" + value
+                                        + " selected='selected'>"
+                                        + text + "</option>";
+                            } else {
+                                options += "<option value=" + value + ">"
+                                        + text + "</option>";
+                            }
+                        }
+
+                        $("#receipt_area_city").html(options);
+                        $("#cityFirstName").val(
+                                $("#receipt_area_province option:selected")
+                                        .text());
+                        $("#citySecondName").val(
+                                $("#receipt_area_city option:selected")
+                                        .text());
+                    }
+                });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="你猜猜这个是啥" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <link rel="stylesheet" href="https://static.mayiangel.com/www/css/jquery.datetimepicker.css"/>
+
+    <script src="https://static.mayiangel.com//wap/js/upload/vendor/jquery.ui.widget.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.iframe-transport.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.fileupload.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/jquery.form-validator.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            min-height: 780px;
+        }
+
+        .box-table-clone {
+            /*border: 1px solid red;*/
+        }
+
+        .tx415 > div {
+            width: 150px !important;
+            height: 140px !important;
+        }
+
+
+        .yccSpan {
+            position: absolute;
+            left: 100%;
+            margin-left: -143px;
+            margin-top: -34px;
+            top: 100%;
+            width: 100px !important;
+            font-size: 12px !important;
+
+        }
+
+        .yccSpan i {
+            font-style: normal;
+            font-size: 14px !important;
+            padding: 0 3px;
+            color: red;
+        }
+
+        .click-clone-add:hover {
+            background: #ffb323;
+        }
+
+        .click-clone-add {
+            cursor: pointer
+        }
+
+        .uploadImg{
+            height: 160px;
+            width: 160px;
+            overflow: hidden;
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            z-index: 9;
+            line-height: 160px;
+            text-align: center;
+            display: none;
+            background: white;
+            overflow: hidden;
+            border-radius: 100%;
+        }
+        .upload-avtDiv:hover p{
+            opacity: 1;
+        }
+        .uploadImg p{
+            position: absolute;
+            z-index: 10;
+            color: #FF9A00;
+            width: 100%;
+            font-size: 16px;
+            height: 100%;
+            opacity: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .uploadImg img{
+            width: 100%;
+            height: 100%;
+            /*height: auto;*/
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
+        }
+        .upload-avtDiv{
+            height: 160px;
+            width: 160px;
+            background: url("https://static.mayiangel.com/www/images/415tx.png") no-repeat;
+            background-size: 100% 100%;
+            line-height: 160px;
+            text-align: center;
+            font-size: 14px;
+            color: #c3c3c3;
+            position: relative;
+            cursor: pointer;
+            /*display: none;*/
+            /*border: 1px solid red;*/
+        }
+        .upload-avtDiv:hover{
+            color: #ffb323;
+        }
+        input.upload-avt{
+            position: absolute;
+            top:0;
+            left: 0;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 9999;
+            height: 160px;
+            width: 160px;
+            line-height: 160px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+<div class="wp topline">
+    <div class="tit-a1">
+        <h3>创业项目</h3>
+    </div>
+    <div class="setup-step">
+        <ul>
+            <li class="s1">项目基本信息</li>
+            <li class="s2 on">团队成员</li>
+            <li class="s3">填写项目概要</li>
+            <li class="s4">完善项目材料</li>
+        </ul>
+    </div>
+    <form id="form">
+        <div class="box-table-za box-table-za3">
+
+
+            <div class="box-table-clone">
+                <div class="tit-a5" style="margin-top: 20px">
+                    团队成员 <font style="font-size: 13px">（*为必填项）至少填写两名成员</font>
+                    <a class="tit-a5-a" href="javascript:saveNow()">立即保存</a>
+                </div>
+                <table>
+                    <tr>
+                        <td><strong>* 姓名：</strong></td>
+                        <td><input data-validation="nomessage" type="text" name="" value="" id="" class="txt txt2" dataName="name"
+                                   placeholder="真实姓名"/><span>* 年龄：</span><input data-validation="nomessage"
+                                type="text" name="" value="" id="" class="txt txt2" dataName="age" placeholder="年龄"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>* 职位：</strong></strong>
+                        </td>
+                        <td>
+                            <input data-validation="nomessage" type="text" name="" id="" class="txt txt2"
+                                   placeholder="具体职位" dataName="position"/><span>股份占比：</span><input
+                                type="text" name="" id="" style="width: 200px" class="txt txt2" dataName="stock"
+                                placeholder="百分比"/><span
+                                style="width: auto;margin-left: 10px">%股</span>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td valign="top"><strong class="pt15">* 头像：</strong></td>
+                        <td class="tx415" style="padding: 0 0 10px">
+                            <div class="upload-avtDiv" >
+                                点击选择头像上传
+                                <input class="upload-avt"  type="file" name="Filedata"    data-form-data='{"type": "imageHead"}'  multiple>
+                                <input name="" type="hidden" data-validation="nomessage" dataName="headImage">
+                                <div class="uploadImg">
+                                    <p>点击重新上传</p>
+                                    <img src="images/1.pic_hd.jpg" alt="">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top"><strong class="pt15">* 个人简介：</strong></td>
+                        <td style="position: relative"><textarea data-validation="nomessage" name="" id="yccText" cols="30" dataName="introduce"
+                                                                 rows="10" maxlength=""
+                                                                 placeholder="简单介绍下你自己，最少20字"></textarea>
+                            <span class="yccSpan" style="display: none;">已超出<i>10</i>字</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="txslTd"><a  class="txsl">填写示例</a>
+
+                            <div class="txslDiv">
+                                <h3>填写示例</h3>
+
+                                <p>
+                                    11年市场营销工作经历，2010年开始从事互联网，专职产品和市场营销领域，最早一批的O2O践行者。 2014年头加入爱代驾，在爱代驾3000单/日不破半年情况下，通过架构调整，人员布局和市场策略，快速将业务增长到年底12000单/日，并持续每月20-30%的环比增长！ 曾服务过的品牌：可口可乐、康宝莱、百胜集团-KFC、面包新语-Breadtalk等。
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top"><strong class="pt20">* 教育经历：</strong></td>
+                        <td class="pt15">
+                            <dl class="m4-z">
+                                <dt>
+                                    <b class="s0">起止时间</b>
+                                    <b class="s2">学校</b>
+                                    <b class="s3">专业</b>
+                                    <b>学历</b>
+                                </dt>
+                                <dd style="position: relative" sIndex="0">
+                                    <input type="text" name="start0" dataName="startTime"
+                                           style="width: 110px;padding-left: 0" id=""
+                                           class="txt txt3 school date"> -
+                                    <input type="text" name="start0" dataName="endTime"
+                                           style="width: 110px;padding-left: 0" id=""
+                                           class="txt txt3 school date">
+                                    <input type="text" style="padding-left: 0" name="school" id="" dataName="school"
+                                           class="txt txt4 school">
+                                    <input type="text" style="padding-left: 0" name="major" id="" dataName="major"
+                                           class="txt txt5 school">
+                                    <select style="padding-left: 0" name="job0" id="" dataName="diploma"
+                                            class="txt txt6 school">
+                                        <option value=""></option>
+                                        <option value="高中">高中</option>
+                                        <option value="大专">大专</option>
+                                        <option value="本科">本科</option>
+                                        <option value="研究生">研究生</option>
+                                        <option value="博士">博士</option>
+                                    </select>
+                                    <a class="x-z1" href="">删除</a>
+
+                                    <div class="x-z1-removeDiv">
+                                        <h3>确定删除此教育经历？</h3>
+                                        <button class="x-z1-removeDivOK">确定</button>
+                                        <button class="x-z1-removeDivCAN">取消</button>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="c"></div>
+                            <a style="cursor: pointer" class="z1" onclick="z1Click(this)">添加教育经历+</a>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td><strong class="pt4">* 工作经历：</strong></td>
+                        <td>
+                            <dl class="m4-z">
+                                <dt>
+                                    <b class="s0">起止时间</b>
+                                    <b class="s2">公司</b>
+                                    <b class="s3">部门</b>
+                                    <b>职位</b>
+                                </dt>
+                                <dd style="position: relative" gIndex="0">
+                                    <input type="text" name="start0" dataName="startTime"
+                                           style="width: 110px;padding-left: 0" id=""
+                                           class="txt txt3 work date"> -
+                                    <input type="text" name="start0" dataName="endTime"
+                                           style="width: 110px;padding-left: 0" id=""
+                                           class="txt txt3 work date">
+                                    <input type="text" style="padding-left: 0" name="" id="" dataName="company"
+                                           class="txt txt4 work">
+                                    <input type="text" style="padding-left: 0" name="" id="" dataName="department"
+                                           class="txt txt5 work">
+                                    <input type="text" style="padding-left: 0" name="" id="" dataName="position"
+                                           class="txt txt6 work">
+                                    <a class="x-z1" href="">删除</a>
+
+                                    <div class="x-z1-removeDiv">
+                                        <h3>确定删除此教育经历？</h3>
+                                        <button class="x-z1-removeDivOK">确定</button>
+                                        <button class="x-z1-removeDivCAN">取消</button>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="c"></div>
+                            <a style="cursor: pointer" class="z1" onclick="z1Click(this)">添加工作经历+</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="cloneAddDiv"></div>
+
+
+            <div class="tit-a5 mt20 click-clone-add">
+                点击新增一名团队成员</font>
+            </div>
+
+
+            <div class="btn-zz mb90"><a href="/member/createProjectBaseInformation.htm">上一步</a> <a  id="submit" href="javascript:$('#form').submit()"  class="a2 disabled validation-submit">下一步：填写项目概要</a>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+
+
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span><script type="text/javascript" src="https://static.mayiangel.com/www/js/jquery.datetimepicker.js"></script>
+<script>
+
+//    function positionImg(){
+//        var uh=$(".uploadImg img").height();
+//        var uw=$(".uploadImg img").width();
+//        if(uh<=uw){
+//            $(".uploadImg img").css("height","100%");
+//            $(".uploadImg img").css("width","auto");
+//            uh=$(".uploadImg img").height();
+//            uw=$(".uploadImg img").width();
+//            $(".uploadImg img").css("marginLeft",-uw/2);
+//            $(".uploadImg img").css("marginTop",-uh/2);
+//        }else{
+//            $(".uploadImg img").css("marginLeft",-uw/2);
+//            $(".uploadImg img").css("marginTop",-uh/2);
+//        }
+//    }
+
+
+    uploadFileupload();
+
+    $.validate({
+        modules: 'toggleDisabled',
+        showErrorDialogs: true
+    });
+
+       function uploadFileupload(){
+            var url = '/uploadImage.json';
+            $('.upload-avt').fileupload({
+                url: url,
+                dataType: 'json',
+                fail: function (e, data) {
+                    // $(this).after('<p>Test</p>');
+                    console.info(data);
+                    //console.info(data._respone.jqXHR.responseText);
+
+                    swal(
+                            "上传失败","", "error"
+                    );
+                },
+                done: function (e, data) {
+                    // alert(this);
+                    var url = (data.result.data);
+                    $(this).closest(".box-table-clone").find(".uploadImg").find("img").attr("src",'https://file.mayiangel.com/'+url);
+                    $(this).closest(".box-table-clone").find(".uploadImg").show();
+                    $(this).closest(".box-table-clone").find("input[type='hidden']").attr("value",url);
+                  // positionImg();
+                   // console.info(data);
+
+                }
+            }).prop('disabled', !$.support.fileInput)
+                    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+        }
+
+
+
+    //    422
+    initAllInput();
+    function initAllInput() {
+        var groupIndex = 0;
+        $(".box-table-clone").each(function (i) {
+            $(this).find("input[type='text'],input[type='hidden'],textarea,select").each(function (ii) {
+                if ($(this).hasClass("school")) {
+                    var ti = $(this).closest("dd").attr("sIndex");
+                    var td = $(this).attr("dataname");
+                    $(this).attr("name", "teams[" + i + "].college[" + ti + "]." + td);
+                } else if ($(this).hasClass("work")) {
+                    var ti = $(this).closest("dd").attr("gIndex");
+                    var td = $(this).attr("dataname");
+                    $(this).attr("name", "teams[" + i + "].works[" + ti + "]." + td);
+                } else {
+                    var td = $(this).attr("dataname")
+                    $(this).attr("name", "teams[" + i + "]." + td);
+                }
+            })
+        })
+    }
+
+
+    var i = 1;
+    $(".click-clone-add").bind("click", function () {
+        var cloneA;
+        var btcL = $(".box-table-clone").length - 1;
+        i++;
+        $(".box-table-clone").each(function (i) {
+            if (i == btcL) {
+                cloneA = $(this).clone();
+            }
+        })
+        cloneA.find("input").val("");
+        cloneA.find("textarea").val("");
+        cloneA.find(".addDD").remove();
+        cloneA.find(".tit-a5").html('团队成员' +
+                '<a class="tit-a5-a" onclick="removeCyt(this)" style="cursor: pointer">删除成员</a>')
+        cloneA.removeClass("Cy" + (i - 1))
+        cloneA.addClass("Cy" + i)
+        $(".cloneAddDiv").before(cloneA);
+        initAllInput();
+        dataInit();
+        uploadFileupload();
+        cloneA.find(".uploadImg").find("img").attr("src","");
+        cloneA.find(".uploadImg").hide();
+        $.validate({
+            modules: 'toggleDisabled',
+            showErrorDialogs: true
+        });
+        return false;
+    })
+    function removeCyt(obj) {
+        $(obj).closest(".box-table-clone").remove();
+
+        return false;
+    }
+
+
+    $("#yccText").keyup(function () {
+        if ($(this).val().length > 500) {
+            $(".yccSpan").show().find("i").html($(this).val().length - 500)
+        } else {
+            $(".yccSpan").hide().find("i").html("0")
+        }
+    })
+    dataInit();
+    function dataInit() {
+        $(".date").datetimepicker({
+            yearOffset: 0,
+            lang: 'ch',
+            timepicker: false,
+            format: 'Y-m-d',
+            formatDate: 'Y/m/d',
+            minDate: '1950/01/01', // yesterday is minimum date
+            maxDate: '2020/01/02' // and tommorow is maximum date calendar
+        });
+    }
+
+    var sIndex = 1;
+    var gIndex = 1;
+    function z1Click(obj) {
+        if ($(obj).html() == "添加教育经历+") {
+            var tr = $(obj).closest('tr');
+            var dl = tr.find('dl');
+            var clone = tr.find('dd:eq(0)').clone();
+            var dd = tr.find('dd').last();
+            sIndex = parseInt(dd.attr("sindex"))+1;
+            clone.attr("sIndex", sIndex)
+            clone.find('input').val('').end().appendTo(dl).addClass('clone');
+            clone.find('.x-z1').show();
+            clone.addClass("addDD")
+            initAllInput();
+            dataInit();
+            sIndex++
+            return false;
+        } else {
+            var tr = $(obj).closest('tr');
+            var dl = tr.find('dl');
+            var clone = tr.find('dd:eq(0)').clone();
+            var dd = tr.find('dd').last();
+            gIndex = parseInt(dd.attr("gindex"))+1;
+            clone.attr("gIndex", gIndex)
+            clone.find('input').val('').end().appendTo(dl).addClass('clone');
+            clone.find('.x-z1').show();
+            clone.addClass("addDD")
+            initAllInput();
+            dataInit();
+            gIndex++
+            return false;
+        }
+    }
+    ;
+    $('body').on('click', '.clone .x-z1', function () {
+        $(this).parents('dd').find(".x-z1-removeDiv").fadeIn(200);
+//        alert($(this).parents('dd').find(".x-z1-removeDiv").length)
+        return false;
+    })
+    $('body').on('click', '.clone .x-z1-removeDivCAN', function () {
+        $(this).parents('.x-z1-removeDiv').fadeOut(200);
+        return false;
+    })
+    $('body').on('click', '.clone .x-z1-removeDivOK', function () {
+        $(this).parents('dd').remove();
+        return false;
+    })
+
+
+    $(".txsl").hover(function () {
+        $(this).parent().find(".txslDiv").fadeIn(200)
+        return false;
+    }, function () {
+        $(".txslDiv").stop();
+        $(".txslDiv").fadeOut(200)
+    })
+    $(window).click(function () {
+        $(".txslDiv").fadeOut(200)
+        $(".txslDiv").click(function () {
+            event.stopPropagation()
+            return false;
+        })
+    })
+
+    function submitForm() {
+        if($("#submit").hasClass("disabled")){
+            $.validate({
+                modules: 'toggleDisabled',
+                showErrorDialogs: true
+            });
+            return false;
+        } else{
+
+        }
+    }
+
+
+    $('#form').on('submit',function(){
+        if(!$("#submit").hasClass("disabled")){
+            $.post(
+                    "/member/createProjectTeams.json",
+                    $('#form').serialize(),
+                    function (data) {
+                        if(data.succeed){
+                            window.location.href = "/member/createProjectSummary.htm";
+                        }
+                    }
+            );
+        }
+        return false;
+    });
+
+    function saveNow() {
+        $.post(
+                "/member/createProjectTeams.json",
+                $('#form').serialize(),
+                function (data) {
+                    if(data.succeed){
+                          swal( "保存成功", "" ,
+                                        "success"
+                          );
+                    }
+                }
+        );
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/vendor/jquery.ui.widget.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.iframe-transport.js"></script>
+    <script src="https://static.mayiangel.com//wap/js/upload/jquery.fileupload.js"></script>
+
+    <script src="https://static.mayiangel.com//wap/js/jquery.form-validator.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            min-height: 780px;
+        }
+
+        .yccSpan {
+            position: absolute;
+            left: 100%;
+            margin-left: -143px;
+            margin-top: -34px;
+            top: 100%;
+            width: 100px !important;
+            font-size: 12px !important;
+
+        }
+
+        .yccSpan i {
+            font-style: normal;
+            font-size: 14px !important;
+            padding: 0 3px;
+            color: red;
+        }
+
+        .click-clone-add:hover {
+            background: #ffb323;
+        }
+
+        .click-clone-add {
+            cursor: pointer
+        }
+        .fileupload{
+
+        }
+        .uploadImg{
+            height: 160px;
+            width: 230px;
+            overflow: hidden;
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            z-index: 9;
+            line-height: 160px;
+            text-align: center;
+            display: none;
+            background: white;
+        }
+        .upload-avtDiv:hover p{
+            opacity: 1;
+        }
+        .uploadImg p{
+            position: absolute;
+            z-index: 10;
+            color: #FF9A00;
+            width: 100%;
+            font-size: 16px;
+            height: 100%;
+            opacity: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .uploadImg img{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .upload-avtDiv{
+            height: 160px;
+            width: 230px;
+            background: url("https://static.mayiangel.com/www/images/yyzzrz.png") no-repeat;
+            background-size: 80% 80%;
+            background-position: center;
+            line-height: 160px;
+            text-align: center;
+            font-size: 14px;
+            color: #c3c3c3;
+            position: relative;
+            cursor: pointer;
+            /*display: none;*/
+            /*border: 1px solid red;*/
+        }
+        .upload-avtDiv:hover{
+            color: #ffb323;
+        }
+        input.upload-avt{
+            border: 1px solid red;
+            position: absolute;
+            top:0;
+            left: 0;
+            cursor: pointer;
+            background: red;
+            opacity: 0;
+            z-index: 9999;
+            height: 160px;
+            width: 160px;
+            line-height: 160px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li >全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+
+<div class="wp topline">
+    <div class="tit-a1">
+        <h3>创业项目</h3>
+    </div>
+    <div class="setup-step">
+        <ul>
+            <li class="s1">项目基本信息</li>
+            <li class="s2">团队成员</li>
+            <li class="s3 on">填写项目概要</li>
+            <li class="s4">完善项目材料</li>
+        </ul>
+    </div>
+    <div class="tit-a5">
+        项目概要<font style="font-size: 13px">（*为必填项）<a class="tit-a5-a validation-submit"  href="javascript:saveNow(0)">立即保存</a></font>
+    </div>
+    <div class="box-table-za box-table-za3 box-table-za31 pt25">
+        <form id="form" action="/member/createProjectSummary.htm" method="post">
+            <table>
+                <tr>
+                    <td><strong>* 公司名称：</strong></td>
+                    <td><input data-validation="nomessage" data-validation="nomessage" placeholder="在工商局注册的公司名称" type="text" name="projectInfoObject.company" id=""
+                               value=""
+                               class="txt txt2"/><span>发展阶段：</span><select
+                            name="projectInfoObject.growth" value="" id="">
+                        <option value="">* 选择发展阶段</option>
+                        <option value="1">产品开发</option>                            <option value="2">上线运营</option>                            <option value="3">快速发展</option>                            <option value="4">盈亏平衡</option>    
+
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><strong>* 公司人数：</strong></strong></td>
+                    <td><input data-validation="nomessage" type="text" name="projectInfoObject.employeeNum"
+                               value="" placeholder="10" id=""
+                               class="txt txt2"/><span>网址：</span><input   placeholder="http://"
+                            type="text" name="projectInfoObject.site" value="" id=""
+                            class="txt txt2"/></td>
+                </tr>
+                <tr>
+                    <td><strong>* 融资状态：</strong></td>
+                    <td><select name="projectInfoObject.finance" id="">
+                        <option value="">选择融资状态</option>
+
+                        <option 
+                                value="1">暂未融资</option>
+                        <option 
+                                value="2">融资一轮或以上</option>
+
+                    </select></td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 营业执照：</strong></td>
+
+
+                    <td class="tx415" style="padding: 0 0 0px">
+                        <div class="upload-avtDiv" >
+                            点击选择营业执照上传
+                            <input class="upload-avt" type="file" name="Filedata" data-form-data='{"type": "imageProject"}'  multiple>
+                            <div  class="uploadImg">
+                                <p>点击重新上传</p>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                    </td>
+                    <input id="licence" type="hidden" name="projectInfoObject.licence"
+                           value="">
+                </tr>
+
+                <tr>
+                    <td valign="top"><strong class="pt15">* 项目概要：</strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="用最简要的文字清晰介绍你们要做的事情，包括定位、特点、目前状况及团队情况" name="summary" id="" cols="30"
+                                  rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a  class="txsl">填写示例</a>
+
+                        <div class="txslDiv" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                疯咖是一个商务人群咖啡业务的O2O平台，疯咖主张快速送达、高品质及平价的咖啡体验，让每一个人每天在办公室都能享受到高品质咖啡。在这个平台上我们作为咖啡这一领域的切入口提供周边咖啡信息资讯，咖啡制作及咖啡速送的业务。
+                            </p>
+
+                            <p>
+                                疯咖目前时一只5人的团队，都是其中的合伙人，来自资深的O2O成功平台运营合伙人，技术开发合伙人，咖啡资深产品人和品牌文化建设专家组成。
+                            </p>
+
+                            <p>
+                                疯咖平台目前在建设我们的咖啡站点和线上平台的开发，预计2015年6月份上线进行业务的展开。
+                            </p>
+
+                            <p>
+                                通过线上和线下的整体布局，我们立意要成为首个商圈人群的商务周边服务生态平台，同时颠覆咖啡传统连锁行业的垄断地位。
+                            </p>
+
+                            <p>
+                                我们团队准备了近30万的资金，还需要融资40万作为我们前期运营的费用支持。
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 用户痛点：</strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="你们的用户是谁，用户存在哪个迫切要解决的问题" name="customerPoint" id="" cols="30"
+                                  rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a  class="txsl2">填写示例</a>
+
+                        <div class="txslDiv2" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                懒：连锁咖啡店的打包率达到了70%以上，用户更多的会把咖啡产品带走，在办公室工作的时候饮用成为一种日常的习惯，然而咖啡连锁店的排队等待和不便捷的外卖服务达不到现在用户的体验需求。我们提供快速送达！
+                                品：咖啡的品质自己做达不到口感和分量把握，经过10几年中国消费者的教育，用户对于咖啡的品质有了更高的需求，目前的连锁咖啡已经不能符合用户的口味体验需求。所以我们要提高品质！
+                                价：咖啡的产品从时尚消费转化为了习惯消费，用户更在意咖啡的价格（周期性的消费），目前由于连锁咖啡门店的重运营模式决定了价格居高不下（毛利800%-1000%），价格的透明化已经让目前咖啡连锁的价格不能满足用于用户的期待了。所以我们做平价！
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 产品服务：</strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="你们用什么方案解决用户的问题，用户如何使用，如何付费等" name="productInfo" id="" cols="30"
+                                  rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a  class="txsl3">填写示例</a>
+
+                        <div class="txslDiv3" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                疯咖通过线上平台订购下单的方式进行产品的选择、下单，我们的制作点完成制作进行快速配送！       </p>
+                             <p>疯咖通过线上平台整合周边的咖啡及线管产品，客户下单，进行配送。</p>       <p>
+                                疯咖通过线上平台的资讯让用户选择商务洽谈更好的去处，客户预定，带动便捷。
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 市场竞争<br/>分析：
+                    </strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="目前市场上有哪些提供类似服务的公司，他们有什么特点，发展如何？你们为什么是不可或缺的" name="market" id="" cols="30"
+                                  rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a  class="txsl4">填写示例</a>
+
+                        <div class="txslDiv4" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                疯咖的商业模式市场上目前没有细分的领域成为竞争，如星巴克、两岸咖啡等实体店门店不可能降低他的价格。    </p><p>
+                                同比外送咖啡的平台我们的物流速度能体现优势，我们的产品品质更能保障，我们的价格更优吸引力，我们的盈利模式更清晰！
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 用户和财务数据分析：</strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="你们目前取得了哪些用户和财务收入方面的数据，未来如何实现突破，介绍一年或者三年的发展规划"
+                                  name="financeAndData" id="" cols="30"
+                                  rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a class="txsl5">填写示例</a>
+
+                        <div class="txslDiv5" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                目前尚未上线测试，预设目标一个点覆盖500米，用户数量达到3000-5000名，日购量200-300单/日，毛利300-400%，单点即可以实现理论盈利，但一个点的热启动需要投入营销费用使其稳定及增长。
+                                未来上海覆盖300-400个点，A轮融资预估2000万美金以扩大业务发展范围。
+                                以一线城市的布局为主。
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><strong class="pt15">* 核心价值及项目亮点：</strong></td>
+                    <td><textarea data-validation="nomessage" placeholder="总的来说，你们提供了哪些别人不能提供的价值，有哪些创新，有哪些独特优势"  name="corevalue" id="" cols="30" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="txslTd"><a class="txsl6">填写示例</a>
+
+                        <div class="txslDiv6" style="display: none;">
+                            <h3>填写示例</h3>
+
+                            <p>
+                                让每一个人在办公室都能享用优质，纯正的咖啡及咖啡产品。  </p>
+                             <p>   通过这个平台能更快，更丰富的得到商务周边的多元化服务。
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="error"></div>
+            <div class="btn-zz mb90">
+                <a href="/member/createProjectTeamInformation.htm">上一步</a><a href="javascript:saveNow(1);" class="a2 validation-submit">下一步：完善项目材料</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span><link rel="stylesheet"
+      href="uploadify/uploadify.css">
+<script type="text/javascript"
+        src="uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+
+    $.validate({
+        modules: 'toggleDisabled',
+        showErrorDialogs: true
+    });
+
+    //0:save 1:submit
+    function saveNow(a){
+        $.post(
+                "/member/createProjectSummary.json",
+                $("#form").serialize(),
+                function(data){
+                    if(data.succeed){
+                        if(a==0){
+                               swal("保存成功","","success");
+                        }
+                        if(a==1){
+                            window.location.href="/member/createProjectDoc.htm";
+                        }
+
+                    }else{
+                        swal("出错啦",data.msg,"error");
+                    }
+                }
+        );
+    }
+
+
+    $(".txsl").hover(function () {
+        $(".txslDiv").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv").stop();
+        $(".txslDiv").fadeOut(200)
+    })
+
+    $(".txsl2").hover(function () {
+        $(".txslDiv2").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv2").stop();
+        $(".txslDiv2").fadeOut(200)
+    })
+
+    $(".txsl3").hover(function () {
+        $(".txslDiv3").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv3").stop();
+        $(".txslDiv3").fadeOut(200)
+    })
+
+    $(".txsl4").hover(function () {
+        $(".txslDiv4").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv4").stop();
+        $(".txslDiv4").fadeOut(200)
+    })
+
+    $(".txsl5").hover(function () {
+        $(".txslDiv5").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv5").stop();
+        $(".txslDiv5").fadeOut(200)
+    })
+
+    $(".txsl6").hover(function () {
+        $(".txslDiv6").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv6").stop();
+        $(".txslDiv6").fadeOut(200)
+    })
+
+    $(".txsl7").hover(function () {
+        $(".txslDiv7").fadeIn(200)
+        return false;
+    },function(){
+        $(".txslDiv7").stop();
+        $(".txslDiv7").fadeOut(200)
+    })
+
+    uploadFileupload();
+    function uploadFileupload(){
+        var url = '/uploadImage.json';
+        $('.upload-avt').fileupload({
+            url: url,
+            dataType: 'json',
+            fail: function (e, data) {
+                // $(this).after('<p>Test</p>');
+                console.info(data);
+                //console.info(data._respone.jqXHR.responseText);
+
+                swal(
+                        "上传失败","", "error"
+                );
+            },
+            done: function (e, data) {
+                // alert(this);
+                var url = (data.result.data);
+                $(".uploadImg").find("img").attr("src",'https://file.mayiangel.com/'+url);
+                $(".uploadImg").show();
+                $('#licence').attr("value",url);
+
+            }
+        }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+    }
+
+
+</script>
+</body>
+</html>

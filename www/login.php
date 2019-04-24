@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 		$current_ip = $_SERVER['REMOTE_ADDR'];
 		$remember_me = trim($_POST['remember_me']);
 		$return = User::check_login($username, $password, $current_ip, $remember_me);
+		print_r($return);
 		if($return == "false"){
 			redirect_to("login.php");
 		} else {
@@ -37,56 +38,43 @@ $current_page = "login";
 ?>
 <?php $page_title = "登录"; require_once("includes/themes/".THEME_NAME."/header.php"); ?>
 
-<div class="title">
-	<h1><?php echo $page_title; ?></h1>
-</div>
-
-
 	<?php echo output_message($message); ?>
 
-	<form action="login.php" method="post" class="center">
-		<div class="row-fluid">
-			<div class="span12">
-		        <input type="text" class="span4" name="username" required="required" placeholder="用户名" value="<?php echo htmlentities($username); ?>" />
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span12">
-		        <input type="password" class="span4" name="password" required="required" placeholder="密码" value="<?php echo htmlentities($password); ?>" />
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span12">
-				<input type="checkbox" name="remember_me" value="yes" />
-				<span>记得我? (使用Cookie)</span>
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span12">
-				<a href="reset_password.php">忘记密码?</a>
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span12">
-				<br />
-				<input class="btn btn-primary" type="submit" name="submit" value="登录" />
-			</div>
-		</div>
-	</form>
-	
-	<?php if(OAUTH == "ON"){ ?>
-		<hr />
-		
-	<div class="row">
-		<div class="span12 center">
-			<div class="span12">
-				<a href="<?php echo WWW; ?>auth/sinaweibo" class="zocial sinaweibo">新浪微博</a>
-				<a href="<?php echo WWW; ?>auth/qqweibo" class="zocial qqweibo">腾讯微博</a>
-				<a href="<?php echo WWW; ?>auth/facebook" class="zocial facebook">Facebook</a>
-				<a href="<?php echo WWW; ?>auth/twitter" class="zocial twitter">Twitter</a>
+	<div class="login-wrap">
+		<div class="login-cell">
+			<div class="box-logreg">
+				<dl class="m1-z">
+					<dt>
+						<h3>蚂蚁天使</h3>
+						<p>专注于种子轮的创投平台</p>
+					</dt>
+					<dd>
+						<div class="txt-z1">登录CYSKY</div>
+						<form action="login.php" method="post">
+							<input type="text" name="username" class="txt1" required="required" placeholder="用户名" value="<?php echo htmlentities($username); ?>" />
+							<input type="password" name="password" class="txt1 r" required="required" placeholder="密码" value="<?php echo htmlentities($password); ?>" />
+							<div class="c"></div>
+							<div class="z-mk">
+								<label for="lv"> <input type="checkbox" name="remember_me"
+									id="lv" class="checkbox" /><span>下次自动登录</span>
+								</label> <a href="reset_password.php" class="color-blue r">忘记密码 ?</a><br/>
+								<font color="red"></font>
+								<div class="a-txt a-txt2"></div>
+								
+							</div>
+
+							<div class="btn-pl">
+								<button type="submit" name="submit" class="btn-z">登 录</button>
+								<a href="register.php" class="btn-z btn-z1 r">注 册</a>
+							</div>
+						</form>
+					</dd>
+				</dl>
 			</div>
 		</div>
 	</div>
-	<?php } ?>
 
-<?php require_once("includes/themes/".THEME_NAME."/footer.php"); ?>
+
+
+	
+

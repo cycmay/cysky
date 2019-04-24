@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>电允超级快充 - 蚂蚁天使 – 更专业的种子轮创投平台</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="蚂蚁天使、私募股权、天使投资、众筹投资、私募股权平台、私募股权网、众筹融资、创业融资平台、天使投资平台、众筹融资、股权投资、领投人、私募股权投资" />
+	<meta name="description" content="蚂蚁天使是一个天使投资生态系统，蚂蚁天使对创业项目进行初步评估，由专业天使投资人做为领投人对项目进行投资决策，合格投资人跟投，确保天使投资的风险降至最低，并在项目获得收益后进行利益分配的专业私募股权平台。" />
+    <meta content="telephone=no" name="format-detection" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/cui.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lib.css"/>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/sweet-alert.css"/>
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/cui.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <style>
+        .carry{
+            color: #00a0e9;
+        }
+        .carry:hover .carry-tips{
+            display: block;
+        }
+
+        .carry-tips{
+            display: none;
+            width: 320px;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            margin-left: -150px;
+        }
+    </style>
+</head>
+<body>
+<!-- 头部 -->
+<div id="popupcontent" style="
+        text-align: center;
+    	height: 400px;
+		position: fixed;
+		margin: auto;
+		visibility: hidden;
+		overflow: hidden;
+		top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    width: 350px;
+	    padding: 30px;
+	    background-color: #ffffff;
+	    box-shadow: 1px 5px 10px #ddd;
+	    border-radius: 0px;
+		z-index: 999;
+    ">
+    <span style=" font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: initial;
+    ">创建项目</span>
+            <div style="border-radius: 20px;    background-color: #f6f6f6;
+        margin-top: 30px;
+        text-align: left;
+        padding: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+		font-size: 16px">提示：<br>为保证项目的真实度和可信度，您需要下载蚂蚁天使APP在个人中心[<b>完成个人征信</b>]才能发布项目，否则项目将可能不予上线。</div>
+            <p style="
+        text-align: left;
+        font-size: 15px;
+		margin-top: 28px;
+		padding-left: 20px
+    ">若您已完成个人征信，请忽略此条提示</p>
+            <div style="margin-top: 20px">
+                <button onclick="xz()" style="
+        height: 40px;
+        width: 120px;
+        border:  0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color:  #ffffff;
+        margin-right: 30px;
+        margin-top: 10px;
+    ">下载APP去征信</button>&nbsp;&nbsp;<button onclick="jx()" style="
+        height: 40px;
+        width: 120px;
+        border: 0px;
+        border-radius: 4px;
+        background: cornflowerblue;
+        color: #ffffff;
+    ">继续创建项目</button>
+            </div>
+    </div>
+
+<div style="height:105px"></div>
+<div class="fixHead" >
+    <div class="index-head ">
+        <div class="wp" style="overflow: hidden">
+            <ul>
+                <a href="/member/normal/applyInvestor.htm"><li>认证投资人</li></a>
+                <a href="javascript:void(0)" onclick="la()"><li>创建项目</li></a>
+
+                                <a href="">
+                    <li class="index-hoveLi">
+                        
+                                <i class="xxsl">35</i>
+
+
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wp" style="position: relative">
+        <ul class="index-uUl">
+            <a href="/member/profile.htm"><li>个人中心</li></a>
+            <a href="/member/notifies.htm"><li>消息 <i class="xxsl">35</i></li></a>
+            <a href="/logout.htm"><li>退出</li></a>
+        </ul>
+    </div>
+
+    <div class="index-nav">
+        <div class="wp" style="margin-top: 7px">
+            <div class="l logo">
+                <a href="/index.htm"><img src="images/logo.png"></a>
+            </div>
+            <ul class="nav-ul">
+                <a href="/index.htm"><li ><i class="index-syico"></i>首页</li></a>
+                <a href="/project/project.htm"><li class="checkedLi">全部项目</li></a>
+                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
+                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
+                <a href="/mayicollege/jackaroo.htm" ><li >蚂蚁学院</li></a>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<script>
+    $(".index-head ul li").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    $(".index-uUl").hover(function(){
+        $(".index-uUl").fadeIn(0);
+    },function(){
+        $(".index-uUl").fadeOut(0);
+    })
+    function la(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "visible";
+    }
+    function xz(){
+        window.location.href='https://www.mayiangel.com/mayicollege/news/179.htm';
+    }
+    function jx(){
+        window.location.href='/member/createNewProject.htm';
+    }
+</script>
+
+<div class="box-team"
+     style="background-image: url(https://file.mayiangel.com/20171214/1d3cb2c7-4e13-45ef-a6b9-6622860c4d9c.png)"
+        >
+
+
+    <div class="wp">
+        <div class="team-txt mt40 mb50">
+            <h2>电允超级快充<span class="btn-m1 ml20">
+
+            众筹成功
+            </span></h2>
+
+            <p>让新零售配送人员用上充电快、价格便宜的优质电池</p>
+        </div>
+        <div class="team-logo tc">
+            <div class="pic">
+                <img src="https://file.mayiangel.com/20180423/8870f65f-3b99-4fe0-95d5-d85379c5227d.png" alt="">
+            </div>
+            <a href="javascript:support(14)" class="zan" id="supportId">已有 14人支持<i></i></a>
+        </div>
+        <div class="team-user c">
+            <ul>
+                <li><span>融资金额：</span>80万</li>
+                <li><span>创始人：</span>超级充电桩</li>
+                <li class="i1"><span>团队人数：</span>5人</li>
+                <li><span>出让股份：</span>8%</li>
+                <li><span>标签：</span></li>
+                <li class="i1"><span>地点：</span>上海市</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<div id="bd">
+    <div class="wp">
+        <div class="tit-a1">
+            <h3>融资进度</h3>
+        </div>
+        <div class="rate">
+            <div class="rate-tit">
+                <table width="100%">
+                    <tr>
+                        <td><span class="tl">总认购金额：93万</span></td>
+                        <td><span class="tc">认购人数：11</span></td>
+                        <td><span class="tr">剩余天数：0天</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="rate-load">
+                <div class="load load-ani">
+                    <span style=width:100%></span><em><b>116.25</b>%</em>
+                </div>
+            </div>
+            <div class="rate-btn">
+                <a href="javascript:aplayLead(0)" class="a1" id="btnAplayLead" style="display:none">申请领投</a>
+                <a href="javascript:aplayInvest(0)" class="a1" id="btnInvest"
+                   style="display:none">我要投资<em>(3万元起投)</em></a>
+                <a href="https://www.mayiangel.com/project/addAplayInvest/2343.htm" class="a1" id="btnAddInvest"
+                   style="display:none">追加认购</a>
+                <a href="javascript:cancelInvest()" class="a1" id="btnCancelInvest" style="display:none">取消认购</a>
+                <a href="https://www.mayiangel.com/project/payMoney/2343.htm" class="a1" id="btnNowPayMoney"
+                   style="display:none">立即打款</a>
+                <a href="https://www.mayiangel.com/project/addPayMoney/2343.htm" class="a1" id="btnAddPayMoney"
+                   style="display:none">追加打款</a>
+                <a href="" id="btnFinishPayMoney" style="display:none">已打款</a>
+                <a href="https://www.mayiangel.com/project/signContract/2343.htm" class="a1" id="btnAfterStatus"
+                   style="display:none">待签署有限合伙协议</a>
+                <a href="javascript:void()" class="a2 trigger-pop" id="btnTeamGroup" style="display:none">联系创业团队</a>
+                <a href="javascript:void()" class="a2 trigger-pop" id="btnInvestGroup" style="display:none">加入投资群讨论</a>
+                <a href="javascript:void()" class="a2 trigger-pop" id="btnGuDongGroup" style="display:none">加入股东群讨论</a>
+
+                <div class="pop-box1" id="aplayLeadDIV">
+                    <em></em>
+
+                    <div class="pad">
+                        <h3>只有认证领投人才能申请领投项目</h3>
+
+                        <p>只需五步您就可以申请认证领投人</p>
+                    </div>
+                    <div class="pop-btn"><a href="" class="fc6">取消</a><a
+                            href="/member/leader/applyInvestor.htm"><b>立即认证</b></a></div>
+                </div>
+                <div class="pop-box1" id="aplayInvestDIV">
+                    <em></em>
+
+                    <div class="pad">
+                        <h3>只有认证投资人才能投资项目</h3>
+
+                        <p>只需三步您就可以认证投资人</p>
+                    </div>
+                    <div class="pop-btn"><a href="" class="fc6">取消</a><a
+                            href="/member/normal/applyInvestor.htm"><b>立即认证</b></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bgf">
+        <div class="wp">
+
+        </div>
+    </div>
+    <div class="wp">
+        <div class="tit-a1">
+            <h3>项目动态</h3>
+        </div>
+        <ul class="ul-news">
+                <li><span> 
+		     2018-05-16
+             </span>
+                    <a href="/project/projectNewsDetail/59.htm" target="_blank">项目路演记录 | 电允科技：充电三分钟，骑行5000米！为3000万新零售配送人员解决痛点</a>
+                </li>
+        </ul>
+        <div class="h"></div>
+        <div class="h50"></div>
+    </div>
+<div class="bgf">
+<div class="wp">
+<div class="row-2a fix">
+<div class="col-l">
+    <ul class="ul-project fix mb25 TAB_CLICK" id=".tab-con1">
+        <li ><a href="">项目详情 <em></em></a></li>
+        <li><a href="">团队成员<em></em></a></li>
+        
+    </ul>
+    <div class="tab-con1"  >
+           <div style="font-size: 0;">
+        <img class="example-image" src="https://file.mayiangel.com/" alt="image-1">
+
+    </div>
+
+        <div class="h20"></div>
+        <div class="tit-c1">
+            <h3>项目简介</h3>
+        </div>
+        <div class="box-deta">
+            <div class="txt-box-j1">
+                <p class="txt">我们公司是专注于为新零售行业配送人员提供电池租赁和快速充电服务的科技企业。长久以来，电瓶车电池充电慢、寿命短，浪费了大量的宝贵时间和金钱，这深深困扰着近千万名配送从业人员。他们亟需一款充电快、价格便宜的优质电瓶。我们利用在新能源行业多年的积淀，历时一年半研发的外卖专用快充电池及配套设施，将充电速度和电池循环寿命都提升了5倍以上，让外卖小哥花同样的钱享受到了5倍的体验。毫不夸张的说，市场上还没有如此出众的产品。目前已经在上海陆家嘴和张江地区投放运营，获得了用户极大赞赏，目前意向订单源源不断。</p>
+            </div>
+                <div class="tit-c1">
+                    <h3>视频介绍</h3>
+                </div>
+                <div class="item-video">
+                    <div class="game163">
+                        <div class="bigimg-box">
+                            <div class="bigImg">
+                                    <iframe height="325" width="690" src="" frameborder=0
+                                            allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="tit-c1">
+                <h3>一句话介绍</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">让新零售配送人员用上充电快、价格便宜的优质电池</p>
+				<a class="p-load">更多</a>
+            </div>
+
+            <div class="tit-c1">
+                <h3>用户痛点</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">我们用户是电动自行车高频使用用户，如快递、外卖从业人员和新零售配送人员。
+<br>
+<br>行业痛点：急需充电快、价格便宜的优质电池！
+<br>1、传统充电要8小时，导致配送效率低下
+<br>2、传统电池高频使用只能用半年，年年换新多花钱
+<br>3、市面现有锂电池动辄几千元，买不起</p>
+				<a class="p-load">更多</a>
+            </div>
+
+            <div class="tit-c1">
+                <h3>产品服务</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">公司向目标用户租赁电池模组，电池组30min能充满，充满能跑60km，寿命能用5年。
+<br>公司向用户收取押金1500元，租金3元/天。</p>
+				<a class="p-load">更多</a>
+            </div>
+
+            <div class="tit-c1">
+                <h3>竞争对手</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">1、我们的电池组充电速度全网最快、价格全网最低。
+<br>2、拥有上游最优质的电芯资源渠道
+<br>3、上万公里用户路测大数据，  （调教出最优化经验参数）
+<br>4、已提前布局相关专利等知识产权</p>
+				<a class="p-load">更多</a>
+            </div>
+
+            <div class="tit-c1">
+                <h3>财务及用户数据分析</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">目前已经在上海陆家嘴和张江落地运营。已经有一批种子用户，用户反馈良好，经过他们口碑相传，目前意向订单源源不断。
+<br>公司快充电池可产生1500元押金和89元/月的现金流，10个月可回收成本支出，5年投资收益率在222.5%。</p>
+				<a class="p-load">更多</a>
+            </div>
+
+            <div class="tit-c1">
+                <h3>核心价值及项目亮点</h3>
+            </div>
+            <div class="txt-box">
+                <p class="txt">核心价值：将电池性能做到最优的情况下，把价格打到最低。
+<br>
+<br>亮点：
+<br>1、先发优势。技术领先同行
+<br>2、订单源源不断
+<br>3、可快速复制推广，迅速占领市场
+<br>4、上游锂电资源和渠道丰富</p>
+				<a class="p-load">更多</a>
+            </div>
+        </div>
+<div class="tit-b1">
+    <span>全部问答</span>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/29675.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">激情创业者</p>
+
+                <p class="p-info">骗子就别打扰我们项目了</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1167)"
+                                     id="a_1167">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1167)"
+                       class="qa-reply">回复</a><span>
+								     2018-08-06
+	                                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/29675.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">激情创业者</p>
+
+                <p class="p-info">我有项目若对我项目想深入了解的可以联系我然后我发计划书给您看看，联系方式微信liujiang2364549352欢迎投资者到来，我们的项目不是大众不是模仿也不是目前所谓的共享，农村的电子商务之类的，有我们中国的特色从国家角度出发的，从当前社会上的需求出发，能够实实在在的帮助人们解决问题，所以想了解我们项目的可以联系我，好不好，来看一看，万一看到的是很有价值各有发展趋势的呢？所以多看一个也无妨，欢迎大家
+当我们开始盈利时同时忠臣用户达到1000万那一年靠主营业务毛收入达到3个亿很容易。</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1145)"
+                                     id="a_1145">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1145)"
+                       class="qa-reply">回复</a><span>
+								     2018-07-31
+	                                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/29675.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">激情创业者</p>
+
+                <p class="p-info">我有项目若对我项目想深入了解的可以联系我然后我发计划书给您看看，联系方式微信liujiang2364549352欢迎投资者到来，我们的项目不是大众不是模仿也不是目前所谓的共享，农村的电子商务之类的，有我们中国的特色从国家角度出发的，从当前社会上的需求出发，能够实实在在的帮助人们解决问题，所以想了解我们项目的可以联系我，好不好，来看一看，万一看到的是很有价值各有发展趋势的呢？所以多看一个也无妨，欢迎大家
+当我们开始盈利时同时忠臣用户达到1000万那一年靠主营业务毛收入达到3个亿很容易。</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1144)"
+                                     id="a_1144">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1144)"
+                       class="qa-reply">回复</a><span>
+								     2018-07-31
+	                                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/30294.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">徐生</p>
+
+                <p class="p-info">“汇新杯”新兴科技+互联网创新大赛火热报名中，大赛官网报名地址：https://www.chuangcheng.org.cn/450 现在报名可以申请项目展示的机会，获得更大曝光量，报名之后也可直接向投资人投递BP获得融资。</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1113)"
+                                     id="a_1113">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1113)"
+                       class="qa-reply">回复</a><span>
+								     2018-07-14
+	                                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a href="https://www.mayiangel.com//memberInfo/26879.htm"><img
+                            src="https://file.mayiangel.com/20180526/408b9c42-47b6-48b4-802c-e74593909ff3.png" height="70" width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">鹰击长空</p>
+
+                <p class="p-info">项目天花板太明显</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1041)"
+                                     id="a_1041">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1041)"
+                       class="qa-reply">回复</a><span>
+								     2018-06-30
+	                                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/26422.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">刘邦邦</p>
+
+                <p class="p-info">我有兴趣15658024444微信同号</p>
+
+                <p class="p-time"><a href="javascript:commentUp(1034)"
+                                     id="a_1034">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(1034)"
+                       class="qa-reply">回复</a><span>
+								     2018-06-29
+	                                  </span>
+                </p>
+            </div>
+        </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">俱龙功能家具</p>
+
+                    <p class="p-info">功能家具  有了解吗</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(1213)"
+                                         id="a_1213">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-08-18
+	                                  </span></p>
+                </div>
+            </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">梅扉</p>
+
+                    <p class="p-info">我有教育文娱项目想聊聊</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(1160)"
+                                         id="a_1160">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-08-01
+	                                  </span></p>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/4627.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">杨展宏</p>
+
+                <p class="p-info">为什么采用租赁模式而不直接销售呢？</p>
+
+                <p class="p-time"><a href="javascript:commentUp(934)"
+                                     id="a_934">赞（1）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(934)"
+                       class="qa-reply">回复</a><span>
+								     2018-04-26
+	                                  </span>
+                </p>
+            </div>
+        </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">超级充电桩</p>
+
+                    <p class="p-info">项目前期，让用户花高价购买电池，需要比较高的教育成本</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(937)"
+                                         id="a_937">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-04-26
+	                                  </span></p>
+                </div>
+            </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">超级充电桩</p>
+
+                    <p class="p-info">租赁更赚钱，而且易维护，好管理。</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(936)"
+                                         id="a_936">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-04-26
+	                                  </span></p>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a href="https://www.mayiangel.com//memberInfo/26440.htm"><img
+                            src="https://file.mayiangel.com/20180112/c3e7f5a7-7935-426a-a009-6fe51cbc01f4.png" height="70" width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">杨洋</p>
+
+                <p class="p-info">估值还是很合理的，不知道实际产品怎么样</p>
+
+                <p class="p-time"><a href="javascript:commentUp(528)"
+                                     id="a_528">赞（0）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(528)"
+                       class="qa-reply">回复</a><span>
+								     2018-01-15
+	                                  </span>
+                </p>
+            </div>
+        </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">激情创业者</p>
+
+                    <p class="p-info">你好我有项目若想深入了解我们项目可以加我微信详细谈liujiang2364549352</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(1084)"
+                                         id="a_1084">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-07-09
+	                                  </span></p>
+                </div>
+            </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">超级充电桩</p>
+
+                    <p class="p-info">上海朋友可亲自体验</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(907)"
+                                         id="a_907">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-04-23
+	                                  </span></p>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="all-qa">
+    <div class="person-info">
+        <div class="qa-hd">
+            <div class="avt">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/26439.htm"><img
+                            src="images/user_70.png" height="70"
+                            width="70"/></a>
+            </div>
+            <div class="txt">
+                <p class="p-name">Nick</p>
+
+                <p class="p-info">产品做出来了吗？</p>
+
+                <p class="p-time"><a href="javascript:commentUp(456)"
+                                     id="a_456">赞（1）</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:reply(456)"
+                       class="qa-reply">回复</a><span>
+								     2018-01-12
+	                                  </span>
+                </p>
+            </div>
+        </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">激情创业者</p>
+
+                    <p class="p-info">嗯，我有项目，若感兴趣可以加我微信liujiang2364549352</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(1083)"
+                                         id="a_1083">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-07-09
+	                                  </span></p>
+                </div>
+            </div>
+            <div class="qa-bd">
+                <div class="content">
+                    <p class="p-name">超级充电桩</p>
+
+                    <p class="p-info">用户已经在用了。谢谢！</p>
+
+                    <p class="p-time"><a href="javascript:commentUp(906)"
+                                         id="a_906">赞（0
+                        ）</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>
+								     2018-04-23
+	                                  </span></p>
+                </div>
+            </div>
+    </div>
+</div>
+<!-- 回复框 -->
+<div class="qa-form dn">
+    <div class="txt-bor">
+        <textarea id="recontent"></textarea>
+    </div>
+    <div class="btn-j tr mb20"><a href="javascript:replyComment()" class="a1">确定</a><a class="a2"
+                                                                                       href="javascript:void(0);">取消</a>
+    </div>
+</div>
+<p class="mb5">我的提问</p>
+
+<div class="textarea1-j-box">
+                        <textarea name="content" id="content" placeholder="输入你要问的问题" id=""
+                                  class="textarea1-j"></textarea>
+</div>
+<div class="btn-j tr"><a href="javascript:comment(0)" class="a1">确定</a></div>
+    </div>
+    <div class="tab-con1" style="display:none">
+        <div class="h20"></div>
+            <div class="box-brief">
+                <div class="pic mb20">
+                        <img src="https://file.mayiangel.com/20180423/612cbe14-abf6-4b63-b82b-0adc8b78cea6.jpg" height="94" width="94" alt="">
+                </div>
+                <div class="txt mb20">
+                    <ul>
+                        <li><span>姓名：</span>李科(持股75%)</li>
+                        <li><span>年龄：</span>28（周岁）</li>
+                        <li><span>现在公司：</span>上海电允能源科技有限公司</li>
+                        <li><span>现在职位：</span>CEO</li>
+                    </ul>
+                </div>
+                <div class="brief mb20">
+                    <p><b>个人简介：</b>宏观经济高级咨询顾问，新能源行业资深研究员</p>
+                </div>
+                <table class="ta-a1 mb30">
+                    <tr>
+                        <th rowspan="2">教育经历</th>
+                        <th>毕业学校</th>
+                        <th>学历</th>
+                    </tr>
+                        <tr>
+                            <td>上海海洋大学</td>
+                            <td>本科</td>
+                        </tr>
+                </table>
+                <table class="ta-a1 mb50">
+                    <tr>
+                        <th rowspan="5">工作经历</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                    </tr>
+                        <tr>
+                            <td>上海亚博投资信息咨询有限公司</td>
+                            <td>宏观经济分析师</td>
+                        </tr>
+                        <tr>
+                            <td>上海赛豪商务信息咨询有限公司</td>
+                            <td>高级咨询顾问</td>
+                        </tr>
+                        <tr>
+                            <td>上海贞势投资管理有限公司</td>
+                            <td>副总经理</td>
+                        </tr>
+                        <tr>
+                            <td>上海电允能源科技有限公司</td>
+                            <td>CEO</td>
+                        </tr>
+                </table>
+            </div>
+            <div class="box-brief">
+                <div class="pic mb20">
+                        <img src="https://file.mayiangel.com/20171215/304c10b1-c36c-4738-9062-5e6d4c931de6.jpg" height="94" width="94" alt="">
+                </div>
+                <div class="txt mb20">
+                    <ul>
+                        <li><span>姓名：</span>黄开顺(持股15%)</li>
+                        <li><span>年龄：</span>29（周岁）</li>
+                        <li><span>现在公司：</span>上海电允能源科技有限公司</li>
+                        <li><span>现在职位：</span>CTO</li>
+                    </ul>
+                </div>
+                <div class="brief mb20">
+                    <p><b>个人简介：</b>全栈工程师，拥有8年开发经验。曾任多家创业公司CTO一职，负责产品技术开发。</p>
+                </div>
+                <table class="ta-a1 mb30">
+                    <tr>
+                        <th rowspan="2">教育经历</th>
+                        <th>毕业学校</th>
+                        <th>学历</th>
+                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
+                <table class="ta-a1 mb50">
+                    <tr>
+                        <th rowspan="2">工作经历</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                    </tr>
+                        <tr>
+                            <td>上海折页网络科技有限公司</td>
+                            <td>CTO</td>
+                        </tr>
+                </table>
+            </div>
+            <div class="box-brief">
+                <div class="pic mb20">
+                        <img src="https://file.mayiangel.com/20180423/ae663cff-3800-4996-915e-1ffd3979a079.jpg" height="94" width="94" alt="">
+                </div>
+                <div class="txt mb20">
+                    <ul>
+                        <li><span>姓名：</span>王昆(持股%)</li>
+                        <li><span>年龄：</span>26（周岁）</li>
+                        <li><span>现在公司：</span>上海电允能源科技有限公司</li>
+                        <li><span>现在职位：</span>合伙人兼总工程师</li>
+                    </ul>
+                </div>
+                <div class="brief mb20">
+                    <p><b>个人简介：</b>上汽背景，曾参与多款Global、Local车型项目开发。工程技术经验丰富。</p>
+                </div>
+                <table class="ta-a1 mb30">
+                    <tr>
+                        <th rowspan="2">教育经历</th>
+                        <th>毕业学校</th>
+                        <th>学历</th>
+                    </tr>
+                        <tr>
+                            <td>吉林大学</td>
+                            <td>本科</td>
+                        </tr>
+                </table>
+                <table class="ta-a1 mb50">
+                    <tr>
+                        <th rowspan="2">工作经历</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                    </tr>
+                        <tr>
+                            <td>泛亚汽车研发中心</td>
+                            <td>工程师</td>
+                        </tr>
+                </table>
+            </div>
+            <div class="box-brief">
+                <div class="pic mb20">
+                        <img src="https://file.mayiangel.com/20171215/3b7b23c2-497f-461b-8079-53c86d63a87f.jpg" height="94" width="94" alt="">
+                </div>
+                <div class="txt mb20">
+                    <ul>
+                        <li><span>姓名：</span>李明(持股%)</li>
+                        <li><span>年龄：</span>28（周岁）</li>
+                        <li><span>现在公司：</span>上海电允能源科技有限公司</li>
+                        <li><span>现在职位：</span>合伙人</li>
+                    </ul>
+                </div>
+                <div class="brief mb20">
+                    <p><b>个人简介：</b>目前负责渠道于资源对接，985高校理工商复合背景，东北证券投行部项目总监，主导多起股权融资项目。</p>
+                </div>
+                <table class="ta-a1 mb30">
+                    <tr>
+                        <th rowspan="2">教育经历</th>
+                        <th>毕业学校</th>
+                        <th>学历</th>
+                    </tr>
+                        <tr>
+                            <td>山东大学</td>
+                            <td>研究生</td>
+                        </tr>
+                </table>
+                <table class="ta-a1 mb50">
+                    <tr>
+                        <th rowspan="2">工作经历</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                    </tr>
+                        <tr>
+                            <td>东北证券</td>
+                            <td>项目总监</td>
+                        </tr>
+                </table>
+            </div>
+            <div class="box-brief">
+                <div class="pic mb20">
+                        <img src="https://file.mayiangel.com/20180423/5f018215-15a9-4bd9-948c-d698531f3533.jpg" height="94" width="94" alt="">
+                </div>
+                <div class="txt mb20">
+                    <ul>
+                        <li><span>姓名：</span>康鲁浩(持股%)</li>
+                        <li><span>年龄：</span>28（周岁）</li>
+                        <li><span>现在公司：</span>上海电允能源科技有限公司</li>
+                        <li><span>现在职位：</span>渠道总监</li>
+                    </ul>
+                </div>
+                <div class="brief mb20">
+                    <p><b>个人简介：</b>日本筑波大学（日本超级国际化大学计划A类顶尖校）博士
+<br>任职于日本国立材料研究所，主要从事超级电容器及锂电池方面研究工作。
+<br>2008-2015年于山东大学取得学士及硕士学位，主要从事碳纤维及其复合材料方面的研究。2015-2017年就职于大众汽车公司，主要从事材料技术方面工作。2017年至今，于日本筑波大学（日本超级国际化大学计划A类顶尖校）攻读博士学位，同时任职于日本国立材料研究所初级研究员，主要从事超级电容器及锂电池方面的研究工作，具备丰富的工作和研究经验。</p>
+                </div>
+                <table class="ta-a1 mb30">
+                    <tr>
+                        <th rowspan="3">教育经历</th>
+                        <th>毕业学校</th>
+                        <th>学历</th>
+                    </tr>
+                        <tr>
+                            <td>山东大学</td>
+                            <td>研究生</td>
+                        </tr>
+                        <tr>
+                            <td>日本筑波大学</td>
+                            <td>博士</td>
+                        </tr>
+                </table>
+                <table class="ta-a1 mb50">
+                    <tr>
+                        <th rowspan="2">工作经历</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                    </tr>
+                        <tr>
+                            <td>大众汽车</td>
+                            <td></td>
+                        </tr>
+                </table>
+            </div>
+
+    </div>
+
+</div>
+    <div class="col-r">
+        <div class="h32"></div>
+            <div class="tit-c1">
+                <h3>领投人</h3>
+            </div>
+            <div class="box-name">
+                <div class="pic">
+                    <a class="pic1" href="https://www.mayiangel.com//memberInfo/29812.htm">
+                            <img src="images/user_100.png" height="94" width="94" alt="">
+                    </a>
+                </div>
+                <div class="tit">
+                    <h2>杂拉斯蒂</h2>
+
+                    <p>香港大河教育文化有限公司　运营总监</p>
+                </div>
+
+                <div class="txt c">
+                    <h2>领投金额：55万
+                         <span class="r carry">carry：浮动<div class="carry-tips">
+                             <ul>
+                                 <li>收益倍数 < 3 ，carry 为 5%</li>
+                                 <li>3 <= 收益倍数 < 5 ，carry 为 10%</li>
+                                 <li>5 <= 收益倍数 < 10 ，carry 为 15%</li>
+                                 <li>收益倍数 >= 10 ，carry 为 20%</li>
+                             </ul>
+                         </div> </span>
+
+
+
+                    </h2>
+
+                    <h2>领投理由：</h2>
+
+                    <p>通过近一个半月的调研，认为该项目具有可行性，值得投资。根据过往投资经验，认为本人符合作领投人的要求，具备领投人资格。
+<br>领投理由如下：
+<br>1、团队：团队搭配比较合理，创始人是多学科跨界型的创业者，年轻有激情，有野心；做事比较低调务实，这种性格对创业很有帮助。
+<br>2、产品&技术：电允超级快充电池在性能上确实远超市场同类产品，具备颠覆性的技术优势。通过和李总以及用户的接触和沟通，用户体验和反馈确实非常不错。另外项目上下游供应链资源也有足够保障。
+<br>3、商业模式：前期通过饿了么、达达平台的配送员已经打开市场。电池租赁业务带来的现金流稳定可靠。项目下一步即将展开的分布式充电桩增值服务具备足够的利润空间和想象力。
+<br>4、市场：新零售的风口已经开启，1小时达、2小时达开始成为更多消费场景的标配。两轮电动车作为新零售配送基础设施，目前仍非常落后。这个市场足够诞生独角兽企业。
+<br>5、估值：目前业务类似的同类创业公司估值最高已超过5亿。电允的产品和模式具备快速爆发的潜力，目前1300万的估值水平合理。
+<br>总体而言，创业方向正确，未来前景较大，值得现在布局投资！</p>
+                </div>
+            </div>
+
+
+
+
+            <div class="h20"></div>
+            <div class="tit-c1">
+                <h3>投资人<span>（10）</span></h3>
+            </div>
+            <ul class="ul-pic">
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/28186.htm">
+                                <img src="https://file.mayiangel.com/20180410/65e6e5ec-0878-4016-967f-b4742f0d482e.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/6715.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/29491.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/25889.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/22413.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/10122.htm">
+                                <img src="https://file.mayiangel.com/20171127/cbe31c85-14dc-48e0-a251-234a0dcfc1e4.jpg" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/18771.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/1210.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/29946.htm">
+                                <img src="images/user_70.png" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="pic1" href="https://www.mayiangel.com//memberInfo/530.htm">
+                                <img src="https://file.mayiangel.com/imageUserHeadPath/20150421/e24c4bedad104d4598700060c87f9a66.jpg" height="74" width="74" alt="">
+                        </a>
+
+                    </li>
+            </ul>
+        <div class="h"></div>
+        <div class="tit-c1 c">
+            <h3>分享</h3>
+        </div>
+        <div class="box-share">
+            <a href="" class="share-wx pl10"><img src="images/weixin.png" height="30"
+                                                  width="30" alt=""></a>
+
+            <div class="h"></div>
+            <div class="share">
+                <a href="" class="s-xbtn"></a>
+                <ul>
+                    <li><p>1.用微信扫一扫下面的二维码</p></li>
+                    <li><p>2.扫描成功后，点击右上角的按钮分享给微信好友或朋友圈</p></li>
+                    <li><img src="https://www.mayiangel.com/project/projectmcQR/2343.htm" height="154" width="154"
+                             alt=""></li>
+                    <li><img src="images/share-02.png" height="154" width="155" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div class="h"></div>
+    <div class="box-line">
+
+            <div class="txt">
+                <div class="tit">
+                    <h2><a href="">电允超级快充</a></h2>
+
+                    <p>让新零售配送人员用上充电快、价格便宜的优质电池</p>
+                </div>
+                <div class="cen">
+                    <p class="p1">融资金额：80万<span
+                            class="r">3万起投</span></p>
+
+                    <div class="load load-b1">
+                            <span style=width:100%>　</span><em><b>116.25</b>%</em>
+                    </div>
+                    <p class="link-user pt5">
+                        领投人：杂拉斯蒂</p>
+
+                    <p class="s1">已有11人认购投资</p>
+
+                    <p class="p2">
+                        <a href="">标签： </a>
+                        <span class="r">上海市</span>
+                    </p>
+
+                    <div class="h15"></div>
+                    <a href="javascript:aplayLead(1)" class="btn-w1" id="btnAplayLead1" style="display:none">申请领投</a>
+                    <a href="javascript:aplayInvest(1)" class="btn-w1" id="btnInvest1"
+                       style="display:none">我要投资<span>(3
+                        万元起投)</span></a>
+                    <a href="https://www.mayiangel.com/project/addAplayInvest/2343.htm" class="btn-w1"
+                       id="btnAddInvest1" style="display:none">追加认购</a><br>
+                    <a href="javascript:cancelInvest()" class="btn-w1" id="btnCancelInvest1"
+                       style="display:none">取消认购</a>
+                    <a href="https://www.mayiangel.com/project/payMoney/2343.htm" class="btn-w1" id="btnNowPayMoney1"
+                       style="display:none">立即打款</a>
+                    <a href="https://www.mayiangel.com/project/addPayMoney/2343.htm" class="btn-w1"
+                       id="btnAddPayMoney1" style="display:none">追加打款</a>
+                    <a href="https://www.mayiangel.com/project/signContract/2343.htm" class="btn-w1"
+                       id="btnAfterStatus1" style="display:none">待签署有限合伙协议</a>
+
+
+                    <div class="pop-box1" id="aplayLeadDIV1">
+                        <em></em>
+
+                        <div class="pad">
+                            <h3>只有认证领投人才能申请领投项目</h3>
+
+                            <p>只需五步您就可以申请认证领投人</p>
+                        </div>
+                        <div class="pop-btn"><a href="" class="fc6">取消</a><a
+                                href="/member/leader/applyInvestor.htm"><b>立即认证</b></a></div>
+                    </div>
+
+                    <div class="pop-box1" id="aplayInvestDIV1">
+                        <em></em>
+
+                        <div class="pad">
+                            <h3>只有认证领投人才能申请领投项目</h3>
+
+                            <p>只需五步您就可以申请认证领投人</p>
+                        </div>
+                        <div class="pop-btn"><a href="" class="fc6">取消</a><a
+                                href="/member/normal/applyInvestor.htm"><b>立即认证</b></a></div>
+                    </div>
+
+                    <div class="pop-box1" id="canInvest">
+                        <em></em>
+
+                        <div class="pad">
+                            <h3>只有认证领投人才能申请领投项目</h3>
+
+                            <p>只需五步您就可以申请认证领投人</p>
+                        </div>
+                        <div class="pop-btn"><a href="" class="fc6">取消</a><a
+                                href="/member/normal/applyInvestor.htm"><b>立即认证</b></a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 弹出下载app -->
+<div class="box-code-z" style="width: 250px">
+    <div class="txt1">
+        <h3>加入投资群讨论</h3>
+
+        <p>添加蚂蚁天使工作人员，加入项目投资群与创业者进行深入交流与讨论</p>
+    </div>
+    <div class="pic">
+        <img height="205" width="205" src="images/dshwechat.jpg" alt=""/>
+
+    </div>
+</div>
+<!-- 底部 -->
+<div class="c"></div>
+<div class="h"></div>
+<!-- 底部 -->
+<div id="fd">
+	<div class="wp fix">
+		<div class="l br">
+			<h3>关注我们</h3>
+			<p class="ico1 pop-qr-btn" target="pop-weixin">微信公众号"mayiangel"</p>
+		</div>
+		<div class="l br">
+			<dl>
+				<dt>
+					<h3>关于我们</h3>
+				</dt>
+				<dd>
+					<a href="/mayicollege/about.htm">关于蚂蚁天使</a> <a
+						href="/mayicollege/agreement.htm">投资协议</a> <a
+						href="/mayicollege/news.htm">最新动态</a> <a
+						href="/mayicollege/joinUs.htm">加入我们</a> <a
+						href="/mayicollege/agreementForMember.htm">服务条款</a> <a
+						href="/mayicollege/friendlyLink.htm">友情链接</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="l br" style="border: 0;">
+			<dl class="fd-dl3">
+				<dt>
+					<h3>联系我们</h3>
+				</dt>
+				<dd>
+					<p class="ico2">021-61520015 (工作日 9:30-18:00)</p>
+					<p class="ico3">bp@mayiangel.com</p>
+					<p class="ico4">上海市长宁区平武路38号2-2H</p>
+				</dd>
+			</dl>
+		</div>
+
+	</div>
+	<p class="copy"><a href="http://www.beianbeian.com/beianxinxi/4f39648c-e2bf-412b-bf7a-a809a83fa4e2.html"> 沪ICP备14048021号 Copyright @ 2019</a></p>
+</div>
+<div class="pop-qr" id="pop-weixin">
+	<div class="pad">
+		<h3>微信扫一扫直接关注蚂蚁天使公众号</h3>
+		<img src="images/qr5.gif" alt="">
+	</div>
+</div>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?912608c5ca04de22f121f2081089af6a";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display:none;"><script src="https://s11.cnzz.com/z_stat.php?id=1256110441&web_id=1256110441" language="JavaScript"></script></span><script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<script type="text/javascript">
+    (function () {
+        //回复
+        var qa_form = $('.qa-form');
+        $('.qa-reply').click(function () {
+            var parent = $(this).parents('[class^="qa"]');
+            qa_form.css({"display": 'none'}).appendTo(parent).show();
+        });
+
+        $('.qa-form .a2').click(function (event) {
+            qa_form.hide();
+        });
+    })();
+
+    // 微信弹出
+    (function () {
+        var share = $('.share');
+
+            $('.share-wx').hover(function () {
+                var timeout = $(this).data("timeout");
+                if (timeout) clearTimeout(timeout);
+                share.addClass('show-box');
+            }, function () {
+                $(this).data("timeout", setTimeout($.proxy(function () {
+                    share.removeClass('show-box');
+                }, this), 500));
+            });
+
+            share.hover(function () {
+                var timer = $('.share-wx').data('timeout');
+                if (timer) clearTimeout(timer);
+            }, function () {
+                $(this).removeClass('show-box');
+            });
+            $('.s-xbtn').click(function () {
+                share.removeClass('show-box');
+                return false;
+            })
+
+
+    })();
+</script>
+<script>
+
+
+    (function () {
+        $('.txt-box .txt').each(function () {
+            if ($(this).height() > 60) {
+                $(this).addClass('h-60 long-des');
+            } else {
+                 $(this).next('.p-load').hide();
+            }
+        })
+
+        $('.txt-box .p-load').click(function () {
+            var all_con = $('.txt-box .txt');
+            this_con = $(this).parents('.txt-box').find('.txt');
+
+            if (this_con.is('.h-60')) {
+                this_con.removeClass('h-60');
+                $(this).text('收起').addClass('p-load1');
+
+            } else {
+                if (this_con.is('.long-des')) {
+                    this_con.addClass('h-60');
+                    $(this).text('更多').removeClass('p-load1');
+                }
+            }
+
+        });
+
+    })();
+    (function () {
+        $('.box-pop').click(function () {
+            var pop = $(this).siblings('.pop-box1');
+            pop.show();
+            return false;
+        });
+        $('.pop-btn .fc6').click(function (event) {
+            var pop = $(this).parents('.pop-box1');
+            pop.hide();
+            return false;
+        });
+        $('body').click(function (e) {
+            var pop = $(".pop-box1");
+            if (!pop.is(e.target)
+                    && pop.has(e.target).length === 0) {
+                pop.hide();
+            }
+        })
+    })();
+    (function () {
+        var float_box = $('.box-line');
+        float_box.css("position", "static");
+        float_box.show();
+        var boxTop = float_box.offset().top;
+        float_box.hide();
+        if (float_box.length > 0) {
+            //var stickyTop = float_box.offset().top;              
+            $(window).scroll(function () {
+                var windowTop = $(window).scrollTop();
+               // console.log("盒子距离顶部：" + boxTop);
+               // console.log("滚动条：" + windowTop);
+
+                if (boxTop < windowTop) {
+                    float_box.css("position", "fixed");
+                } else {
+                    float_box.css("position", "static");
+                }
+                if (boxTop - 700 < windowTop) {
+                    //float_box.css({ position: 'fixed', top: 0 });
+                    float_box.fadeIn(200)
+                }
+                else {
+                    //float_box.css('position','relative');
+                    float_box.fadeOut(200)
+                }
+
+            });
+        }
+    })();
+    (function () {
+        $('.ta-a1').each(function () {
+            var num = $(this).find('tr').length;
+            $(this).find('tr:first').find('th:first').attr('rowspan', num);
+        })
+    })();
+
+    //处理操作
+    $(function () {
+        if ("com.mayiangel.common.domain.member.MemberDO@56aa0f97" != null && "com.mayiangel.common.domain.member.MemberDO@56aa0f97" != "") {
+            //初选项目
+            if ("4" == 2) {
+                //已有投资信息
+
+                if (null != "" && "" != "" && (1 == "" || 3 == "" || 5 == "")) {
+                    //未支付
+                    if ("" == 1 || "" == 5) {
+
+                        $("#btnNowPayMoney").show();
+                      //  $("#btnAddInvest").show();
+                        $("#btnNowPayMoney1").show();
+                        $("#btnAddInvest1").show();
+                        //若在冷静期可以取消
+                        if ("" > 0 && ("" == 1 || 5 == "")) {
+                            $("#btnCancelInvest").show();
+                            $("#btnCancelInvest1").show();
+                        }
+                    } else {
+                        //$("#btnFinishPayMoney").show();
+                        $("#btnAddPayMoney").show();
+                        $("#btnAddPayMoney1").show();
+                    }
+                }
+                //申请领投
+                else if(2 == ""){
+
+                }
+
+                else if ("33139" != "25907") {
+                    $("#btnAplayLead").show();
+                    $("#btnAplayLead1").show();
+                    $("#btnInvest").show();
+                    $("#btnInvest1").show();
+
+                }
+                $("#btnInvestGroup").show();
+
+             /*   if (null != "" && "" != "") {
+                    //未支付
+                    if ("" == 2) {
+                        $("#btnTeamGroup").show();
+                    } else {
+                        if ("" == 1) {
+                            $("#btnCancelInvest").show();
+                            $("#btnCancelInvest1").show();
+                        } else {
+                        }
+
+                    }
+                } else if ("33139" != "25907") {
+                    $("#btnInvest").show();
+                    $("#btnAplayLead").show();
+                    $("#btnAplayLead1").show();
+                }
+                $("#btnInvestGroup").show();
+                //$("#btnInvest").show();*/
+            }
+            //自筹项目
+            else if("4" == 1 && "2" == 2){
+                //已有投资信息
+                if (null != "" && "" != "" && (1 == "" || 3 == "" || 5 == "")) {
+                    //未支付
+                    if ("" == 1 ) {
+                        $("#btnNowPayMoney").show();
+                        $("#btnAddInvest").show();
+                        $("#btnNowPayMoney1").show();
+                        $("#btnAddInvest1").show();
+                        //若在冷静期可以取消
+                        if ("" > 0 && ("" == 1 || 5 == "")) {
+                            $("#btnCancelInvest").show();
+                            $("#btnCancelInvest1").show();
+                        }
+                    } else {
+                        //$("#btnFinishPayMoney").show();
+                        $("#btnAddPayMoney").show();
+                        $("#btnAddPayMoney1").show();
+                    }
+                } else if ("33139" != "25907") {
+                    $("#btnInvest").show();
+                    $("#btnInvest1").show();
+                }
+                $("#btnInvestGroup").show();
+            }
+
+            else if ("4" == 3) {
+                //已有投资信息
+                if (null != "" && "" != "" && (1 == "" || 3 == "" || 5 == "" )) {
+                    //未支付
+                    if ("" == 1 || "" == 5) {
+                        $("#btnNowPayMoney").show();
+                        $("#btnAddInvest").show();
+                        $("#btnNowPayMoney1").show();
+                        $("#btnAddInvest1").show();
+                        //若在冷静期可以取消
+                        if ("" > 0 && ("" == 1|| 5 == "")) {
+                            $("#btnCancelInvest").show();
+                            $("#btnCancelInvest1").show();
+                        }
+                    } else {
+                        //$("#btnFinishPayMoney").show();
+                        $("#btnAddPayMoney").show();
+                        $("#btnAddPayMoney1").show();
+                    }
+                } else if ("33139" != "25907") {
+                    $("#btnInvest").show();
+                    $("#btnInvest1").show();
+                }
+                $("#btnInvestGroup").show();
+            } else {
+                //已有投资信息
+                if (null != "" && "" != "") {
+                    //已经支付操作合同
+                    if ("" == 2) {
+                        if ("1" == 1) {
+                            $("#btnAfterStatus").show();
+                            $("#btnAfterStatus1").show();
+                            $("#btnAfterStatus").attr("href", "javascript:void()");
+                            $("#btnAfterStatus1").attr("href", "javascript:void()");
+                        }
+                        if ("1" == 2) {
+                            $("#btnAfterStatus").show();
+                            $("#btnAfterStatus1").show();
+                            if ("" == 1) {
+                                $("#btnAfterStatus").text("签署有限合伙协议");
+                                $("#btnAfterStatus1").text("签署有限合伙协议");
+                            } else {
+                                $("#btnAfterStatus").text("已签署有限合伙协议");
+                                $("#btnAfterStatus1").text("已签署有限合伙协议");
+                                $("#btnAfterStatus").attr("href", "javascript:void()");
+                                $("#btnAfterStatus1").attr("href", "javascript:void()");
+                            }
+                        }
+//						if ("1" == 3) {
+//							$("#btnAfterStatus").show();
+//  	  						$("#btnAfterStatus1").show();
+//	  	  					$("#btnAfterStatus").attr("href","javascript:void()");
+//	  						$("#btnAfterStatus1").attr("href","javascript:void()");
+//						}
+//						if ("1" == 6) {
+//							$("#btnAfterStatus").show();
+//  	  						$("#btnAfterStatus1").show();
+//	  	  					$("#btnAfterStatus").attr("href","javascript:void()");
+//	  						$("#btnAfterStatus1").attr("href","javascript:void()");
+//						}
+
+                        $("#btnGuDongGroup").show();
+                    }
+                }
+            }
+        } else {
+            if ("4" == 3) {
+                $("#btnInvest").show();
+                $("#btnInvest1").show();
+                $("#btnInvestGroup").show();
+            } else if ("4" == 2) {
+
+                $("#btnAplayLead").show();
+                $("#btnAplayLead1").show();
+                $("#btnInvest").show();
+                $("#btnInvestGroup").show();
+            }
+        }
+    });
+
+    //申请领投
+    function aplayLead(type) {
+        if ("com.mayiangel.common.domain.member.MemberDO@56aa0f97" != null && "com.mayiangel.common.domain.member.MemberDO@56aa0f97" != "") {
+            if ("33139" != "25907") {
+                if ("1" == 4 || "1" == 5) {
+                    //跳转到申请领投页
+                    window.location.href = "https://www.mayiangel.com/project/aplayLead/2343.htm";
+                } else {
+                    if (type != 1) {
+                        $("#aplayLeadDIV").show();
+                    } else {
+                        $("#aplayLeadDIV1").show();
+                    }
+                }
+            } else {
+                alert("自己创建的项目不能领投");
+            }
+
+        } else {
+            window.location.href = "https://www.mayiangel.com/login.htm";
+        }
+    }
+
+    //投资项目
+    function aplayInvest(type) {
+        if ("com.mayiangel.common.domain.member.MemberDO@56aa0f97" != null && "com.mayiangel.common.domain.member.MemberDO@56aa0f97" != "") {
+            if ("33139" != "25907") {
+                if ("1" == 2 || "1" == 4 || "1" == 5) {
+
+                    if(true ){
+                        sweetAlert({
+                            imageUrl:"images/reading.png",
+                            title:"为确保您了解股权投资的风险以及蚂蚁天使平台的流程，认证通过24小时后您方可在蚂蚁天使平台上投资项目。"
+                           });
+                        //alert("a");
+                        //$("#canInvest").show();
+                    }else{
+                        //跳转到申请投资页
+                        window.location.href = "https://www.mayiangel.com/project/aplayInvest/2343.htm";
+                    }
+
+                } else {
+                    if (type != 1) {
+                        $("#aplayInvestDIV").show();
+                    } else {
+                        $("#aplayInvestDIV1").show();
+                    }
+                }
+            } else {
+                alert("自己创建的项目不能投资");
+            }
+        } else {
+            window.location.href = "https://www.mayiangel.com/login.htm";
+        }
+    }
+
+    //取消认购
+    function cancelInvest() {
+        if (confirm("您确定取消认购吗？取消认购后您将失去这次投资机会")) {
+            $.post("https://www.mayiangel.com/project/cancelInvest.htm", {investId: ""}, function (data) {
+                if (data.result == "ok") {
+                    alert("取消认购成功");
+                    window.location.href = "https://www.mayiangel.com/project/projectinfo/2343.htm";
+                } else {
+                    alert('取消认购失败' + data.result);
+                }
+            }, 'json');
+        }
+    }
+
+    //评论点赞
+    function commentUp(id) {
+        var currentText = $("#a_" + id).text();
+        var currentUp = currentText.substring(2, currentText.length - 1);
+        $.post("https://www.mayiangel.com/project/commentup.htm", {cId: id}, function (data) {
+            if (data.result == "ok") {
+                currentUp++;
+                $("#a_" + id).text("赞（" + (currentUp) + "）");
+            } else {
+                alert('点赞失败' + data.result);
+            }
+        }, 'json');
+    }
+
+    //评论项目
+    function comment(id) {
+        var content = $("#content").val();
+        if (content == "") {
+            alert("请输入评论内容");
+        }
+        $.post("https://www.mayiangel.com/project/comment.htm", {
+            parentId: id,
+            projectId: "2343",
+            content: content
+        }, function (data) {
+            if (data.result == "ok") {
+                window.location.href = "https://www.mayiangel.com/project/projectinfo/2343.htm";
+            } else {
+                alert('评论失败' + data.result);
+            }
+        }, 'json');
+    }
+
+    var replyId = "";
+    //点击回复
+    function reply(id) {
+        replyId = id;
+    }
+
+    //回复评论
+    function replyComment() {
+        var content = $("#recontent").val();
+        if (content == "") {
+            alert("请输入回复内容");
+        }
+        $.post("https://www.mayiangel.com/project/comment.htm", {
+            parentId: replyId,
+            projectId: "2343",
+            content: content
+        }, function (data) {
+            if (data.result == "ok") {
+                window.location.href = "https://www.mayiangel.com/project/projectinfo/2343.htm";
+            } else {
+                alert('回复失败' + data.result);
+            }
+        }, 'json');
+    }
+
+
+    //支持项目
+    function support(num) {
+        $.post("https://www.mayiangel.com/project/projectUp.htm", {pId: "2343"}, function (data) {
+            if (data.result == "ok") {
+                num++;
+                $("#supportId").html("已有 " + (num) + "人支持<i></i>");
+                $("#supportId").attr("href", "javascript:void()");
+            } else {
+                alert('支持失败' + data.result);
+            }
+        }, 'json');
+    }
+</script>
+</body>
+</html>
+
