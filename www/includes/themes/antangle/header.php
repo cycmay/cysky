@@ -20,7 +20,7 @@
 	<link href="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/css/swiper.min.css" rel="stylesheet">
 	<link href="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/css/jquery.datetimepicker.css" rel="stylesheet">
 
-	<!-- <link href="<?php echo WWW; ?>includes/global/css/custom.css" rel="stylesheet"> -->
+	<link href="<?php echo WWW; ?>includes/global/css/custom.css" rel="stylesheet">
 
 	<script type="text/javascript" src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/js/lib.js"></script>
@@ -62,19 +62,8 @@
 	                    </li> -->
 	                    <?php if($session->is_logged_in()) { ?>
 
-	                    	<li class="index-hoveLi"> <?php echo $user->username; ?> <i class="xxsl">35</i> </li>
+	                    	<li class="index-hoveLi"> <?php echo $user->username; ?></i> </li>
 
-							<!--<li class="dropdown">
-					          <a href="" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user->username; ?><b class="caret"></b></a>
-					          <ul class="dropdown-menu">
-									<li><a href="<?php echo WWW; ?>settings.php">设置</a></li>
-									<li><a href="<?php echo WWW; ?>profile.php?username=<?php echo $user->username; ?>">我的资料</a></li>
-									<li><a href="<?php echo WWW; ?>my_questions.php">My Questions</a></li>
-									<li class="divider"></li>
-									<li><a href="<?php echo WWW; ?>logout.php">退出</a></li>
-					          </ul>
-					        </li>
-					    	-->
 						<?php } else { ?>
 							<li><a href="login.php">登录 </a></li>
 							<li><a href="register.php">注册</a></li>
@@ -89,6 +78,14 @@
 	            <li><a href="<?php echo WWW; ?>profile.php?username=<?php echo $user->username; ?>">个人中心</a></li>
 	            <a href="/member/notifies.htm"><li>消息 <!--<i class="xxsl">35</i> --></li></a>
 	            <li><a href="<?php echo WWW; ?>settings.php">设置</a></li>
+	            <?php if($session->is_logged_in()) { 
+					$admin = User::find_by_id($_SESSION['user_id']);
+					if($admin->staff == 1){
+						echo "<li><a href='".WWW."admin/index.php'>管理平台</li>";
+					}
+				} else {
+					
+				} ?>
 	            <li><a href="<?php echo WWW; ?>logout.php">退出</a></li>
 	        </ul>
 	    </div>
@@ -99,11 +96,12 @@
 	                <a href="<?php echo WWW; ?>" class="brand"><img src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/images/logo.jpg" width="248" height="52" alt="Logo"></a>
 	            </div>
 	            <ul class="nav-ul">
-	                <a href="/index.htm"><li class="checkedLi"><i class="index-syico"></i>首页</li></a>
-	                <a href="/project/project.htm"><li >全部项目</li></a>
-	                <a href="/allLeadingInventors.htm"><li >投资人</li></a>
-	                <a href="/activity/miaotou.htm"><li >秒投日</li></a>
-	                <a href="/mayicollege/jackaroo.htm" ><li >SKR学院</li></a>
+	            	<?php console_log($current_page) ?>
+	            	<a href="<?php echo WWW; ?>index.php"><li <?php echo ($current_page == "home") ? "class='checkedLi'> <i class='index-syico'></i>" : ">" ?> 首页</li></a>
+	            	<a href="<?php echo WWW; ?>top-projects.php"><li <?php echo ($current_page == "top_projects") ? "class='checkedLi'> " : ">" ?> 全部项目</li></a>
+	                <a href="#"><li >投资人</li></a>
+	                <a href="#"><li >秒投日</li></a>
+	                <a href="#" ><li >SKR学院</li></a>
 	            </ul>
 	        </div>
 	    </div>
@@ -132,7 +130,6 @@
 	    }
 	</script>
 
-	<div class="container">
-		<div id="content" class="settings">
+	
 
 	<!-- Header End -->

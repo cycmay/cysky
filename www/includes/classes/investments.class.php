@@ -338,7 +338,7 @@ class Investments {
 	public static function create_category($name,$status){
 		global $database;
 		$session = new Session();
-		$database->query("INSERT INTO categories VALUES ('','{$name}','{$status}') ");
+		$database->query("INSERT INTO categories VALUES (NULL,'{$name}','{$status}') ");
 		$session->message("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>×</button>已经成功创建分类。</div>");
 		redirect_to("categories.php");
 	}
@@ -432,22 +432,30 @@ class Investments {
 		}
 		
 		if($message_owner[0]->profile_picture == "male.jpg" || $message_owner[0]->profile_picture == "female.jpg"){
-			$profile_image = '<img src="'.WWW.'assets/img/profile/'.$message_owner[0]->profile_picture.'" alt="Profile Picture">';
+			$profile_image = '<img class="pic1" height="70"
+                            width="70" src="'.WWW.'assets/img/profile/'.$message_owner[0]->profile_picture.'" alt="Profile Picture">';
 		} else { 
-			$profile_image = '<img src="'.WWW.'assets/img/profile/'.$message_owner[0]->user_id."/".$message_owner[0]->profile_picture.'" alt="头像">';
+			$profile_image = '<img class="pic1" height="70"
+                            width="70" src="'.WWW.'assets/img/profile/'.$message_owner[0]->user_id."/".$message_owner[0]->profile_picture.'" alt="头像">';
 		}
 		
-		$messages .= '<div class="profile_message_container" id="message'.$message->id.'">
-			<div class="span2 center">
-				'.$profile_image.'
+		$messages .= '<div class="all-qa" id="message'.$message->id.'">
+			<div class="person-info">
+        		<div class="qa-hd">
+					<div class="avt">
+						'.$profile_image.'
+					</div>
+					<div class="txt">
+						<a class="p-name" href="'.WWW.'profile.php?username='.$message_owner[0]->username.'" style="font-size: 16px;">'.$message_owner[0]->first_name.' '.$message_owner[0]->last_name.'</a>
+						<p class="p-info">'.nl2br($message->message).'</p> 
+						<p class="p-time">
+							<a>'.$edit.'</a>
+							<span>'.datetime_to_text($message->sent).'</span>
+						</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
 			</div>
-			<div class="span10">
-				<a href="'.WWW.'profile.php?username='.$message_owner[0]->username.'" style="font-size: 16px;">'.$message_owner[0]->first_name.' '.$message_owner[0]->last_name.'</a>
-				<span class="right">'.datetime_to_text($message->sent).'</span>
-				<div class="clearfix" style="height: 6px;"></div>
-				'.nl2br($message->message).$edit.'				
-			</div>
-			<div class="clearfix"></div>
 		</div>';
 		endforeach;
 		return $messages;
@@ -455,7 +463,7 @@ class Investments {
 	
 	public static function create_investment_message($project_id, $user_id, $message, $datetime){
 		global $database;
-		$database->query("INSERT INTO investments_messages (id,user_id,investment_id,status,message,sent,type) VALUES ('','{$user_id}','{$project_id}','0','{$message}','{$datetime}','0') ");
+		$database->query("INSERT INTO investments_messages (id,user_id,investment_id,status,message,sent,type) VALUES (NULL,'{$user_id}','{$project_id}','0','{$message}','{$datetime}','0') ");
 	}
 	
 	public static function get_investors($id){
@@ -697,7 +705,7 @@ class Investments {
 	public static function add_update($id, $title, $message){
 		global $database;
 		$datetime = strftime("%Y-%m-%d %H:%M:%S", time());
-		$database->query("INSERT INTO investments_updates (id,investment_id,datetime,title,message,status) VALUES ('','{$id}','{$datetime}','{$title}','{$message}','1') ");
+		$database->query("INSERT INTO investments_updates (id,investment_id,datetime,title,message,status) VALUES (NULL,'{$id}','{$datetime}','{$title}','{$message}','1') ");
 	}
 
 	// Investment FAQ

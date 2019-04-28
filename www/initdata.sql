@@ -437,3 +437,21 @@ INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `gender`, `user
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- 转存表中的数据 `profile`
+--
+
+INSERT INTO `profile` (`id`, `user_id`, `profile_msg`, `about_me`, `profile_picture`) VALUES
+(1, 688969, '=在测试', '一个众筹系统', 'male.jpg'),
+(2, 356213, '', '', 'male.jpg'),
+(3, 115315, '', '', 'male.jpg');
+
+
+
+--
+-- 转存表中的数据 `profile_messages`
+--
+
+INSERT INTO `profile_messages` (`id`, `user_id`, `profile_id`, `status`, `message`, `sent`, `type`) VALUES
+(1, 688969, 688969, '0', '%u6B63%u5728%u6D4B%u8BD5\n', '2013-04-15 22:41:57', '0');

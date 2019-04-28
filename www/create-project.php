@@ -13,7 +13,6 @@ $location = "create-project.php";
 $current_page = "create_project";
 
 if(isset($_SESSION['current_step'])){
-
 	if(isset($_GET['step'])){
 		$step = clean_value($_GET['step']);
 	} else {
@@ -25,29 +24,29 @@ if(isset($_SESSION['current_step'])){
 	
 	if($step == 1){
 		if(isset($_POST['create_project'])){
-			//console_log($_SESSION['current_step']);
 			$title = clean_value($_POST['title']);
-			//$category = clean_value($_POST['category']);
+			$category = clean_value($_POST['category']);
 			$goal = clean_value($_POST['goal']);
-			//$expires = clean_value($_POST['expires']);
+			$expires = clean_value($_POST['expires']);
+			$investment_message = clean_value($_POST['investment_message']);
+			$complete_message = clean_value($_POST['complete_message']);
 			$description = clean_value($_POST['description']);
-
-			$_SESSION['current_step'] = 2;
-			redirect_to(WWW."create-project.php?step=2");
-			
+			$main_description = clean_value($_POST['main_description']);
+			if($title != "" && $category != "" && $goal != "" && $expires != "" && $investment_message != "" && $complete_message != "" && $description != "" && $main_description != "" ){
+				Investments::create_project($title,$category,$goal,$expires,$investment_message,$complete_message,$description,$main_description);
+			} else {
+				$message = "<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>×</button>请填写所有必填字段.</div>";
+			}
 		} else {
 			$title = "";
+			$category = "";
 			$goal = "";
+			$expires = "30";
+			$investment_message = "感谢您抽出宝贵的时间看一下我们的项目...";
+			$complete_message = "感谢你支持这个项目....";
 			$description = "";
+			$main_description = "";
 		}
-	} else if ($step ==2) {
-		if(isset($_POST['create_project'])){
-			$_SESSION['current_step'] = 3;
-			redirect_to(WWW."create-project.php?step=3");
-		}else {
-			console_log("hello!!!!");
-		}
-
 	}
 	
 } else {
@@ -68,10 +67,9 @@ if(isset($_SESSION['current_step'])){
 	    </div>
 	    <div class="setup-step">
 	        <ul>
-	            <li class="s1 <?php if($step == 1){echo "on";} ?>">项目基本信息</li>
-	            <li class="s2 <?php if($step == 2){echo "on";} ?>">团队成员</li>
+	            <li class="s1 <?php if($step == 1){echo "on";} ?>">填写基本信息</li>
+	            <li class="s2 <?php if($step == 2){echo "on";} ?>">上传项目图片</li>
 	            <li class="s3 <?php if($step == 3){echo "on";} ?>">填写项目概要</li>
-	            <li class="s4 <?php if($step == 4){echo "on";} ?>">完善项目材料</li>
 	        </ul>
 	    </div>
 <?php echo output_message($message); ?>
@@ -94,16 +92,64 @@ if(isset($_SESSION['current_step'])){
 	            </ul>
 	            <table>
 	                <tr>
-	                    <td><strong>* 项目名称：</strong></td>
+	                    <td><strong>* 标题：</strong></td>
 	                    <td><input type="text" data-validation="nomessage" name="title" value="<?php echo $title; ?>" id=""
 	                               class="txt txt2" placeholder="项目名称，最多10字"/></td>
 	                </tr>
 	                <tr>
-	                    <td><strong>* 一句话介绍：</strong></td>
-	                    <td><input type="text" data-validation="nomessage" name="shortSentence" id=""
-	                               value="<?php echo $description; ?>" class="txt txt2" placeholder="一句话介绍你的项目，最多20字"/></td>
+	                	<td><strong>* 分类</strong></td>
+	                	<td><select name="category">
+	                		<?php foreach(Investments::get_categories() as $category): ?>
+							<option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+							<?php endforeach; ?>
+	                		</select>
+	                	</td>
 	                </tr>
-
+	                <tr>
+	                    <td valign='top'><strong class="pt15">* 融资信息：</strong></td>
+	                    <td>
+	                        <div class="link">
+	                            <p class="l">融资 <input data-validation="nomessage" type="text" name="goal"
+	                                                   value="<?php echo htmlentities($goal); ?>"
+	                                                   id="goal" class="rzInput txt txt3"> ETH<span
+	                                    style="font-size: 14px"></span></p>
+	                            <p class="r">估值 <input data-validation="nomessage"
+	                                                   type="text"
+	                                                   name="" id="in-b" class="gzInput txt txt3">ETH <span
+	                                    style="font-size: 14px"></span></p>
+	                            <input id="stock" type="hidden" name="stock" value="">
+	                            <input type="hidden" name="create_project" value="" />
+	                        </div>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td valign='top'><strong class="">出让股份比例：</strong></td>
+	                    <td style="padding-bottom: 40px">
+	                        <span class="crgfbl"
+	                              style="font-size: 18px;color: #00a0e9">
+	                            0% </span>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td><strong>* 结束 (天)</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="expires" value="<?php echo $expires; ?>" id="expires" class="txt txt2"/></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>* 投资信息：</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="investment_message" id="" value="<?php echo $investment_message; ?>" class="txt txt2" placeholder="一句话介绍你的项目"/></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>* 完整消息：</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="complete_message" id="" value="<?php echo $complete_message; ?>" class="txt txt2" /></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>* 描述：</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="description" id="" value="<?php echo $description; ?>" class="txt txt2" /></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>* 主要内容：</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="main_description" id="" value="<?php echo $main_description; ?>" class="txt txt" /></td>
+	                </tr>
 
 	                <tr>
 
@@ -279,48 +325,7 @@ if(isset($_SESSION['current_step'])){
 	                        <option 
 	                                value="6">00后</option>
 	                    </select>
-	                </tr>
-	                <tr>
-	                    <td><strong>* 融资金额：</strong></td>
-	                    <td><select name="projectmoney">  <option value="0">无</option>    
-	                        <option 
-	                                 value="1">1-5ETH</option>
-	                    
-	                        <option 
-	                                 value="2">51-100 ETH</option>
-	                    
-	                        <option 
-	                                 value="3">101-200 ETH</option>
-	                    
-	                        <option 
-	                                 value="4">201-500 ETH</option>
-	                    </select>
-	                </tr>
-	                <tr>
-	                    <td valign='top'><strong class="pt15">* 融资信息：</strong></td>
-	                    <td>
-	                        <div class="link">
-	                            <p class="l">融资 <input data-validation="nomessage" type="text" name="goal"
-	                                                   value="<?php echo htmlentities($goal); ?>"
-	                                                   id="goal" class="rzInput txt txt3"> ETH<span
-	                                    style="font-size: 14px"></span></p>
-	                            <p class="r">估值 <input data-validation="nomessage"
-	                                                   type="text"
-	                                                   name="" id="in-b" class="gzInput txt txt3">ETH <span
-	                                    style="font-size: 14px"></span></p>
-	                            <input id="stock" type="hidden" name="stock" value="">
-	                            <input type="hidden" name="create_project" value="" />
-	                        </div>
-	                    </td>
-	                </tr>
-	                <tr>
-	                    <td valign='top'><strong class="">出让股份比例：</strong></td>
-	                    <td style="padding-bottom: 40px">
-	                        <span class="crgfbl"
-	                              style="font-size: 18px;color: #00a0e9">
-	                            0% </span>
-	                    </td>
-	                </tr>
+	                </tr>       
 	            </table>
 	        <div class="error"></div>
 	        </form>
@@ -347,186 +352,71 @@ if(isset($_SESSION['current_step'])){
 		});	
     </script>
 
-	<div id="pop-ping" class="pop-ping pop-pay" style="width: 450px">
-	    <div class="pad" style="padding: 43px 20px;">
-	        <a class="pop-x x" href=""></a>
-	        <h3 class="c-c7" style="color: red;font-size: 22px">你还有项目草稿，是否要继续编辑？</h3>
-	        <div class="h60"></div>
-	        <a href="javascript:void(0)" class="pop-btn-return x"
-	           style="background: #ff9a01;color: #ffffff;width: 187px;border: 1px solid #ff9a01;">是，继续编辑</a>
-	        <a href="javascript:delProjectCache()" class="pop-btn-return x"
-	           style="width: 187px;border: 1px solid #00a0e9;color:#00a0e9 ">否，舍弃草稿重新创新</a>
-	    </div>
-	</div>
+	
 	<?php } ?>
 	<?php if($step == 2) { ?>
 		<link href="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/css/memberInfo.css" rel="stylesheet">
+		<link href="assets/css/multiupload.css" type="text/css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+		<script src="<?php echo WWW; ?>includes/global/js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="assets/js/multiupload.js"></script>
+		<script type="text/javascript">
+			var config = {
+				support : "image/jpg,image/png,image/bmp,image/jpeg,image/gif",
+				form: "upload_form",
+				dragArea: "dragAndDropFiles",
+				uploadUrl: "includes/upload/project_upload.php?id=<?php echo $_SESSION['new_project_id']; ?>"
+			}
+			$(document).ready(function(){
+				initMultiUploader(config);
+			});
+			var int=self.setInterval(function(){check_uploaded()},1000);
+			function check_uploaded(){
+				// document.getElementById("uploaded");
+				// if ($('#uploaded').length !== 0) {
+				//     $('#next_stage').show();
+				// };
+				if ($('#uploaded').is(':empty')){
+					
+				} else {
+					$('#next_stage').removeClass('disabled').attr('onclick','next_stage();');
+				}
+			}
+			function next_stage(){
+				$.ajax({
+					type: "POST",
+					url: "data.php",
+					data: "page=project&check_project_images=true",
+					success: function(html){
+						if(html == "false"){
+							$("#message").html("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>×</button>Please upload at least 1 image to continue.</div>");
+						} else {
+							window.location.replace($.trim(html));
+						}
+					}
+				});
+			}
+		</script>
 		
-		<form id="form" action="<?php echo $location; ?>?step=3" method="post">
-        	<div class="box-table-za box-table-za3">
+		<div id="message"></div>
+		<div id="dragAndDropFiles" class="uploadArea">
+			<h1>删除图片</h1>
+		</div>
+		<form name="upload_form" id="upload_form" enctype="multipart/form-data">
+		<input type="file" name="multiUpload" id="multiUpload" multiple />
+		<input type="submit" name="submitHandler" id="submitHandler" value="上传" class="btn btn-primary" />
+		</form>
 
+		<div class="progressBar">
+			<div class="status"></div>
+		</div>
+		
+		<div id="uploaded"></div>
+		
+		<div class="form-actions" style="text-align: center;margin: 20px -10px -10px;">
+			<button id="next_stage" class="btn btn-primary disabled">检查信息</button>
+		</div>
 
-            <div class="box-table-clone">
-                <div class="tit-a5" style="margin-top: 20px">
-                    团队成员 <font style="font-size: 13px">（*为必填项）至少填写两名成员</font>
-                    <a class="tit-a5-a" href="javascript:saveNow()">立即保存</a>
-                </div>
-                <table>
-                    <tr>
-                        <td><strong>* 姓名：</strong></td>
-                        <td><input data-validation="nomessage" type="text" name="" value="" id="" class="txt txt2" dataName="name"
-                                   placeholder="真实姓名"/><span>* 年龄：</span><input data-validation="nomessage"
-                                type="text" name="" value="" id="" class="txt txt2" dataName="age" placeholder="年龄"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>* 职位：</strong></strong>
-                        </td>
-                        <td>
-                            <input data-validation="nomessage" type="text" name="" id="" class="txt txt2"
-                                   placeholder="具体职位" dataName="position"/><span>股份占比：</span><input
-                                type="text" name="" id="" style="width: 200px" class="txt txt2" dataName="stock"
-                                placeholder="百分比"/><span
-                                style="width: auto;margin-left: 10px">%股</span>
-                        </td>
-                    </tr>
-                    <!--<tr>
-
-                        <td valign="top"><strong class="pt15">* 头像：</strong></td>
-                        <td class="tx415" style="padding: 0 0 10px">
-                            <div class="upload-avtDiv" >
-                                点击选择头像上传
-                                <input class="upload-avt"  type="file" name="Filedata"    data-form-data='{"type": "imageHead"}'  multiple>
-                                <input name="" type="hidden" data-validation="nomessage" dataName="headImage">
-                                <div class="uploadImg">
-                                    <p>点击重新上传</p>
-                                    
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                		-->
-
-                   <tr>
-                        <td valign="top"><strong class="pt15">* 个人简介：</strong></td>
-                        <td style="position: relative"><textarea data-validation="nomessage" name="" id="yccText" cols="30" dataName="introduce"
-                                                                 rows="10" maxlength=""
-                                                                 placeholder="简单介绍下你自己，最少20字"></textarea>
-                            <span class="yccSpan" style="display: none;">已超出<i>10</i>字</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="txslTd"><a  class="txsl">填写示例</a>
-
-                            <div class="txslDiv">
-                                <h3>填写示例</h3>
-
-                                <p>
-                                    11年市场营销工作经历，2010年开始从事互联网，专职产品和市场营销领域，最早一批的O2O践行者。 2014年头加入爱代驾，在爱代驾3000单/日不破半年情况下，通过架构调整，人员布局和市场策略，快速将业务增长到年底12000单/日，并持续每月20-30%的环比增长！ 曾服务过的品牌：可口可乐、康宝莱、百胜集团-KFC、面包新语-Breadtalk等。
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top"><strong class="pt20">* 教育经历：</strong></td>
-                        <td class="pt15">
-                            <dl class="m4-z">
-                                <dt>
-                                    <b class="s0">起止时间</b>
-                                    <b class="s2">学校</b>
-                                    <b class="s3">专业</b>
-                                    <b>学历</b>
-                                </dt>
-                                <dd style="position: relative" sIndex="0">
-                                    <input type="text" name="start0" dataName="startTime"
-                                           style="width: 110px;padding-left: 0" id=""
-                                           class="txt txt3 school date"> -
-                                    <input type="text" name="start0" dataName="endTime"
-                                           style="width: 110px;padding-left: 0" id=""
-                                           class="txt txt3 school date">
-                                    <input type="text" style="padding-left: 0" name="school" id="" dataName="school"
-                                           class="txt txt4 school">
-                                    <input type="text" style="padding-left: 0" name="major" id="" dataName="major"
-                                           class="txt txt5 school">
-                                    <select style="padding-left: 0" name="job0" id="" dataName="diploma"
-                                            class="txt txt6 school">
-                                        <option value=""></option>
-                                        <option value="高中">高中</option>
-                                        <option value="大专">大专</option>
-                                        <option value="本科">本科</option>
-                                        <option value="研究生">研究生</option>
-                                        <option value="博士">博士</option>
-                                    </select>
-                                    <a class="x-z1" href="">删除</a>
-
-                                    <div class="x-z1-removeDiv">
-                                        <h3>确定删除此教育经历？</h3>
-                                        <button class="x-z1-removeDivOK">确定</button>
-                                        <button class="x-z1-removeDivCAN">取消</button>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <div class="c"></div>
-                            <a style="cursor: pointer" class="z1" onclick="z1Click(this)">添加教育经历+</a>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <td><strong class="pt4">* 工作经历：</strong></td>
-                        <td>
-                            <dl class="m4-z">
-                                <dt>
-                                    <b class="s0">起止时间</b>
-                                    <b class="s2">公司</b>
-                                    <b class="s3">部门</b>
-                                    <b>职位</b>
-                                </dt>
-                                <dd style="position: relative" gIndex="0">
-                                    <input type="text" name="start0" dataName="startTime"
-                                           style="width: 110px;padding-left: 0" id=""
-                                           class="txt txt3 work date"> -
-                                    <input type="text" name="start0" dataName="endTime"
-                                           style="width: 110px;padding-left: 0" id=""
-                                           class="txt txt3 work date">
-                                    <input type="text" style="padding-left: 0" name="" id="" dataName="company"
-                                           class="txt txt4 work">
-                                    <input type="text" style="padding-left: 0" name="" id="" dataName="department"
-                                           class="txt txt5 work">
-                                    <input type="text" style="padding-left: 0" name="" id="" dataName="position"
-                                           class="txt txt6 work">
-                                    <a class="x-z1" href="">删除</a>
-
-                                    <div class="x-z1-removeDiv">
-                                        <h3>确定删除此教育经历？</h3>
-                                        <button class="x-z1-removeDivOK">确定</button>
-                                        <button class="x-z1-removeDivCAN">取消</button>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <div class="c"></div>
-                            <a style="cursor: pointer" class="z1" onclick="z1Click(this)">添加工作经历+</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <div class="cloneAddDiv"></div>
-
-
-            <div class="tit-a5 mt20 click-clone-add">
-                点击新增一名团队成员</font>
-            </div>
-            <div class="btn-zz mb90"><a href="create-project.php?step=1">上一步</a> <a  id="submit" href="javascript:$('#form').submit()"  class="a2 disabled validation-submit">下一步：填写项目概要</a>
-            </div>
-        	</div>
-        	<div class="error"></div>
-   		 </form>
-   		 <script type="text/javascript" src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/js/memberInfo.js"></script>
-
-
-   		 
 	<?php } else if($step == 3) { ?>
 		<?php
 		$project_id = $_SESSION['new_project_id'];
@@ -590,90 +480,51 @@ if(isset($_SESSION['current_step'])){
 		
 		<fieldset>
 			<legend>项目信息</legend>
-			<div class="row-fluid">
-				<div class="span3">
-					<label>标题</label>
-			      <input type="text" class="span12" id="title" required="required" value="<?php echo $project_data->name; ?>" />
-				</div>
-				<div class="span3">
-					<label>分类</label>
-					<select id="category" class="span12 chzn-select" required="required" value="<?php echo $categories; ?>">
-						<?php foreach(Investments::get_categories() as $category): ?>
-						<option value="<?php echo $category->id; ?>"<?php if($project_data->category_id == $category->id){echo " selected='selected'";} ?>><?php echo $category->name; ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
-				<div class="span3">
-					<label>目标</label>
-					<div class="input-prepend input-append">
-						<span class="add-on"><?php echo CURRENCYSYMBOL; ?></span>
-						<input class="span9" id="goal" type="text" required="required" value="<?php echo htmlentities($project_data->investment_wanted); ?>">
-						<span class="add-on">.00</span>
-					</div>
-				</div>
-				<div class="span3">
-					<label>结束时间</label>
-			      <input type="text" class="span12" id="expires" required="required" disabled="disabled" value="<?php echo $project_data->expires; ?>" />
-				</div>
-			</div>	
+			<div class="box-table-za box-table-za3">
+				<div class="box-table-clone">
 
-			<div class="row-fluid">
-				<div class="span6">
-					<label>投资消息</label>
-			      <input type="text" class="span12" id="investment_message" required="required" value="<?php echo $project_data->investment_message; ?>" />
-				</div>
-				<div class="span6">
-					<label>项目完整消息</label>
-			      <input type="text" class="span12" id="complete_message" required="required" value="<?php echo $project_data->project_closed_message; ?>" />
+				<table>
+                    <tr>
+                        <td><strong>标题：</strong></td>
+			      		<td><input type="text" class="txt txt2" id="title" disabled="disabled" value="<?php echo $project_data->name; ?>" /></td>
+			      	</tr>
+			      	<tr>
+                        <td><strong>分类：</strong></td>
+			      		<td><select name="category" disabled="disabled">
+	                		<?php foreach(Investments::get_categories() as $category): ?>
+							<option value="<?php echo $category->id; ?>"<?php if($project_data->category_id == $category->id){echo " selected='selected'";} ?>><?php echo $category->name; ?></option>
+							<?php endforeach; ?>
+	                		</select>
+	                	</td>
+			      	</tr>
+			      	<tr>
+                        <td><strong>目标：</strong></td>
+			      		<td><input type="text" class="txt txt2" id="title" disabled="disabled" value="<?php echo htmlentities($project_data->investment_wanted); ?>" /></td>
+			      	</tr>
+			      	<tr>
+	                    <td><strong>结束时间：</strong></td>
+	                    <td><input type="text" data-validation="nomessage" name="expires" disabled="disabled" value="<?php echo $project_data->expires; ?>" id="expires" class="txt txt2"/></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>投资信息：</strong></td>
+	                    <td><p class="txt"><?php echo $project_data->investment_message; ?></p></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>完整消息：</strong></td>
+	                    <td><p class="txt"><?php echo $project_data->project_closed_message; ?></p></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>描述：</strong></td>
+	                    <td><p class="txt"><?php echo $project_data->description; ?></p></td>
+	                </tr>
+	                <tr>
+	                    <td><strong>主要内容：</strong></td>
+	                    <td><p class="txt"><?php echo $project_data->main_description; ?></p></td>
+	                </tr>
+
+				</table>
 				</div>
 			</div>
-
-			<div class="row-fluid">
-				<div class="span12">
-					<label>描述</label>
-			      <input type="text" class="span12" id="description" required="required" value="<?php echo $project_data->description; ?>" />
-				</div>
-			</div>
-
-			<div class="row-fluid">
-				<div class="span12">
-					<label>主要描述</label>
-					<textarea class="span12" id="main_description"><?php echo $project_data->main_description; ?></textarea>
-				</div>
-			</div>
-		</fieldset>
-		
-		<hr />
-		
-		<fieldset>
-			<legend>项目图片</legend>
-			
-			<div id="message"></div>
-			
-			<ul class="thumbnails">
-				<li class="span2">
-					<div class="thumbnail">
-						<img id="the_thumbnail" src="<?php echo WWW; ?><?php echo "/assets/project/".$project_data->id."/images/".$project_data->thumbnail; ?>" alt="Thumbnail" />
-						<div class="clear"></div>
-						<label>当前缩略图</label>
-					</div>
-				</li>
-			</ul>
-			<ul class="thumbnails">
-				<?php
-				$counter = 1;
-				$project_id = $_SESSION['new_project_id'];
-				foreach($project_images as $image): $image_name = str_replace('./assets/project/'.$project_id.'/images/','', $image); ?>
-				<li class="span2" id="image<?php echo $counter; ?>">
-					<div class="thumbnail">
-						<img src="<?php echo WWW; ?><?php echo $image; ?>" alt="Image <?php echo $counter; ?>" />
-						<div class="clear"></div>
-						<button class="btn btn-link" onclick="set_thumbnail('<?php echo $counter; ?>','<?php echo $image_name; ?>');">设为缩略图</button><br />
-						<div class="clear"></div>
-					</div>
-				</li>
-				<?php $counter++; endforeach; ?>
-			</ul>
 		</fieldset>
 		
 		<div class="form-actions" style="text-align: center;margin: 20px -10px -10px;">

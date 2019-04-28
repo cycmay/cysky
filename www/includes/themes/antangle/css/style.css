@@ -211,7 +211,7 @@
     /*margin-right: 70px;*/
     /*margin-bottom: 7px;*/
 
-    width: 45%;
+    width: 100%;
     padding-right: 5%;
     font-size: 14px;
     line-height: 28px;
@@ -2680,6 +2680,7 @@ html .body-txt .top a.btn-z22-dis{
     display: block;
     height: 50px;
     line-height: 50px;
+    color: white;
 }
 
 .rate-tit .tc {
@@ -8415,4 +8416,8 @@ ul.xCz li:hover{
     border-radius: 100px;
     font-size: 15px;
     margin-left: 5px;
+}
+
+.hide {
+    display: none;
 }

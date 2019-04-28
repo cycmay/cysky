@@ -5,6 +5,7 @@ a:link{
 
 }
 a:hover{
+    text-decoration: none;
 	color:#0b9ee6;
 }
 .bgf{

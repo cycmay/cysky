@@ -184,163 +184,166 @@ function update_profile(){
 }
 
 </script>
+<div class="container">
+		<div id="content" class="settings">
 
-<div class="title">
-	<h1><?php echo $page_title; ?></h1>
-</div>
-	
-	<div class="row-fluid">
-		<div class="span3 center">
-			<?php if($profile_data->profile_picture == "male.jpg" || $profile_data->profile_picture == "female.jpg"){ ?>
-			<img src="assets/img/profile/<?php echo $profile_data->profile_picture; ?>" alt="Profile Picture">
-			<?php } else { ?>
-			<img src="assets/img/profile/<?php echo $profile_data->user_id."/".$profile_data->profile_picture; ?>" alt="我的头像">
-			<?php } ?>
-			<br /><br />
-			<ul class="nav nav-tabs nav-stacked" style="text-align: left;">
-				<?php if($owner == true): ?>
-				<li><a href="profile_picture.php">修改头像</a></li>
-				<li><a href="#edit_profile" data-toggle="modal">修改资料</a></li>
-				<?php endif; // profile owner check ?>
-			</ul>
-		</div>
-		<div class="span9">
-			<label style="font-size: 20px;"><?php echo $user_data->first_name." ".$user_data->last_name." (".$user_data->username.")"; ?></label>
-			<label><?php echo $user_data->country; ?></label>
-			<br />
-			<ul id="myTab" class="nav nav-tabs">
-				<li class="active"><a href="#wall" data-toggle="tab">我的消息</a></li>
-				<li class=""><a href="#about_me" data-toggle="tab">关于我</a></li>
-				<li class=""><a href="#investments" data-toggle="tab">我的投资</a></li>
-				<li class=""><a href="#projects" data-toggle="tab">我的项目</a></li>
-			</ul>
-			<div id="message"></div>
-			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade active in" id="wall">
-					<?php if($session->is_logged_in()) : ?>
-					<div class="create_wp_container">
-						<label>写一个消息关于 <?php echo $user_data->username; ?> 的消息</label>
-						<textarea class="span12" style="height: 80px;" id="wall_message" maxlength="250" required="required"></textarea>
-						剩余 <span id="wall_message_counter">250</span> 个字符
-						<button class="btn btn-success right" id="submit_wall_message">添加消息</button>
-						<div class="clearfix"></div>
+			<div class="title">
+				<h1><?php echo $page_title; ?></h1>
+			</div>
+				
+				<div class="row-fluid">
+					<div class="span3 center">
+						<?php if($profile_data->profile_picture == "male.jpg" || $profile_data->profile_picture == "female.jpg"){ ?>
+						<img src="assets/img/profile/<?php echo $profile_data->profile_picture; ?>" alt="Profile Picture">
+						<?php } else { ?>
+						<img src="assets/img/profile/<?php echo $profile_data->user_id."/".$profile_data->profile_picture; ?>" alt="我的头像">
+						<?php } ?>
+						<br /><br />
+						<ul class="nav nav-tabs nav-stacked" style="text-align: left;">
+							<?php if($owner == true): ?>
+							<li><a href="profile_picture.php">修改头像</a></li>
+							<li><a href="#edit_profile" data-toggle="modal">修改资料</a></li>
+							<?php endif; // profile owner check ?>
+						</ul>
 					</div>
-					<?php endif; ?>
-					
-					<div class="clearfix"></div>
-					<div id="profile_messages">
-					<?php echo Profile::display_profile_messages("unread", $profile_data->user_id); ?>
+					<div class="span9">
+						<label style="font-size: 20px;"><?php echo $user_data->first_name." ".$user_data->last_name." (".$user_data->username.")"; ?></label>
+						<label><?php echo $user_data->country; ?></label>
+						<br />
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="#wall" data-toggle="tab">我的消息</a></li>
+							<li class=""><a href="#about_me" data-toggle="tab">关于我</a></li>
+							<li class=""><a href="#investments" data-toggle="tab">我的投资</a></li>
+							<li class=""><a href="#projects" data-toggle="tab">我的项目</a></li>
+						</ul>
+						<div id="message"></div>
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="wall">
+								<?php if($session->is_logged_in()) : ?>
+								<div class="create_wp_container">
+									<label>写一个消息关于 <?php echo $user_data->username; ?> 的消息</label>
+									<textarea class="span12" style="height: 80px;" id="wall_message" maxlength="250" required="required"></textarea>
+									剩余 <span id="wall_message_counter">250</span> 个字符
+									<button class="btn btn-success right" id="submit_wall_message">添加消息</button>
+									<div class="clearfix"></div>
+								</div>
+								<?php endif; ?>
+								
+								<div class="clearfix"></div>
+								<div id="profile_messages">
+								<?php echo Profile::display_profile_messages("unread", $profile_data->user_id); ?>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="about_me">
+								<?php if($profile_data->about_me != ""){ echo nl2br($profile_data->about_me); } else { echo "很抱歉，".$user_data->username." 在这个部分还没有输入任何的消息。"; } ?>
+							</div>
+							<div class="tab-pane fade" id="investments">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>项目名称</th>
+											<th>投资金额</th>
+											<th>投资日期</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($projects = Investments::get_user_investments($profile_data->user_id) as $project): $project_details = Investments::get_project_details($project->investment_id); ?>
+										<tr>
+											<td><a href="<?php echo WWW."project.php?id=".$project_details[0]->id; ?>"><?php echo $project_details[0]->name; ?></a></td>
+											<td><?php echo CURRENCYSYMBOL." ".$project->amount; ?></td>
+											<td><?php echo date_to_text($project->date_invested); ?></td>
+										</tr>
+										<?php endforeach; if(empty($projects)){ ?>
+											<tr>
+												<td colspan="4">没有发现投资。</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="projects">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>项目名称</th>
+											<th>已获得资金</th>
+											<th>目标</th>
+											<th>结束时间</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($projects = Investments::get_user_projects($profile_data->user_id) as $project): ?>
+										<tr>
+											<td><a href="<?php echo WWW."project.php?id=".$project->id; ?>"><?php echo $project->name; ?></a></td>
+											<td><?php echo CURRENCYSYMBOL." ".$project->amount_invested; ?></td>
+											<td><?php echo CURRENCYSYMBOL." ".$project->investment_wanted; ?></td>
+											<td><span style="font-weight: bolder;color: #F72C2C;" id="time_left"><?php echo Investments::convert_expiry_time($project->expires); ?></span> (<?php echo datetime_to_text($project->expires); ?>)</td>
+										</tr>
+										<?php endforeach; if(empty($projects)){ ?>
+											<tr>
+												<td colspan="4">没有发现投资。</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
 					</div>
 				</div>
-				<div class="tab-pane fade" id="about_me">
-					<?php if($profile_data->about_me != ""){ echo nl2br($profile_data->about_me); } else { echo "很抱歉，".$user_data->username." 在这个部分还没有输入任何的消息。"; } ?>
+
+			 
+			<?php if($session->is_logged_in()){ ?>
+			<!-- Edit Comment - Modal -->
+			<div id="edit_comment" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">Edit Comment</h3>
 				</div>
-				<div class="tab-pane fade" id="investments">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>项目名称</th>
-								<th>投资金额</th>
-								<th>投资日期</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($projects = Investments::get_user_investments($profile_data->user_id) as $project): $project_details = Investments::get_project_details($project->investment_id); ?>
-							<tr>
-								<td><a href="<?php echo WWW."project.php?id=".$project_details[0]->id; ?>"><?php echo $project_details[0]->name; ?></a></td>
-								<td><?php echo CURRENCYSYMBOL." ".$project->amount; ?></td>
-								<td><?php echo date_to_text($project->date_invested); ?></td>
-							</tr>
-							<?php endforeach; if(empty($projects)){ ?>
-								<tr>
-									<td colspan="4">没有发现投资。</td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
+				<div class="modal-body">
+					<textarea id="textarea" class="span12" style="height: 100px; width: 97%;"></textarea>
 				</div>
-				<div class="tab-pane fade" id="projects">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>项目名称</th>
-								<th>已获得资金</th>
-								<th>目标</th>
-								<th>结束时间</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($projects = Investments::get_user_projects($profile_data->user_id) as $project): ?>
-							<tr>
-								<td><a href="<?php echo WWW."project.php?id=".$project->id; ?>"><?php echo $project->name; ?></a></td>
-								<td><?php echo CURRENCYSYMBOL." ".$project->amount_invested; ?></td>
-								<td><?php echo CURRENCYSYMBOL." ".$project->investment_wanted; ?></td>
-								<td><span style="font-weight: bolder;color: #F72C2C;" id="time_left"><?php echo Investments::convert_expiry_time($project->expires); ?></span> (<?php echo datetime_to_text($project->expires); ?>)</td>
-							</tr>
-							<?php endforeach; if(empty($projects)){ ?>
-								<tr>
-									<td colspan="4">没有发现投资。</td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					<button id="confirm" class="btn btn-primary">Update</button>
 				</div>
 			</div>
-			
-		</div>
-	</div>
 
- 
-<?php if($session->is_logged_in()){ ?>
-<!-- Edit Comment - Modal -->
-<div id="edit_comment" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Edit Comment</h3>
-	</div>
-	<div class="modal-body">
-		<textarea id="textarea" class="span12" style="height: 100px; width: 97%;"></textarea>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		<button id="confirm" class="btn btn-primary">Update</button>
+			<!-- Confirm Delete - Comment - Modal -->
+			<div id="confirm_delete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">Confirm Deletion</h3>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure about deleting this comment? <br /> <strong>This action can't be reversed!</strong></p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancel</button>
+					<button id="confirm" class="btn btn-danger">Confirm</button>
+				</div>
+			</div>
+
+			<!-- 修改资料 - Modal -->
+			<div id="edit_profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">修改资料</h3>
+				</div>
+				<div class="modal-body">
+					<div id="message"></div>
+					<label>我的消息</label>
+					<input type="text" id="profile_message" required="required" style="width: 97%;" value="<?php echo $profile_data->profile_msg; ?>" />
+					<label>关于我</label>
+					<textarea id="textarea" class="span12" style="height: 100px; width: 97%;"><?php echo $profile_data->about_me; ?></textarea>
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+					<button id="update" class="btn btn-primary" onclick="update_profile();">更新</button>
+				</div>
+			</div>
+
+			<?php } ?>
 	</div>
 </div>
-
-<!-- Confirm Delete - Comment - Modal -->
-<div id="confirm_delete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Confirm Deletion</h3>
-	</div>
-	<div class="modal-body">
-		<p>Are you sure about deleting this comment? <br /> <strong>This action can't be reversed!</strong></p>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		<button id="confirm" class="btn btn-danger">Confirm</button>
-	</div>
-</div>
-
-<!-- 修改资料 - Modal -->
-<div id="edit_profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">修改资料</h3>
-	</div>
-	<div class="modal-body">
-		<div id="message"></div>
-		<label>我的消息</label>
-		<input type="text" id="profile_message" required="required" style="width: 97%;" value="<?php echo $profile_data->profile_msg; ?>" />
-		<label>关于我</label>
-		<textarea id="textarea" class="span12" style="height: 100px; width: 97%;"><?php echo $profile_data->about_me; ?></textarea>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-		<button id="update" class="btn btn-primary" onclick="update_profile();">更新</button>
-	</div>
-</div>
-
-<?php } ?>
-
 <?php require_once("includes/themes/".THEME_NAME."/footer.php"); ?>

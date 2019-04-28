@@ -13,7 +13,7 @@ $new_site_credit = SITE_CREDIT + "150";
 $database->query("UPDATE core_settings SET data = '{$new_site_credit}' WHERE name = 'SITE_CREDIT' ");
 
 ?>
-<?php $page_title = "CYSKY股权众筹系统!"; require_once("includes/themes/".THEME_NAME."/header.php"); ?>
+<?php $page_title = "CYSKY股权众筹平台"; require_once("includes/themes/".THEME_NAME."/header.php"); ?>
 
 <?php echo output_message($message); ?>
 	
@@ -119,7 +119,7 @@ $database->query("UPDATE core_settings SET data = '{$new_site_credit}' WHERE nam
                 </div>
                 <div class="progress">
                     <span style="width:  <?php echo $percentage = Investments::get_percentage($data->amount_invested,$data->investment_wanted) ?>%;"
-                          class="blue"><span>$percentage%</span></span>
+                          class="blue"><span><?php echo $percentage ?>%</span></span>
                 </div>
                 <div class="progressFont">
                     <span>
@@ -136,94 +136,7 @@ $database->query("UPDATE core_settings SET data = '{$new_site_credit}' WHERE nam
     </div>
 </div>
 
-	<?php if(!empty($top_projects)){ ?>
-	<hr />
-	<h2>热门项目</h2>
-	<br />
-	<ul class="thumbnails">
-		<?php foreach($top_projects as $data): ?>
-		<li class="span2">
-			<div class="thumbnail" style="position: relative; height: 340px;">
-				<?php if(strtotime($data->expires) < time()){ ?>
-				<div class="ribbon-wrapper-right"><div class="ribbon-red">已关闭</div></div>
-				<?php } ?>
-				<img src="<?php echo WWW; ?>assets/project/<?php echo $data->id."/images/".$data->thumbnail; ?>" style="height:110px" alt="Image" />
-				<a href="<?php echo WWW."project.php?id=".$data->id; ?>">
-					<h4><?php echo $data->name; ?></h4>
-				</a>
-				<p><?php echo substr($data->description, 0, 100)."..."; ?></p>
-				<div style="position: absolute; bottom: 0;width: 96%;">
-					<span style="float:left;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->amount_invested; ?> (<?php echo $percentage = Investments::get_percentage($data->amount_invested,$data->investment_wanted) ?>%)</span><span style="float:right;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->investment_wanted; ?></span>
-					<div class="clear"></div>
-					<div class="progress progress-success progress-striped" style="height:7px;margin-top: 4px;margin-bottom:3px;"><div class="bar" style="width: <?php echo $percentage; ?>%"></div></div>
-					<span style="float:left;" class="progress_title">已获支持</span><span style="float:right;" class="progress_title">目标</span>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</li>
-		<?php endforeach; ?>
-	</ul>
-	<?php } ?>
-
-	<?php if(!empty($recent_projects)){ ?>
-	<hr />
-	<h2>最新上线</h2>
-	<br />
-	<ul class="thumbnails">
-		<?php foreach($recent_projects as $data): ?>
-		<li class="span2">
-			<div class="thumbnail" style="position: relative; height: 340px;">
-				<?php if(strtotime($data->expires) < time()){ ?>
-				<div class="ribbon-wrapper-right"><div class="ribbon-red">已关闭</div></div>
-				<?php } ?>
-				<img src="<?php echo WWW; ?>assets/project/<?php echo $data->id."/images/".$data->thumbnail; ?>" style="height:110px" alt="Image" />
-				<a href="<?php echo WWW."project.php?id=".$data->id; ?>">
-					<h4><?php echo $data->name; ?></h4>
-				</a>
-				<p><?php echo substr($data->description, 0, 100)."..."; ?></p>
-				<div style="position: absolute; bottom: 0;width: 96%;">
-					<span style="float:left;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->amount_invested; ?> (<?php echo $percentage = Investments::get_percentage($data->amount_invested,$data->investment_wanted) ?>%)</span><span style="float:right;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->investment_wanted; ?></span>
-					<div class="clear"></div>
-					<div class="progress progress-success progress-striped" style="height:7px;margin-top: 4px;margin-bottom:3px;"><div class="bar" style="width: <?php echo $percentage; ?>%"></div></div>
-					<span style="float:left;" class="progress_title">已获支持</span><span style="float:right;" class="progress_title">目标</span>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</li>
-		<?php endforeach; ?>
-	</ul>
-	<?php } ?>
-
-	<?php if(!empty($featured_projects)){ ?>
-	<hr />
-	<h2>推荐项目</h2>
-	<br />
-	<ul class="thumbnails">
-		<?php foreach($featured_projects as $data): ?>
-		<li class="span2">
-			<div class="thumbnail" style="position: relative; height: 340px;">
-				<?php if(strtotime($data->expires) < time()){ ?>
-				<div class="ribbon-wrapper-right"><div class="ribbon-red">CLOSED</div></div>
-				<?php } ?>
-				<img src="<?php echo WWW; ?>assets/project/<?php echo $data->id."/images/".$data->thumbnail; ?>" style="height:110px" alt="Image" />
-				<a href="<?php echo WWW."project.php?id=".$data->id; ?>">
-					<h4><?php echo $data->name; ?></h4>
-				</a>
-				<p><?php echo substr($data->description, 0, 100)."..."; ?></p>
-				<div style="position: absolute; bottom: 0;width: 96%;">
-					<span style="float:left;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->amount_invested; ?> (<?php echo $percentage = Investments::get_percentage($data->amount_invested,$data->investment_wanted) ?>%)</span><span style="float:right;" class="progress_title"><?php echo CURRENCYSYMBOL.$data->investment_wanted; ?></span>
-					<div class="clear"></div>
-					<div class="progress progress-success progress-striped" style="height:7px;margin-top: 4px;margin-bottom:3px;"><div class="bar" style="width: <?php echo $percentage; ?>%"></div></div>
-					<span style="float:left;" class="progress_title">已获支持</span><span style="float:right;" class="progress_title">目标</span>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</li>
-		<?php endforeach; ?>
-	</ul>
-	<?php } ?>
-
-<script type="text/javascript" src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/js/myMotion.js"></script>>
+<script type="text/javascript" src="<?php echo WWW; ?>includes/themes/<?php echo THEME_NAME; ?>/js/myMotion.js"></script>
 
 <!--</div>-->
 <div class="bgf">
